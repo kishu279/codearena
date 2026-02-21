@@ -1,5 +1,12 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
@@ -7,87 +14,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Difficulty {
-  EASY
-  MEDIUM
-  HARD
-}
-
-enum SubmissionStatus {
-  ACCEPTED
-  WRONG_ANSWER
-  TIME_LIMIT
-}
-
 model User {
-  id            String                 @id @default(cuid())
-  username      String                 @unique
-  email         String                 @unique
-  passwordHash  String
-  createdAt     DateTime               @default(now())
-  rating        Int                    @default(1200)
-  totalSolved   Int                    @default(0)
-  submissions   Submission[]
-  participations ContestParticipation[]
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Problem {
-  id           String           @id @default(cuid())
-  title        String
-  difficulty   Difficulty
-  tags         String[]
-  statement    String
-  constraints  String
-  testcases    Json
-  submissions  Submission[]
-  contests     ContestProblem[]
-}
-
-model Submission {
-  id         String           @id @default(cuid())
-  userId     String
-  problemId  String
-  status     SubmissionStatus
-  language   String
-  createdAt  DateTime         @default(now())
-  user       User             @relation(fields: [userId], references: [id])
-  problem    Problem          @relation(fields: [problemId], references: [id])
-
-  @@index([userId, createdAt])
-  @@index([problemId, createdAt])
-}
-
-model Contest {
-  id              String                 @id @default(cuid())
-  title           String
-  startTime       DateTime
-  duration        Int
-  createdAt       DateTime               @default(now())
-  contestProblems ContestProblem[]
-  participations  ContestParticipation[]
-
-  @@index([startTime])
-}
-
-model ContestProblem {
-  contestId String
-  problemId String
-  order     Int
-  contest   Contest @relation(fields: [contestId], references: [id])
-  problem   Problem @relation(fields: [problemId], references: [id])
-
-  @@id([contestId, problemId])
-  @@unique([contestId, order])
-}
-
-model ContestParticipation {
-  contestId String
-  userId    String
-  score     Int      @default(0)
-  rank      Int?
-  contest   Contest  @relation(fields: [contestId], references: [id])
-  user      User     @relation(fields: [userId], references: [id])
-
-  @@id([contestId, userId])
-  @@index([contestId, rank])
-}
