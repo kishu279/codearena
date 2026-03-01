@@ -97,3 +97,14 @@ export type SubmitCodeResult = {
   memoryMb: number;
 };
 
+export enum Difficulty {
+  EASY = "EASY",
+  MEDIUM = "MEDIUM",
+  HARD = "HARD",
+}
+
+export enum Tags {
+  PRACTICE = "PRACTICE",
+  CONTEST = "CONTEST",
+  // LAB = "LAB",
+}

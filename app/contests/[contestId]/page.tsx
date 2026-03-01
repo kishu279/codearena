@@ -4,14 +4,14 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { getContestById } from "@/lib/mock-data";
+import { getContestById } from "@/lib/data";
 import { formatDateTime, formatDuration, getContestStatus, getStatusBadgeClass } from "@/lib/utils";
 
-type ContestDetailPageProps = {
+type ContestDetailProps = {
   params: Promise<{ contestId: string }>;
 };
 
-export default async function ContestDetailPage({ params }: ContestDetailPageProps) {
+export default async function ContestDetailPage({ params }: ContestDetailProps) {
   const { contestId } = await params;
   const contest = getContestById(contestId);
 
@@ -19,7 +19,7 @@ export default async function ContestDetailPage({ params }: ContestDetailPagePro
     notFound();
   }
 
-  const status = getContestStatus(contest.startTime, contest.durationMinutes);
+  const status = getContestStatus(contest.startTime, contest.duration);
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
@@ -31,17 +31,13 @@ export default async function ContestDetailPage({ params }: ContestDetailPagePro
           </div>
         </CardHeader>
         <CardContent>
+          {contest.description && (
+            <p className="mb-4 text-sm text-text-secondary">{contest.description}</p>
+          )}
           <div className="space-y-1 text-sm text-text-secondary">
             <p>Start: {formatDateTime(contest.startTime)}</p>
-            <p>Duration: {formatDuration(contest.durationMinutes)}</p>
-            <p>Timer: Optional in MVP (placeholder)</p>
+            <p>Duration: {formatDuration(contest.duration)}</p>
           </div>
-
-          <Button asChild className="mt-5">
-            <Link href={`/contests/${contest.id}/problems`}>
-              Open Problems
-            </Link>
-          </Button>
         </CardContent>
       </Card>
 
@@ -50,16 +46,30 @@ export default async function ContestDetailPage({ params }: ContestDetailPagePro
           <h2 className="text-xl font-semibold text-foreground">Problem list</h2>
         </CardHeader>
         <CardContent>
-          <ul className="space-y-3">
-            {contest.problems.map((problem, index) => (
-              <li key={problem.id} className="rounded-lg border border-border bg-surface-2 p-4 text-sm">
-                <p className="font-medium text-foreground">
-                  {index + 1}. {problem.title}
-                </p>
-                <p className="mt-1 text-text-secondary">Difficulty: {problem.difficulty}</p>
-              </li>
-            ))}
-          </ul>
+          {contest.problems.length === 0 ? (
+            <p className="text-text-secondary">No problems in this contest.</p>
+          ) : (
+            <ul className="space-y-3">
+              {contest.problems.map((problem, index) => (
+                <li
+                  key={problem.id}
+                  className="flex items-center justify-between rounded-lg border border-border bg-surface-2 p-4"
+                >
+                  <div>
+                    <p className="font-medium text-foreground">
+                      {index + 1}. {problem.title}
+                    </p>
+                    <p className="mt-1 text-sm text-text-secondary">
+                      Difficulty: {problem.difficulty} | Tag: {problem.tag}
+                    </p>
+                  </div>
+                  <Button asChild variant="default" size="sm">
+                    <Link href={`/solve/${problem.id}`}>Solve</Link>
+                  </Button>
+                </li>
+              ))}
+            </ul>
+          )}
         </CardContent>
       </Card>
     </section>

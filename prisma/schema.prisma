@@ -19,7 +19,131 @@ model User {
   name      String?
   email     String   @unique
   image     String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  submissions  Submission[]
+
+  @@index([email])
 }
 
+// ─── Enums ───────────────────────────────────────────────
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum ProblemTag {
+  CONTEST
+  LAB
+  PRACTICE
+}
+
+enum ContestStatus {
+  UPCOMING
+  ACTIVE
+  ENDED
+}
+
+enum SubmissionStatus {
+  PENDING
+  ACCEPTED
+  WRONG_ANSWER
+  TIME_LIMIT_EXCEEDED
+  MEMORY_LIMIT_EXCEEDED
+  RUNTIME_ERROR
+  COMPILATION_ERROR
+}
+
+// ─── Models ──────────────────────────────────────────────
+
+model Problem {
+  id            String     @id @default(cuid())
+  title         String     @unique
+  slug          String     @unique
+  description   String
+  difficulty    Difficulty
+  tag           ProblemTag @default(PRACTICE)
+
+  inputFormat   String?
+  outputFormat  String?
+  constraints   String?
+  sampleInput   String?
+  sampleOutput  String?
+  testCases     Json?
+
+  timeLimit     Int        @default(2)
+  memoryLimit   Int        @default(256)
+
+  // Contest relation (null = standalone problem)
+  contestId     String?
+  contest       Contest?   @relation(fields: [contestId], references: [id])
+  order         Int?
+
+  submissions   Submission[]
+
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([difficulty])
+  @@index([tag])
+  @@index([contestId])
+  @@index([slug])
+}
+
+model Contest {
+  id          String        @id @default(cuid())
+  title       String        @unique
+  slug        String        @unique
+  description String?
+
+  startTime   DateTime
+  endTime     DateTime
+  duration    Int
+  status      ContestStatus @default(UPCOMING)
+  isPublic    Boolean       @default(true)
+
+  problems    Problem[]
+  submissions Submission[]
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+  @@index([slug])
+  @@index([startTime])
+}
+
+model Submission {
+  id              String           @id @default(cuid())
+
+  userId          String
+  user            User             @relation(fields: [userId], references: [id])
+
+  problemId       String
+  problem         Problem          @relation(fields: [problemId], references: [id])
+
+  contestId       String?
+  contest         Contest?         @relation(fields: [contestId], references: [id])
+
+  code            String
+  language        String
+  status          SubmissionStatus @default(PENDING)
+
+  runtime         Int?
+  memory          Int?
+  testCasesPassed Int              @default(0)
+  totalTestCases  Int              @default(0)
+  output          String?
+  error           String?
+
+  submittedAt     DateTime         @default(now())
+
+  @@index([userId])
+  @@index([problemId])
+  @@index([contestId])
+  @@index([status])
+  @@index([userId, problemId])
+}
