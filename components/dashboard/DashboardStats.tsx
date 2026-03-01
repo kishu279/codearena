@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@/components/ui/card";
 import { type UserStats } from "@/lib/types";
 
 type DashboardStatsProps = {
@@ -18,13 +19,15 @@ export default function DashboardStats({ stats }: DashboardStatsProps) {
       {statConfig.map((item) => {
         const value = stats[item.key];
         return (
-          <article key={item.key} className="rounded-xl border border-border bg-surface p-5">
-            <p className="text-xs uppercase tracking-wide text-text-secondary">{item.label}</p>
-            <p className="mt-2 text-2xl font-semibold text-foreground">
-              {value}
-              {item.suffix ?? ""}
-            </p>
-          </article>
+          <Card key={item.key} className="bg-surface">
+            <CardContent className="pt-5">
+              <p className="text-xs uppercase tracking-wide text-text-secondary">{item.label}</p>
+              <p className="mt-2 text-2xl font-semibold text-foreground">
+                {value}
+                {item.suffix ?? ""}
+              </p>
+            </CardContent>
+          </Card>
         );
       })}
     </div>

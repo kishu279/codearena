@@ -1,3 +1,5 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 const features = [
   {
     title: "Curated DSA Problems",
@@ -26,10 +28,14 @@ export default function Features() {
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {features.map((feature) => (
-          <article key={feature.title} className="rounded-xl border border-border bg-surface p-5">
-            <h3 className="text-lg font-medium text-foreground">{feature.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-text-secondary">{feature.description}</p>
-          </article>
+          <Card key={feature.title} className="bg-surface">
+            <CardHeader>
+              <CardTitle className="text-lg">{feature.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm leading-6 text-text-secondary">{feature.description}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

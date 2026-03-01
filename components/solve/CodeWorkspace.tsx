@@ -6,6 +6,16 @@ import { useTheme } from "@/components/theme/ThemeProvider";
 import type { EditorLanguage } from "@/lib/types";
 import axios from "axios";
 
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const languageOptions: Array<{ label: string; value: EditorLanguage, disabled?: boolean }> = [
   { label: "JavaScript", value: "javascript", disabled: true },
   { label: "TypeScript", value: "typescript", disabled: true },
@@ -47,11 +57,6 @@ export default function CodeWorkspace() {
   async function handleRun() {
     setIsRunning(true);
     setConsoleOutput("Executing code...");
-    // setTimeout(() => {
-    //   setConsoleOutput("Code executed successfully.");
-    //   setIsRunning(false);
-    //   setIsOutputOpen(true);
-    // }, 1000);
 
     try {
       const response = await axios.post("/api/runcode", {
@@ -87,37 +92,41 @@ export default function CodeWorkspace() {
       <section className="flex h-[calc(100vh-11rem)] min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-sm)]">
         <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
           <div className="flex items-center gap-3">
-            <label
+            <Label
               htmlFor="language-select"
               className="text-xs font-semibold uppercase tracking-wide text-text-secondary"
             >
               Language
-            </label>
-            <select
-              id="language-select"
-              className="rounded-md border border-border bg-surface-2 px-3 py-2 text-sm text-text-primary outline-none transition focus:border-primary"
+            </Label>
+            <Select
               value={selectedLanguage}
-              onChange={(event) =>
-                setSelectedLanguage(event.target.value as EditorLanguage)
-              }
+              onValueChange={(value) => setSelectedLanguage(value as EditorLanguage)}
               disabled={isRunning}
             >
-              {languageOptions.map((option) => (
-                <option key={option.value} value={option.value} disabled={option.disabled}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
+              <SelectTrigger className="w-[160px] bg-surface-2">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {languageOptions.map((option) => (
+                  <SelectItem
+                    key={option.value}
+                    value={option.value}
+                    disabled={option.disabled}
+                  >
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
-          <button
-            type="button"
-            className="rounded-lg border border-border bg-surface-2 px-4 py-2 text-sm font-medium text-text-primary transition hover:bg-card disabled:cursor-not-allowed disabled:opacity-60"
+          <Button
+            variant="outline"
             onClick={handleRun}
             disabled={isRunning}
           >
             {runLabel}
-          </button>
+          </Button>
         </header>
 
         <div className="flex-1 overflow-hidden">
@@ -139,13 +148,13 @@ export default function CodeWorkspace() {
             <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
               Console Output
             </h2>
-            <button
-              type="button"
-              className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:text-foreground"
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => setIsOutputOpen((prev) => !prev)}
             >
               {isOutputOpen ? "Collapse" : "Expand"}
-            </button>
+            </Button>
           </div>
 
           <div

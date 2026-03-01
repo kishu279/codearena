@@ -4,6 +4,15 @@ import { useEffect, useMemo, useState } from "react";
 
 import CodeEditor from "@/components/editor/CodeEditor";
 import { useTheme } from "@/components/theme/ThemeProvider";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { runQuestionCode, submitQuestionCode } from "@/lib/services/question-service";
 import type { CodingQuestion, EditorLanguage } from "@/lib/types";
 
@@ -105,41 +114,41 @@ export default function EditorPanel({ question, questionId }: EditorPanelProps) 
     <section className="flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-sm)]">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
         <div className="flex items-center gap-3">
-          <label htmlFor="language-select" className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+          <Label htmlFor="language-select" className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
             Language
-          </label>
-          <select
-            id="language-select"
-            className="rounded-md border border-border bg-surface-2 px-3 py-2 text-sm text-text-primary outline-none transition focus:border-primary"
+          </Label>
+          <Select
             value={selectedLanguage}
-            onChange={(event) => setSelectedLanguage(event.target.value as EditorLanguage)}
+            onValueChange={(value) => setSelectedLanguage(value as EditorLanguage)}
             disabled={controlsDisabled}
           >
-            {languageOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+            <SelectTrigger className="w-[160px] bg-surface-2">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {languageOptions.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            className="rounded-lg border border-border bg-surface-2 px-4 py-2 text-sm font-medium text-text-primary transition hover:bg-card disabled:cursor-not-allowed disabled:opacity-60"
+          <Button
+            variant="outline"
             onClick={handleRun}
             disabled={controlsDisabled}
           >
             {runLabel}
-          </button>
-          <button
-            type="button"
-            className="rounded-lg border border-primary bg-primary px-4 py-2 text-sm font-semibold text-accent-foreground transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60"
+          </Button>
+          <Button
             onClick={handleSubmit}
             disabled={controlsDisabled}
           >
             {submitLabel}
-          </button>
+          </Button>
         </div>
       </header>
 
@@ -162,19 +171,18 @@ export default function EditorPanel({ question, questionId }: EditorPanelProps) 
       <footer className="border-t border-border">
         <div className="flex items-center justify-between px-4 py-3">
           <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Console Output</h2>
-          <button
-            type="button"
-            className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:text-foreground"
+          <Button
+            variant="outline"
+            size="sm"
             onClick={() => setIsOutputOpen((prev) => !prev)}
           >
             {isOutputOpen ? "Collapse" : "Expand"}
-          </button>
+          </Button>
         </div>
 
         <div
-          className={`overflow-hidden border-t border-border transition-all duration-200 ${
-            isOutputOpen ? "max-h-56" : "max-h-0"
-          }`}
+          className={`overflow-hidden border-t border-border transition-all duration-200 ${isOutputOpen ? "max-h-56" : "max-h-0"
+            }`}
         >
           <pre className="min-h-24 overflow-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
             {consoleOutput}

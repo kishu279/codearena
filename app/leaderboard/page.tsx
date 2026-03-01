@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
 import LeaderboardTable from "@/components/leaderboard/LeaderboardTable";
 import { getLeaderboardRows } from "@/lib/mock-data";
 import { type LeaderboardFilter } from "@/lib/types";
@@ -31,17 +32,16 @@ export default async function LeaderboardPage({ searchParams }: LeaderboardPageP
         {filters.map((item) => {
           const active = item === activeFilter;
           return (
-            <Link
+            <Button
               key={item}
-              href={`/leaderboard?filter=${item}`}
-              className={`rounded-md px-4 py-2 text-sm ${
-                active
-                  ? "bg-accent font-medium text-accent-foreground"
-                  : "border border-border text-text-secondary hover:bg-surface"
-              }`}
+              variant={active ? "default" : "outline"}
+              size="sm"
+              asChild
             >
-              {item.replace("_", " ")}
-            </Link>
+              <Link href={`/leaderboard?filter=${item}`}>
+                {item.replace("_", " ")}
+              </Link>
+            </Button>
           );
         })}
       </div>

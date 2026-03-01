@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { useState } from "react";
 
+import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 type NavbarProps = {
@@ -37,14 +38,15 @@ export default function Navbar({
           CodeArena
         </Link>
 
-        <button
-          type="button"
+        <Button
+          variant="outline"
+          size="sm"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="rounded-md border border-border px-3 py-2 text-sm text-foreground md:hidden"
+          className="md:hidden"
           aria-label="Toggle navigation"
         >
           Menu
-        </button>
+        </Button>
 
         <div className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => {
@@ -74,13 +76,13 @@ export default function Navbar({
               >
                 {username}
               </Link>
-              <button
-                type="button"
+              <Button
+                variant="outline"
+                size="sm"
                 onClick={() => { window.location.href = "/"; }}
-                className="rounded-md border border-border px-3 py-2 text-sm text-foreground hover:bg-surface-2"
               >
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
             <>
@@ -90,12 +92,11 @@ export default function Navbar({
               >
                 Login
               </Link>
-              <Link
-                href="/auth/signup"
-                className="rounded-md bg-accent px-3 py-2 text-sm font-medium text-accent-foreground hover:brightness-110"
-              >
-                Sign Up
-              </Link>
+              <Button asChild>
+                <Link href="/auth/signup">
+                  Sign Up
+                </Link>
+              </Button>
             </>
           )}
         </div>
@@ -125,13 +126,14 @@ export default function Navbar({
               >
                 Dashboard
               </Link>
-              <button
-                type="button"
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full justify-start"
                 onClick={() => { window.location.href = "/"; }}
-                className="block w-full rounded-md border border-border px-3 py-2 text-left text-sm text-foreground hover:bg-surface-2"
               >
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
             <>
@@ -142,13 +144,14 @@ export default function Navbar({
               >
                 Login
               </Link>
-              <Link
-                href="/auth/signup"
-                onClick={() => setIsOpen(false)}
-                className="block rounded-md bg-accent px-3 py-2 text-sm font-medium text-accent-foreground"
-              >
-                Sign Up
-              </Link>
+              <Button asChild className="w-full">
+                <Link
+                  href="/auth/signup"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Sign Up
+                </Link>
+              </Button>
             </>
           )}
         </div>

@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 
 import EditorPanel from "@/components/solve/EditorPanel";
 import QuestionPanel from "@/components/solve/QuestionPanel";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { extractQuestionIdFromPath } from "@/lib/routing/question-route";
 import { fetchQuestionById } from "@/lib/services/question-service";
 import type { CodingQuestion } from "@/lib/types";
@@ -61,23 +64,26 @@ export default function SolveWorkspace({ initialQuestionId }: SolveWorkspaceProp
 
       {isLoading ? (
         <div className="grid gap-4 lg:h-[calc(100vh-11rem)] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-          <div className="h-full min-h-[380px] animate-pulse rounded-2xl border border-border bg-surface-2" />
-          <div className="h-full min-h-[560px] animate-pulse rounded-2xl border border-border bg-surface-2" />
+          <Skeleton className="h-full min-h-[380px] rounded-2xl" />
+          <Skeleton className="h-full min-h-[560px] rounded-2xl" />
         </div>
       ) : null}
 
       {!isLoading && error ? (
-        <div className="rounded-2xl border border-danger/40 bg-danger/10 p-6 text-danger">
-          <p className="font-semibold">Could not load question data.</p>
-          <p className="mt-1 text-sm text-text-primary">{error}</p>
-          <button
-            type="button"
-            className="mt-4 rounded-lg border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground hover:bg-surface-2"
-            onClick={() => loadQuestion(routeQuestionId)}
-          >
-            Retry
-          </button>
-        </div>
+        <Alert variant="destructive">
+          <AlertDescription>
+            <p className="font-semibold">Could not load question data.</p>
+            <p className="mt-1 text-sm">{error}</p>
+            <Button
+              variant="outline"
+              size="sm"
+              className="mt-4"
+              onClick={() => loadQuestion(routeQuestionId)}
+            >
+              Retry
+            </Button>
+          </AlertDescription>
+        </Alert>
       ) : null}
 
       {!isLoading && !error && question ? (
@@ -89,4 +95,3 @@ export default function SolveWorkspace({ initialQuestionId }: SolveWorkspaceProp
     </section>
   );
 }
-

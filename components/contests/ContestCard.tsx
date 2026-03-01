@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { type ContestListItem } from "@/lib/types";
 import { formatDateTime, formatDuration, getContestStatus, getStatusBadgeClass } from "@/lib/utils";
 
@@ -11,19 +14,22 @@ export default function ContestCard({ contest }: ContestCardProps) {
   const status = getContestStatus(contest.startTime, contest.durationMinutes);
 
   return (
-    <article className="rounded-xl border border-border bg-surface p-5">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-lg font-semibold text-foreground">{contest.title}</h3>
-        <span className={`rounded-full px-3 py-1 text-xs ${getStatusBadgeClass(status)}`}>{status}</span>
-      </div>
-      <p className="mt-3 text-sm text-text-secondary">Start: {formatDateTime(contest.startTime)}</p>
-      <p className="mt-1 text-sm text-text-secondary">Duration: {formatDuration(contest.durationMinutes)}</p>
-      <Link
-        href={`/contests/${contest.id}`}
-        className="mt-4 inline-flex rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-surface-2"
-      >
-        View Contest
-      </Link>
-    </article>
+    <Card className="bg-surface">
+      <CardHeader>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h3 className="text-lg font-semibold text-foreground">{contest.title}</h3>
+          <Badge className={`rounded-full ${getStatusBadgeClass(status)}`}>{status}</Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-text-secondary">Start: {formatDateTime(contest.startTime)}</p>
+        <p className="mt-1 text-sm text-text-secondary">Duration: {formatDuration(contest.durationMinutes)}</p>
+        <Button variant="outline" asChild className="mt-4">
+          <Link href={`/contests/${contest.id}`}>
+            View Contest
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
   );
 }

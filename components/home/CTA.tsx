@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button";
+
 export default function CTA() {
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
@@ -8,12 +10,11 @@ export default function CTA() {
         <p className="mt-3 text-sm text-text-secondary">
           Build consistency with daily problem-solving and timed contest participation.
         </p>
-        <Link
-          href="/auth/signup"
-          className="mt-6 inline-flex rounded-md bg-accent px-5 py-3 text-sm font-medium text-accent-foreground hover:brightness-110"
-        >
-          Create Your Account
-        </Link>
+        <Button asChild className="mt-6">
+          <Link href="/auth/signup">
+            Create Your Account
+          </Link>
+        </Button>
       </div>
     </section>
   );

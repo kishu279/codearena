@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import type { CodingQuestion } from "@/lib/types";
 
 type QuestionPanelProps = {
@@ -20,12 +21,12 @@ export default function QuestionPanel({ question, questionId }: QuestionPanelPro
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h1 className="text-xl font-semibold tracking-tight text-foreground">{question.title}</h1>
           <div className="flex items-center gap-2">
-            <span className="rounded-full border border-border bg-surface-2 px-3 py-1 text-xs font-medium text-text-secondary">
+            <Badge variant="outline" className="rounded-full bg-surface-2 text-text-secondary">
               ID: {questionId}
-            </span>
-            <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${difficultyStyles[question.difficulty]}`}>
+            </Badge>
+            <Badge className={`rounded-full ${difficultyStyles[question.difficulty]}`}>
               {question.difficulty}
-            </span>
+            </Badge>
           </div>
         </div>
       </header>
@@ -77,4 +78,3 @@ export default function QuestionPanel({ question, questionId }: QuestionPanelPro
     </article>
   );
 }
-
