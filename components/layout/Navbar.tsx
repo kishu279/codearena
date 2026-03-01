@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+
 import { useState } from "react";
 
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -14,7 +14,7 @@ type NavbarProps = {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/problems", label: "problems" },
+  { href: "/problems", label: "Problems" },
   { href: "/contests", label: "Contests" },
   { href: "/code", label: "Code" },
   { href: "/leaderboard", label: "Leaderboard" },
@@ -53,11 +53,10 @@ export default function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition ${
-                  isActive
-                    ? "text-accent"
-                    : "text-text-secondary hover:text-foreground"
-                }`}
+                className={`text-sm transition ${isActive
+                  ? "text-accent"
+                  : "text-text-secondary hover:text-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -77,7 +76,7 @@ export default function Navbar({
               </Link>
               <button
                 type="button"
-                onClick={() => signOut({ callbackUrl: "/" })}
+                onClick={() => { window.location.href = "/"; }}
                 className="rounded-md border border-border px-3 py-2 text-sm text-foreground hover:bg-surface-2"
               >
                 Logout
@@ -128,7 +127,7 @@ export default function Navbar({
               </Link>
               <button
                 type="button"
-                onClick={() => signOut({ callbackUrl: "/" })}
+                onClick={() => { window.location.href = "/"; }}
                 className="block w-full rounded-md border border-border px-3 py-2 text-left text-sm text-foreground hover:bg-surface-2"
               >
                 Logout

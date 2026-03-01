@@ -1,11 +1,23 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma"
 
-const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
+// DB FUNCTIONS
 
-export const db =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
-  });
+// CREATE THE USER ON THE TABLE
+export const createUser = async (name: string, email: string, image: string) => {
+  const user = await prisma.user.create({
+    data: {
+      name,
+      email,
+    }
+  })
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;
+  console.log("User created successfully", user)
+  return user
+}
+
+// FIND USER BY EMAIL
+export const findUserByEmail = async (email: string) => {
+  return prisma.user.findUnique({
+    where: { email }
+  })
+}

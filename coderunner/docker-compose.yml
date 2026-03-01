@@ -1,0 +1,18 @@
+services:
+  piston:
+    image: ghcr.io/engineer-man/piston
+    container_name: piston
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "2000:2000"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    tmpfs:
+      - /piston/jobs
+    volumes:
+      - piston-packages:/piston/packages
+
+volumes:
+  piston-packages:

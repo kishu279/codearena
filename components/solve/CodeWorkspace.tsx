@@ -4,13 +4,14 @@ import { useMemo, useState } from "react";
 import CodeEditor from "@/components/editor/CodeEditor";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import type { EditorLanguage } from "@/lib/types";
+import axios from "axios";
 
-const languageOptions: Array<{ label: string; value: EditorLanguage }> = [
-  { label: "JavaScript", value: "javascript" },
-  { label: "TypeScript", value: "typescript" },
+const languageOptions: Array<{ label: string; value: EditorLanguage, disabled?: boolean }> = [
+  { label: "JavaScript", value: "javascript", disabled: true },
+  { label: "TypeScript", value: "typescript", disabled: true },
   { label: "Python", value: "python" },
-  { label: "Java", value: "java" },
-  { label: "C++", value: "cpp" },
+  { label: "Java", value: "java", disabled: true },
+  { label: "C++", value: "cpp", disabled: true },
 ];
 
 const defaultCode: Record<EditorLanguage, string> = {
@@ -26,7 +27,7 @@ const defaultCode: Record<EditorLanguage, string> = {
 export default function CodeWorkspace() {
   const { theme } = useTheme();
   const [selectedLanguage, setSelectedLanguage] =
-    useState<EditorLanguage>("javascript");
+    useState<EditorLanguage>("python");
   const [codeByLanguage, setCodeByLanguage] =
     useState<Record<EditorLanguage, string>>(defaultCode);
   const [consoleOutput, setConsoleOutput] = useState(
@@ -46,11 +47,33 @@ export default function CodeWorkspace() {
   async function handleRun() {
     setIsRunning(true);
     setConsoleOutput("Executing code...");
-    setTimeout(() => {
-      setConsoleOutput("Code executed successfully.");
-      setIsRunning(false);
-      setIsOutputOpen(true);
-    }, 1000);
+    // setTimeout(() => {
+    //   setConsoleOutput("Code executed successfully.");
+    //   setIsRunning(false);
+    //   setIsOutputOpen(true);
+    // }, 1000);
+
+    try {
+      const response = await axios.post("/api/runcode", {
+        sourceCode: activeCode,
+        language: selectedLanguage,
+        input: ""
+      })
+
+      if (response.status == 200) {
+        setConsoleOutput("Code executed successfully.");
+        setConsoleOutput(response.data.output);
+        setIsRunning(false);
+        setIsOutputOpen(true);
+      }
+      else {
+        setConsoleOutput("Code execution failed.");
+        setIsRunning(false);
+        setIsOutputOpen(true);
+      }
+    } catch (error) {
+      // TODO: SHOW THE POP UP IF FAILED TO DO SO
+    }
   }
 
   return (
@@ -80,7 +103,7 @@ export default function CodeWorkspace() {
               disabled={isRunning}
             >
               {languageOptions.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option key={option.value} value={option.value} disabled={option.disabled}>
                   {option.label}
                 </option>
               ))}
@@ -126,9 +149,8 @@ export default function CodeWorkspace() {
           </div>
 
           <div
-            className={`overflow-hidden border-t border-border transition-all duration-200 ${
-              isOutputOpen ? "max-h-56" : "max-h-0"
-            }`}
+            className={`overflow-hidden border-t border-border transition-all duration-200 ${isOutputOpen ? "max-h-56" : "max-h-0"
+              }`}
           >
             <pre className="min-h-24 overflow-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
               {consoleOutput}

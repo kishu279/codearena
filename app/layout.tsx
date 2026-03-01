@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
-import { getAuthSession } from "@/lib/auth";
 
 import "./globals.css";
 
@@ -17,14 +17,22 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getAuthSession();
+  const cookiesStore = await cookies();
+  const sessionCookie = cookiesStore.get("codearena_session");
+
+  let session = null;
+  try {
+    session = sessionCookie ? JSON.parse(sessionCookie.value) : null;
+  } catch {
+    session = null;
+  }
 
   return (
     <html lang="en" data-theme="vscode-dark">
       <body className="min-h-screen antialiased">
         <ThemeProvider>
           <div className="min-h-screen bg-background text-foreground">
-            <Navbar isAuthenticated={Boolean(session?.user)} username={session?.user?.username} />
+            <Navbar isAuthenticated={!!session} username={session?.name} />
             <main>{children}</main>
             <Footer />
           </div>
