@@ -13,12 +13,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { runContestCode, submitContestCode } from "@/lib/services/contest-service";
 import { runQuestionCode, submitQuestionCode } from "@/lib/services/question-service";
 import type { CodingQuestion, EditorLanguage } from "@/lib/types";
 
 type EditorPanelProps = {
   question: CodingQuestion;
   questionId: string;
+  contestId?: string;
 };
 
 const languageOptions: Array<{ label: string; value: EditorLanguage }> = [
@@ -33,7 +35,7 @@ function getDefaultLanguage(question: CodingQuestion) {
   return question.starterCode.javascript ? "javascript" : languageOptions[0].value;
 }
 
-export default function EditorPanel({ question, questionId }: EditorPanelProps) {
+export default function EditorPanel({ question, questionId, contestId }: EditorPanelProps) {
   const { theme } = useTheme();
   const [selectedLanguage, setSelectedLanguage] = useState<EditorLanguage>(getDefaultLanguage(question));
   const [codeByLanguage, setCodeByLanguage] = useState(() => ({ ...question.starterCode }));
@@ -69,16 +71,26 @@ export default function EditorPanel({ question, questionId }: EditorPanelProps) 
 
   async function handleRun() {
     setIsRunning(true);
+    setConsoleOutput("Executing code...");
     try {
-      const result = await runQuestionCode({
-        questionId,
-        language: selectedLanguage,
-        code: activeCode,
-      });
+      const result = contestId
+        ? await runContestCode({
+          contestId,
+          problemId: questionId,
+          language: selectedLanguage,
+          code: activeCode,
+        })
+        : await runQuestionCode({
+          questionId,
+          language: selectedLanguage,
+          code: activeCode,
+        });
 
-      setConsoleOutput(`${result.stdout}\nRuntime: ${result.runtimeMs} ms`);
-    } catch {
-      setConsoleOutput("Run failed. Please retry.");
+      setConsoleOutput(result.stdout || "No output.");
+    } catch (error) {
+      setConsoleOutput(
+        error instanceof Error ? `Error: ${error.message}` : "Run failed. Please retry.",
+      );
     } finally {
       setIsRunning(false);
       setIsOutputOpen(true);
@@ -87,12 +99,20 @@ export default function EditorPanel({ question, questionId }: EditorPanelProps) 
 
   async function handleSubmit() {
     setIsSubmitting(true);
+    setConsoleOutput("Submitting code...");
     try {
-      const result = await submitQuestionCode({
-        questionId,
-        language: selectedLanguage,
-        code: activeCode,
-      });
+      const result = contestId
+        ? await submitContestCode({
+          contestId,
+          problemId: questionId,
+          language: selectedLanguage,
+          code: activeCode,
+        })
+        : await submitQuestionCode({
+          questionId,
+          language: selectedLanguage,
+          code: activeCode,
+        });
 
       setConsoleOutput(
         [
@@ -102,8 +122,10 @@ export default function EditorPanel({ question, questionId }: EditorPanelProps) 
           `Memory: ${result.memoryMb} MB`,
         ].join("\n"),
       );
-    } catch {
-      setConsoleOutput("Submission failed. Please retry.");
+    } catch (error) {
+      setConsoleOutput(
+        error instanceof Error ? `Error: ${error.message}` : "Submission failed. Please retry.",
+      );
     } finally {
       setIsSubmitting(false);
       setIsOutputOpen(true);

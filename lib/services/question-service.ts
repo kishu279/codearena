@@ -1,7 +1,7 @@
-import type { CodingQuestion, EditorLanguage, RunCodeResult, SubmitCodeResult } from "@/lib/types";
+import type { EditorLanguage, RunCodeResult, SubmitCodeResult, CodeRunnerResponse } from "@/lib/types";
 
 type QuestionResponse = {
-  data?: CodingQuestion;
+  data?: import("@/lib/types").CodingQuestion;
   error?: string;
 };
 
@@ -9,15 +9,11 @@ type RunPayload = {
   questionId: string;
   language: EditorLanguage;
   code: string;
+  input?: string;
+  customTestCases?: { input: string; expectedOutput: string }[];
 };
 
-type SubmitPayload = RunPayload;
-
-function delay(milliseconds: number) {
-  return new Promise<void>((resolve) => {
-    setTimeout(resolve, milliseconds);
-  });
-}
+type SubmitPayload = Omit<RunPayload, "customTestCases">;
 
 export async function fetchQuestionById(questionId: string, signal?: AbortSignal) {
   const response = await fetch(`/api/questions/${questionId}`, {
@@ -34,48 +30,59 @@ export async function fetchQuestionById(questionId: string, signal?: AbortSignal
   return payload.data;
 }
 
-export async function runQuestionCode(payload: RunPayload) {
-  await delay(600);
+export async function runQuestionCode(payload: RunPayload): Promise<RunCodeResult> {
+  const response = await fetch(`/api/coderunner/${payload.questionId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      code: payload.code,
+      language: payload.language,
+      action: "run",
+      problemType: "PRACTICE",
+      customTestCases: payload.customTestCases ?? [],
+    }),
+  });
 
-  const codeLines = payload.code.split("\n").filter((line) => line.trim().length > 0).length;
-  const runtimeMs = Math.max(14, Math.min(120, 12 + codeLines * 2));
-  const stdout = [
-    `Running Question ${payload.questionId} (${payload.language})`,
-    "Execution finished successfully.",
-    `Processed ${codeLines} non-empty lines.`,
-  ].join("\n");
+  const data: CodeRunnerResponse = await response.json();
 
-  const output: RunCodeResult = {
+  if (!response.ok || !data.success) {
+    throw new Error(data.error ?? "Code execution failed.");
+  }
+
+  // Map unified response → existing RunCodeResult shape
+  const outputLines = data.results
+    .map((r, i) => `Test ${i + 1}: ${r.passed ? "✓ Passed" : "✗ Failed"} | Output: ${r.actualOutput.trim()}`)
+    .join("\n");
+
+  return {
     status: "success",
-    stdout,
-    runtimeMs,
+    stdout: outputLines,
+    runtimeMs: 0,
   };
-
-  return output;
 }
 
-export async function submitQuestionCode(payload: SubmitPayload) {
-  await delay(900);
+export async function submitQuestionCode(payload: SubmitPayload): Promise<SubmitCodeResult> {
+  const response = await fetch(`/api/coderunner/${payload.questionId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      code: payload.code,
+      language: payload.language,
+      action: "submit",
+      problemType: "PRACTICE",
+    }),
+  });
 
-  const normalizedCode = payload.code.trim();
-  const looksIncomplete =
-    normalizedCode.length < 24 ||
-    normalizedCode.includes("TODO") ||
-    normalizedCode.includes("pass");
+  const data: CodeRunnerResponse = await response.json();
 
-  const output: SubmitCodeResult = looksIncomplete
-    ? {
-        status: "Wrong Answer",
-        message: "Some test cases failed. Keep iterating on edge cases.",
-        runtimeMs: 0,
-        memoryMb: 0,
-      }
-    : {
-        status: "Accepted",
-        message: `All test cases passed for Question ${payload.questionId}.`,
-        runtimeMs: 38,
-        memoryMb: 42.6,
-      };
+  if (!response.ok || !data.success) {
+    throw new Error(data.error ?? "Submission failed.");
+  }
 
-  return output;
+  return {
+    status: data.verdict === "Accepted" ? "Accepted" : data.verdict === "Runtime Error" ? "Runtime Error" : "Wrong Answer",
+    message: `${data.passed}/${data.totalTests} test cases passed.`,
+    runtimeMs: 0,
+    memoryMb: 0,
+  };
 }

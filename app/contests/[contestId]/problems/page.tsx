@@ -43,7 +43,7 @@ export default async function ContestProblemsPage({ params }: ContestProblemsPag
                       <p className="mt-1 text-sm text-text-secondary">Difficulty: {problem.difficulty}</p>
                     </div>
                     <Button asChild variant="default" size="sm">
-                      <Link href={`/solve/${problem.id}`}>Solve</Link>
+                      <Link href={`/contests/${contestId}/solve/${problem.id}`}>Solve</Link>
                     </Button>
                   </div>
                 </li>

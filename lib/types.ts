@@ -108,3 +108,42 @@ export enum Tags {
   CONTEST = "CONTEST",
   // LAB = "LAB",
 }
+
+// ── Unified Code Runner Types ──────────────────────────────────────────
+
+export type CodeRunnerAction = "run" | "submit";
+
+export type ProblemType = "PRACTICE" | "CONTEST" | "LAB";
+
+export type TestCaseInput = {
+  input: string;
+  expectedOutput: string;
+};
+
+export type TestCaseResult = {
+  input: string;
+  expectedOutput: string;
+  actualOutput: string;
+  passed: boolean;
+};
+
+export type CodeRunnerRequest = {
+  code: string;
+  language: EditorLanguage;
+  action: CodeRunnerAction;
+  problemType: ProblemType;
+  contestId?: string;
+  customTestCases?: TestCaseInput[];
+};
+
+export type CodeRunnerResponse = {
+  success: boolean;
+  action: CodeRunnerAction;
+  problemId: string;
+  totalTests: number;
+  passed: number;
+  failed: number;
+  verdict: "Accepted" | "Wrong Answer" | "Runtime Error";
+  results: TestCaseResult[];
+  error?: string;
+};

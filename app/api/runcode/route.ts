@@ -2,7 +2,7 @@ import { pistonClient } from "@/lib/services/piston-client";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-    const { sourceCode, language, input } = await request.json();
+    const { sourceCode, language, input, problemType, problemId } = await request.json();
     try {
         // TODO: VALIDATE THE USER
         // STORE THE USER CODE IN DB

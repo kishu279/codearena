@@ -14,9 +14,10 @@ import type { CodingQuestion } from "@/lib/types";
 
 type SolveWorkspaceProps = {
   initialQuestionId: string;
+  contestId?: string;
 };
 
-export default function SolveWorkspace({ initialQuestionId }: SolveWorkspaceProps) {
+export default function SolveWorkspace({ initialQuestionId, contestId }: SolveWorkspaceProps) {
   const pathname = usePathname();
   const [question, setQuestion] = useState<CodingQuestion | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,7 +90,7 @@ export default function SolveWorkspace({ initialQuestionId }: SolveWorkspaceProp
       {!isLoading && !error && question ? (
         <div className="grid gap-4 lg:h-[calc(100vh-11rem)] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <QuestionPanel question={question} questionId={routeQuestionId} />
-          <EditorPanel question={question} questionId={routeQuestionId} />
+          <EditorPanel question={question} questionId={routeQuestionId} contestId={contestId} />
         </div>
       ) : null}
     </section>

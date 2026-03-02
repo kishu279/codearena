@@ -1,8 +1,7 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import DashboardStats from "@/components/dashboard/DashboardStats";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { getAuthSession } from "@/lib/auth";
 import { getDashboardUser } from "@/lib/mock-data";
 import { formatDate, formatDateTime } from "@/lib/utils";
 
@@ -12,16 +11,6 @@ type DashboardPageProps = {
 
 export default async function DashboardPage({ params }: DashboardPageProps) {
   const { username } = await params;
-  const session = await getAuthSession();
-
-  if (!session?.user) {
-    redirect("/auth/login");
-  }
-
-  const sessionUsername = session.user.username;
-  if (sessionUsername.toLowerCase() !== username.toLowerCase()) {
-    redirect(`/${sessionUsername}/dashboard`);
-  }
 
   const user = getDashboardUser(username);
   if (!user) {
