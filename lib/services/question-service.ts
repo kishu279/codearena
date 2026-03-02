@@ -16,7 +16,7 @@ type RunPayload = {
 type SubmitPayload = Omit<RunPayload, "customTestCases">;
 
 export async function fetchQuestionById(questionId: string, signal?: AbortSignal) {
-  const response = await fetch(`/api/questions/${questionId}`, {
+  const response = await fetch(`/api/problems/${questionId}`, {
     method: "GET",
     cache: "no-store",
     signal,
