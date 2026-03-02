@@ -1,0 +1,38 @@
+[
+  {
+    "id": "im_1",
+    "userId": "user_instructor_1",
+    "instituteId": "inst_university_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_2",
+    "userId": "user_instructor_2",
+    "instituteId": "inst_university_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_3",
+    "userId": "user_student_1",
+    "instituteId": "inst_university_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_4",
+    "userId": "user_student_2",
+    "instituteId": "inst_university_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_5",
+    "userId": "user_student_3",
+    "instituteId": "inst_college_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_6",
+    "userId": "user_instructor_1",
+    "instituteId": "inst_college_1",
+    "role": "INSTRUCTOR"
+  }
+]

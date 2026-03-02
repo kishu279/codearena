@@ -36,6 +36,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -75,6 +76,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -118,6 +120,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -153,6 +156,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -196,6 +200,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -235,6 +240,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -270,6 +276,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -309,6 +316,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -348,6 +356,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -379,6 +388,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -414,6 +424,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -453,6 +464,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -484,6 +496,7 @@
     "timeLimit": 3,
     "memoryLimit": 512,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -519,6 +532,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -554,6 +568,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -593,6 +608,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_weekly_01",
+    "assignmentId": null,
     "order": 1
   },
   {
@@ -632,6 +648,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_weekly_01",
+    "assignmentId": null,
     "order": 2
   },
   {
@@ -667,6 +684,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_weekly_01",
+    "assignmentId": null,
     "order": 3
   },
   {
@@ -706,6 +724,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_beginner_01",
+    "assignmentId": null,
     "order": 1
   },
   {
@@ -745,6 +764,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_beginner_01",
+    "assignmentId": null,
     "order": 2
   },
   {
@@ -784,6 +804,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -819,6 +840,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -858,6 +880,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -897,6 +920,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -932,6 +956,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -963,6 +988,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -994,6 +1020,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1025,6 +1052,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1056,6 +1084,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1091,6 +1120,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1126,6 +1156,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1157,6 +1188,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1192,6 +1224,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1227,6 +1260,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1254,6 +1288,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1289,6 +1324,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1320,6 +1356,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1355,6 +1392,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1390,6 +1428,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_algo_sprint",
+    "assignmentId": null,
     "order": 1
   },
   {
@@ -1429,6 +1468,7 @@
     "timeLimit": 3,
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
+    "assignmentId": null,
     "order": 2
   },
   {
@@ -1464,6 +1504,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_algo_sprint",
+    "assignmentId": null,
     "order": 3
   },
   {
@@ -1491,6 +1532,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
+    "assignmentId": null,
     "order": 4
   },
   {
@@ -1526,6 +1568,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
+    "assignmentId": null,
     "order": 5
   },
   {
@@ -1561,6 +1604,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_lab_assessment",
+    "assignmentId": null,
     "order": 1
   },
   {
@@ -1588,6 +1632,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_lab_assessment",
+    "assignmentId": null,
     "order": 2
   },
   {
@@ -1623,6 +1668,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": "contest_lab_assessment",
+    "assignmentId": null,
     "order": 3
   },
   {
@@ -1658,6 +1704,7 @@
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1693,6 +1740,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   },
   {
@@ -1724,6 +1772,7 @@
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
+    "assignmentId": null,
     "order": null
   }
 ]

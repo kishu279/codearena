@@ -9,6 +9,12 @@
         "duration": 120,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_contest_shortest_path",
@@ -43,6 +49,12 @@
         "duration": 120,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_contest_string_decode",
@@ -70,6 +82,12 @@
         "duration": 90,
         "status": "ENDED",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_contest_matrix_rotation",
@@ -118,6 +136,12 @@
         "duration": 120,
         "status": "UPCOMING",
         "isPublic": false,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_contest_lab_stack_sort",
@@ -152,6 +176,12 @@
         "duration": 150,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_two_sum",
@@ -193,6 +223,12 @@
         "duration": 180,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_climbing_stairs",
@@ -241,6 +277,12 @@
         "duration": 120,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_binary_search",
@@ -275,6 +317,12 @@
         "duration": 180,
         "status": "UPCOMING",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_trapping_rain",
@@ -316,6 +364,12 @@
         "duration": 120,
         "status": "ENDED",
         "isPublic": true,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_fizzbuzz",
@@ -357,6 +411,12 @@
         "duration": 120,
         "status": "UPCOMING",
         "isPublic": false,
+        "hostedBy": "CODEARENA",
+        "isRecurring": false,
+        "recurringType": null,
+        "parentContestId": null,
+        "instituteId": null,
+        "createdById": null,
         "problems": [
             {
                 "id": "prob_number_islands",

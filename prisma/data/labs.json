@@ -1,0 +1,26 @@
+[
+  {
+    "id": "lab_dsa_1",
+    "title": "Data Structures & Algorithms Lab",
+    "slug": "dsa-lab",
+    "description": "Comprehensive lab covering fundamental data structures and algorithms",
+    "instituteId": "inst_university_1",
+    "createdById": "user_instructor_1"
+  },
+  {
+    "id": "lab_os_1",
+    "title": "Operating Systems Lab",
+    "slug": "os-lab",
+    "description": "Hands-on lab for operating system concepts and implementation",
+    "instituteId": "inst_university_1",
+    "createdById": "user_instructor_2"
+  },
+  {
+    "id": "lab_algo_1",
+    "title": "Advanced Algorithms Lab",
+    "slug": "advanced-algorithms-lab",
+    "description": "Advanced algorithmic techniques and problem solving",
+    "instituteId": "inst_college_1",
+    "createdById": "user_instructor_1"
+  }
+]

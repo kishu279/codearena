@@ -1,0 +1,14 @@
+[
+  {
+    "id": "inst_university_1",
+    "name": "Tech University",
+    "slug": "tech-university",
+    "description": "Leading technical university offering computer science programs"
+  },
+  {
+    "id": "inst_college_1",
+    "name": "Engineering College",
+    "slug": "engineering-college",
+    "description": "Premier engineering institution"
+  }
+]

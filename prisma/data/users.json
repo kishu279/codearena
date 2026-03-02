@@ -1,0 +1,44 @@
+[
+  {
+    "id": "user_admin_1",
+    "name": "Admin User",
+    "email": "admin@codearena.com",
+    "image": null,
+    "role": "ADMIN"
+  },
+  {
+    "id": "user_instructor_1",
+    "name": "Dr. Sarah Johnson",
+    "email": "sarah.johnson@university.edu",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_instructor_2",
+    "name": "Prof. Michael Chen",
+    "email": "michael.chen@university.edu",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_student_1",
+    "name": "Alice Smith",
+    "email": "alice.smith@student.edu",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_student_2",
+    "name": "Bob Williams",
+    "email": "bob.williams@student.edu",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_student_3",
+    "name": "Charlie Brown",
+    "email": "charlie.brown@student.edu",
+    "image": null,
+    "role": "USER"
+  }
+]

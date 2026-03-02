@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lm_1",
+    "userId": "user_instructor_1",
+    "labId": "lab_dsa_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_2",
+    "userId": "user_student_1",
+    "labId": "lab_dsa_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_3",
+    "userId": "user_student_2",
+    "labId": "lab_dsa_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_4",
+    "userId": "user_instructor_2",
+    "labId": "lab_os_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_5",
+    "userId": "user_student_1",
+    "labId": "lab_os_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_6",
+    "userId": "user_instructor_1",
+    "labId": "lab_algo_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_7",
+    "userId": "user_student_3",
+    "labId": "lab_algo_1",
+    "role": "STUDENT"
+  }
+]
