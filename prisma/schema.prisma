@@ -11,7 +11,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -23,11 +22,26 @@ model User {
   updatedAt    DateTime     @updatedAt
 
   submissions  Submission[]
+  role         Role         @default(USER)
+
+  // Memberships
+  instituteMemberships InstituteMember[]
+  labMemberships       LabMember[]
+
+  // Labs & Contests created by this user
+  createdLabs     Lab[]     @relation("LabCreator")
+  createdContests Contest[] @relation("ContestCreator")
 
   @@index([email])
 }
 
 // ─── Enums ───────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
 
 enum Difficulty {
   EASY
@@ -57,6 +71,28 @@ enum SubmissionStatus {
   COMPILATION_ERROR
 }
 
+enum InstituteMemberRole {
+  ADMIN
+  INSTRUCTOR
+  STUDENT
+}
+
+enum LabMemberRole {
+  INSTRUCTOR
+  STUDENT
+}
+
+enum RecurringType {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+enum ContestHost {
+  CODEARENA
+  INSTITUTE
+}
+
 // ─── Models ──────────────────────────────────────────────
 
 model Problem {
@@ -82,6 +118,10 @@ model Problem {
   contest       Contest?   @relation(fields: [contestId], references: [id])
   order         Int?
 
+  // Assignment relation (null = not part of any assignment)
+  assignmentId  String?
+  assignment    Assignment? @relation(fields: [assignmentId], references: [id])
+
   submissions   Submission[]
 
   createdAt     DateTime   @default(now())
@@ -90,6 +130,7 @@ model Problem {
   @@index([difficulty])
   @@index([tag])
   @@index([contestId])
+  @@index([assignmentId])
   @@index([slug])
 }
 
@@ -108,12 +149,29 @@ model Contest {
   problems    Problem[]
   submissions Submission[]
 
+  // Who created this contest
+  createdById String?
+  createdBy   User?         @relation("ContestCreator", fields: [createdById], references: [id])
+
+  // Institute relation (null = CodeArena-hosted)
+  instituteId String?
+  institute   Institute?    @relation(fields: [instituteId], references: [id])
+  hostedBy    ContestHost   @default(CODEARENA)
+
+  // Recurring config
+  isRecurring     Boolean        @default(false)
+  recurringType   RecurringType?
+  parentContestId String?
+  parentContest   Contest?       @relation("RecurringContest", fields: [parentContestId], references: [id])
+  childContests   Contest[]      @relation("RecurringContest")
+
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
 
   @@index([status])
   @@index([slug])
   @@index([startTime])
+  @@index([instituteId])
 }
 
 model Submission {
@@ -146,4 +204,113 @@ model Submission {
   @@index([contestId])
   @@index([status])
   @@index([userId, problemId])
+}
+
+// ─── Institute & Membership ─────────────────────────────
+
+model Institute {
+  id          String              @id @default(cuid())
+  name        String              @unique
+  slug        String              @unique
+  description String?
+
+  members     InstituteMember[]   // admin, instructor, student via join table
+  labs        Lab[]               // labs belonging to this institute
+  contests    Contest[]           // contests hosted by this institute
+
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@index([slug])
+}
+
+model InstituteMember {
+  id          String              @id @default(cuid())
+
+  userId      String
+  user        User                @relation(fields: [userId], references: [id])
+
+  instituteId String
+  institute   Institute           @relation(fields: [instituteId], references: [id])
+
+  role        InstituteMemberRole // ADMIN, INSTRUCTOR, STUDENT
+
+  joinedAt    DateTime            @default(now())
+
+  @@unique([userId, instituteId]) // one role per user per institute
+  @@index([instituteId])
+  @@index([userId])
+}
+
+// ─── Lab & Assignment ───────────────────────────────────
+
+// Lab = a permanent course container (like "DSA Lab", "OS Lab")
+model Lab {
+  id            String       @id @default(cuid())
+  title         String
+  slug          String       @unique
+  description   String?
+
+  // Who owns this lab (null = platform-owned by CodeArena)
+  instituteId   String?
+  institute     Institute?   @relation(fields: [instituteId], references: [id])
+
+  // Who created this lab
+  createdById   String?
+  createdBy     User?        @relation("LabCreator", fields: [createdById], references: [id])
+
+  assignments   Assignment[] // tasks inside this lab
+  members       LabMember[]  // instructor + students in this lab
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([slug])
+  @@index([instituteId])
+}
+
+model LabMember {
+  id          String        @id @default(cuid())
+
+  userId      String
+  user        User          @relation(fields: [userId], references: [id])
+
+  labId       String
+  lab         Lab           @relation(fields: [labId], references: [id])
+
+  role        LabMemberRole // INSTRUCTOR, STUDENT
+
+  joinedAt    DateTime      @default(now())
+
+  @@unique([userId, labId]) // one role per user per lab
+  @@index([labId])
+  @@index([userId])
+}
+
+// Assignment = a task inside a lab with problems & deadline (THIS can recur)
+model Assignment {
+  id            String       @id @default(cuid())
+  title         String
+  description   String?
+
+  labId         String
+  lab           Lab          @relation(fields: [labId], references: [id])
+
+  problems      Problem[]    // problems in this assignment
+
+  startTime     DateTime
+  endTime       DateTime     // deadline
+
+  // Recurring config
+  isRecurring     Boolean          @default(false)
+  recurringType   RecurringType?   // DAILY, WEEKLY, MONTHLY
+  parentId        String?          // if auto-created, points to template
+  parent          Assignment?      @relation("RecurringAssignment", fields: [parentId], references: [id])
+  children        Assignment[]     @relation("RecurringAssignment")
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([labId])
+  @@index([parentId])
 }
