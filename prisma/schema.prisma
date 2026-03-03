@@ -7,8 +7,6 @@
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["driverAdapters"]
-  // output   = "../lib/generated/prisma"
-  // engineType = "binary" 
 }
 
 datasource db {

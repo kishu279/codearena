@@ -6,6 +6,9 @@ import {
   type LeaderboardFilter,
   type LeaderboardRow,
   type ProblemAttemptStatus,
+  type AdminDashboardData,
+  type RecentSubmission,
+  type SystemActivity,
 } from "@/lib/types";
 
 const authUsers: AuthUser[] = [
@@ -41,9 +44,24 @@ const dashboardUsers: DashboardUser[] = [
       contestsParticipated: 9,
     },
     recentActivity: [
-      { id: "a1", title: "Two Sum", difficulty: "Easy", solvedAt: "2026-02-10T16:20:00.000Z" },
-      { id: "a2", title: "Binary Tree Zigzag Level Order Traversal", difficulty: "Medium", solvedAt: "2026-02-09T11:10:00.000Z" },
-      { id: "a3", title: "Trapping Rain Water", difficulty: "Hard", solvedAt: "2026-02-07T08:35:00.000Z" },
+      {
+        id: "a1",
+        title: "Two Sum",
+        difficulty: "Easy",
+        solvedAt: "2026-02-10T16:20:00.000Z",
+      },
+      {
+        id: "a2",
+        title: "Binary Tree Zigzag Level Order Traversal",
+        difficulty: "Medium",
+        solvedAt: "2026-02-09T11:10:00.000Z",
+      },
+      {
+        id: "a3",
+        title: "Trapping Rain Water",
+        difficulty: "Hard",
+        solvedAt: "2026-02-07T08:35:00.000Z",
+      },
     ],
   },
   {
@@ -59,8 +77,18 @@ const dashboardUsers: DashboardUser[] = [
       contestsParticipated: 16,
     },
     recentActivity: [
-      { id: "a4", title: "Longest Increasing Subsequence", difficulty: "Medium", solvedAt: "2026-02-11T19:40:00.000Z" },
-      { id: "a5", title: "Merge k Sorted Lists", difficulty: "Hard", solvedAt: "2026-02-08T13:55:00.000Z" },
+      {
+        id: "a4",
+        title: "Longest Increasing Subsequence",
+        difficulty: "Medium",
+        solvedAt: "2026-02-11T19:40:00.000Z",
+      },
+      {
+        id: "a5",
+        title: "Merge k Sorted Lists",
+        difficulty: "Hard",
+        solvedAt: "2026-02-08T13:55:00.000Z",
+      },
     ],
   },
 ];
@@ -103,44 +131,123 @@ export const contests: ContestListItem[] = [
 
 const contestStates: ContestSubmissionState[] = [
   { userId: "u1", contestId: "monthly-12", problemId: "p7", status: "SOLVED" },
-  { userId: "u1", contestId: "monthly-12", problemId: "p8", status: "UNSOLVED" },
+  {
+    userId: "u1",
+    contestId: "monthly-12",
+    problemId: "p8",
+    status: "UNSOLVED",
+  },
   { userId: "u1", contestId: "biweekly-88", problemId: "p4", status: "SOLVED" },
-  { userId: "u1", contestId: "biweekly-88", problemId: "p5", status: "NOT_ATTEMPTED" },
+  {
+    userId: "u1",
+    contestId: "biweekly-88",
+    problemId: "p5",
+    status: "NOT_ATTEMPTED",
+  },
   { userId: "u2", contestId: "monthly-12", problemId: "p7", status: "SOLVED" },
   { userId: "u2", contestId: "monthly-12", problemId: "p8", status: "SOLVED" },
-  { userId: "u2", contestId: "monthly-12", problemId: "p9", status: "UNSOLVED" },
+  {
+    userId: "u2",
+    contestId: "monthly-12",
+    problemId: "p9",
+    status: "UNSOLVED",
+  },
 ];
 
 const leaderboardData: Record<LeaderboardFilter, LeaderboardRow[]> = {
   weekly: [
-    { username: "alice", rating: 1798, problemsSolved: 18, contestsParticipated: 1 },
-    { username: "sourav", rating: 1572, problemsSolved: 11, contestsParticipated: 1 },
-    { username: "nina", rating: 1499, problemsSolved: 9, contestsParticipated: 1 },
-    { username: "omar", rating: 1499, problemsSolved: 9, contestsParticipated: 1 },
+    {
+      username: "alice",
+      rating: 1798,
+      problemsSolved: 18,
+      contestsParticipated: 1,
+    },
+    {
+      username: "sourav",
+      rating: 1572,
+      problemsSolved: 11,
+      contestsParticipated: 1,
+    },
+    {
+      username: "nina",
+      rating: 1499,
+      problemsSolved: 9,
+      contestsParticipated: 1,
+    },
+    {
+      username: "omar",
+      rating: 1499,
+      problemsSolved: 9,
+      contestsParticipated: 1,
+    },
   ],
   monthly: [
-    { username: "alice", rating: 1785, problemsSolved: 57, contestsParticipated: 3 },
-    { username: "sourav", rating: 1560, problemsSolved: 31, contestsParticipated: 2 },
-    { username: "nina", rating: 1511, problemsSolved: 29, contestsParticipated: 2 },
-    { username: "omar", rating: 1488, problemsSolved: 26, contestsParticipated: 2 },
+    {
+      username: "alice",
+      rating: 1785,
+      problemsSolved: 57,
+      contestsParticipated: 3,
+    },
+    {
+      username: "sourav",
+      rating: 1560,
+      problemsSolved: 31,
+      contestsParticipated: 2,
+    },
+    {
+      username: "nina",
+      rating: 1511,
+      problemsSolved: 29,
+      contestsParticipated: 2,
+    },
+    {
+      username: "omar",
+      rating: 1488,
+      problemsSolved: 26,
+      contestsParticipated: 2,
+    },
   ],
   all_time: [
-    { username: "alice", rating: 1785, problemsSolved: 210, contestsParticipated: 16 },
-    { username: "sourav", rating: 1560, problemsSolved: 89, contestsParticipated: 9 },
-    { username: "nina", rating: 1511, problemsSolved: 76, contestsParticipated: 7 },
-    { username: "omar", rating: 1488, problemsSolved: 72, contestsParticipated: 8 },
+    {
+      username: "alice",
+      rating: 1785,
+      problemsSolved: 210,
+      contestsParticipated: 16,
+    },
+    {
+      username: "sourav",
+      rating: 1560,
+      problemsSolved: 89,
+      contestsParticipated: 9,
+    },
+    {
+      username: "nina",
+      rating: 1511,
+      problemsSolved: 76,
+      contestsParticipated: 7,
+    },
+    {
+      username: "omar",
+      rating: 1488,
+      problemsSolved: 72,
+      contestsParticipated: 8,
+    },
   ],
 };
 
 export function getAuthUser(identifier: string) {
   const normalized = identifier.trim().toLowerCase();
   return authUsers.find(
-    (user) => user.username.toLowerCase() === normalized || user.email.toLowerCase() === normalized,
+    (user) =>
+      user.username.toLowerCase() === normalized ||
+      user.email.toLowerCase() === normalized,
   );
 }
 
 export function getDashboardUser(username: string) {
-  return dashboardUsers.find((user) => user.username.toLowerCase() === username.toLowerCase());
+  return dashboardUsers.find(
+    (user) => user.username.toLowerCase() === username.toLowerCase(),
+  );
 }
 
 export function createMockUser(payload: {
@@ -206,4 +313,120 @@ export function getProblemStatusForContest(
 
 export function getLeaderboardRows(filter: LeaderboardFilter) {
   return leaderboardData[filter];
+}
+
+// ── Admin Dashboard Mock Data ─────────────────────────────────────
+
+const adminStats = {
+  totalUsers: 12543,
+  totalProblems: 892,
+  totalContests: 156,
+  totalSubmissions: 458920,
+  activeUsers: 2341,
+  systemHealth: "Healthy",
+};
+
+const recentSubmissions: RecentSubmission[] = [
+  {
+    id: "s1",
+    userId: "u1",
+    username: "sourav",
+    problemTitle: "Two Sum",
+    status: "Accepted",
+    language: "Python",
+    submittedAt: "2026-03-03T03:30:00.000Z",
+  },
+  {
+    id: "s2",
+    userId: "u2",
+    username: "alice",
+    problemTitle: "Binary Tree Zigzag Level Order Traversal",
+    status: "Wrong Answer",
+    language: "JavaScript",
+    submittedAt: "2026-03-03T03:25:00.000Z",
+  },
+  {
+    id: "s3",
+    userId: "u3",
+    username: "bob",
+    problemTitle: "Longest Increasing Subsequence",
+    status: "Accepted",
+    language: "C++",
+    submittedAt: "2026-03-03T03:20:00.000Z",
+  },
+  {
+    id: "s4",
+    userId: "u4",
+    username: "charlie",
+    problemTitle: "Trapping Rain Water",
+    status: "Time Limit Exceeded",
+    language: "Python",
+    submittedAt: "2026-03-03T03:15:00.000Z",
+  },
+  {
+    id: "s5",
+    userId: "u5",
+    username: "diana",
+    problemTitle: "Merge k Sorted Lists",
+    status: "Accepted",
+    language: "Java",
+    submittedAt: "2026-03-03T03:10:00.000Z",
+  },
+];
+
+const systemActivity: SystemActivity[] = [
+  {
+    id: "a1",
+    type: "user",
+    action: "New User Registration",
+    description: "User 'newdev' registered successfully",
+    timestamp: "2026-03-03T03:45:00.000Z",
+  },
+  {
+    id: "a2",
+    type: "contest",
+    action: "Contest Created",
+    description: "CodeArena Weekly 402 created by admin",
+    timestamp: "2026-03-03T03:30:00.000Z",
+  },
+  {
+    id: "a3",
+    type: "problem",
+    action: "Problem Added",
+    description: "New problem 'Graph BFS Traversal' added to practice",
+    timestamp: "2026-03-03T03:15:00.000Z",
+  },
+  {
+    id: "a4",
+    type: "system",
+    action: "System Backup",
+    description: "Daily backup completed successfully",
+    timestamp: "2026-03-03T02:00:00.000Z",
+  },
+  {
+    id: "a5",
+    type: "contest",
+    action: "Contest Ended",
+    description: "CodeArena Weekly 401 completed",
+    timestamp: "2026-03-02T16:00:00.000Z",
+  },
+];
+
+const topUsers = [
+  { username: "alice", submissions: 1245, solved: 210 },
+  { username: "bob", submissions: 987, solved: 178 },
+  { username: "sourav", submissions: 856, solved: 89 },
+  { username: "charlie", submissions: 742, solved: 156 },
+  { username: "diana", submissions: 698, solved: 134 },
+];
+
+export const adminDashboardData: AdminDashboardData = {
+  stats: adminStats,
+  recentSubmissions,
+  systemActivity,
+  topUsers,
+};
+
+export function getAdminDashboardData() {
+  return adminDashboardData;
 }

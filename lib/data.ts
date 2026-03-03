@@ -50,7 +50,7 @@ export interface Problem {
   constraints: string | null;
   sampleInput: string | null;
   sampleOutput: string | null;
-  testCases: TestCase[] | null;
+  testCases: any;
   timeLimit: number;
   memoryLimit: number;
   contestId: string | null;
@@ -99,6 +99,7 @@ export interface CodingQuestionData {
   description: string;
   constraints: string[];
   samples: { input: string; output: string; explanation?: string }[];
+  testCases: { input: string; output: string; explanation?: string }[];
   starterCode: Record<string, string>;
 }
 
@@ -135,6 +136,24 @@ int main() {
 `,
 };
 
+export const createUser = async (name: string, email: string, image: string) => {
+  const user = await prisma.user.create({
+    data: {
+      name,
+      email,
+    }
+  })
+
+  console.log("User created successfully", user)
+  return user
+}
+
+export const findUserByEmail = async (email: string) => {
+  return prisma.user.findUnique({
+    where: { email }
+  })
+}
+
 export async function getCodingQuestion(
   problemId: string,
 ): Promise<CodingQuestionData | null> {
@@ -155,6 +174,20 @@ export async function getCodingQuestion(
     });
   }
 
+  const testCases: { input: string; output: string; explanation?: string }[] =
+    [];
+  if (p.testCases && Array.isArray(p.testCases)) {
+    for (const tc of p.testCases as {
+      input: string;
+      expectedOutput: string;
+    }[]) {
+      testCases.push({
+        input: tc.input,
+        output: tc.expectedOutput,
+      });
+    }
+  }
+
   return {
     id: p.id,
     title: p.title,
@@ -167,6 +200,12 @@ export async function getCodingQuestion(
     description: p.description || "",
     constraints,
     samples,
+    testCases,
     starterCode: { ...starterCodeTemplates },
   };
+}
+
+// CODE SUBMISSIONS
+export async function SaveSubmittedCode() {
+  // SAVE ALL THE CODE SUBMISSIONS IN THE DATABASE
 }

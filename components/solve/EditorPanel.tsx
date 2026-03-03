@@ -21,6 +21,7 @@ import {
   runQuestionCode,
   submitQuestionCode,
 } from "@/lib/services/question-service";
+import { languageOptions } from "@/lib/types";
 import type { CodingQuestion, EditorLanguage } from "@/lib/types";
 
 type EditorPanelProps = {
@@ -29,18 +30,10 @@ type EditorPanelProps = {
   contestId?: string;
 };
 
-const languageOptions: Array<{ label: string; value: EditorLanguage }> = [
-  { label: "JavaScript", value: "javascript" },
-  { label: "TypeScript", value: "typescript" },
-  { label: "Python", value: "python" },
-  { label: "Java", value: "java" },
-  { label: "C++", value: "cpp" },
-];
-
 function getDefaultLanguage(question: CodingQuestion) {
   // return { label: "JavaScript", value: "javascript" };
   return question.starterCode.javascript
-    ? "javascript"
+    ? "python"
     : languageOptions[0].value;
 }
 
@@ -177,7 +170,7 @@ export default function EditorPanel({
             </SelectTrigger>
             <SelectContent>
               {languageOptions.map((option) => (
-                <SelectItem key={option.value} value={option.value}>
+                <SelectItem key={option.value} value={option.value} disabled={option.disabled}>
                   {option.label}
                 </SelectItem>
               ))}

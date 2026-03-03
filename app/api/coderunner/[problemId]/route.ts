@@ -35,9 +35,10 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
                 { status: 400 },
             );
         }
+        console.log("Received code execution request for problem:", problemId);
 
         // ── Lookup problem from JSON data ──────────────────────────────
-        const problem = getProblemById(problemId);
+        const problem = await getProblemById(problemId);
         if (!problem) {
             return NextResponse.json(
                 { success: false, error: `Problem "${problemId}" not found.` },

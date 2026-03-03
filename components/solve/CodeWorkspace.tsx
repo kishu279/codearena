@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import CodeEditor from "@/components/editor/CodeEditor";
 import { useTheme } from "@/components/theme/ThemeProvider";
+import { languageOptions } from "@/lib/types";
 import type { EditorLanguage } from "@/lib/types";
 import axios from "axios";
 
@@ -16,13 +17,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const languageOptions: Array<{ label: string; value: EditorLanguage, disabled?: boolean }> = [
-  { label: "JavaScript", value: "javascript", disabled: true },
-  { label: "TypeScript", value: "typescript", disabled: true },
-  { label: "Python", value: "python" },
-  { label: "Java", value: "java", disabled: true },
-  { label: "C++", value: "cpp", disabled: true },
-];
 
 const defaultCode: Record<EditorLanguage, string> = {
   javascript:

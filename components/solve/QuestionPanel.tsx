@@ -74,6 +74,29 @@ export default function QuestionPanel({ question, questionId }: QuestionPanelPro
             ))}
           </div>
         </section>
+
+        {(question.testCases||[]).length > 0 && (
+          <section className="space-y-3 pb-2">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-text-secondary">Test Cases</h2>
+            <div className="space-y-3">
+              {(question.testCases||[]).map((testCase, index) => (
+                <div key={`${testCase.input}-${index}`} className="rounded-xl border border-border bg-surface-2 p-4 shadow-[var(--shadow-sm)]">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Test Case {index + 1}</p>
+                  <div className="mt-3 space-y-3 text-sm">
+                    <div>
+                      <p className="mb-1 text-xs text-text-secondary">Input</p>
+                      <pre className="overflow-x-auto rounded-md bg-code-bg p-3 text-code-text">{testCase.input}</pre>
+                    </div>
+                    <div>
+                      <p className="mb-1 text-xs text-text-secondary">Expected Output</p>
+                      <pre className="overflow-x-auto rounded-md bg-code-bg p-3 text-code-text">{testCase.output}</pre>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </article>
   );

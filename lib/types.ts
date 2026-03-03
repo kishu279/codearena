@@ -5,7 +5,20 @@ export type ProblemAttemptStatus = "SOLVED" | "UNSOLVED" | "NOT_ATTEMPTED";
 export type LeaderboardFilter = "weekly" | "monthly" | "all_time";
 
 export type QuestionDifficulty = "Easy" | "Medium" | "Hard";
-export type EditorLanguage = "javascript" | "typescript" | "python" | "java" | "cpp";
+export type EditorLanguage =
+  | "javascript"
+  | "typescript"
+  | "python"
+  | "java"
+  | "cpp";
+
+export const languageOptions: Array<{ label: string; value: EditorLanguage; disabled?: boolean }> = [
+  { label: "JavaScript", value: "javascript", disabled: true },
+  { label: "TypeScript", value: "typescript", disabled: true },
+  { label: "Python", value: "python" },
+  { label: "Java", value: "java", disabled: true },
+  { label: "C++", value: "cpp", disabled: true },
+];
 
 export type AuthUser = {
   id: string;
@@ -81,6 +94,7 @@ export type CodingQuestion = {
   description: string;
   constraints: string[];
   samples: QuestionSample[];
+  testCases: QuestionSample[];
   starterCode: Record<EditorLanguage, string>;
 };
 
@@ -146,4 +160,40 @@ export type CodeRunnerResponse = {
   verdict: "Accepted" | "Wrong Answer" | "Runtime Error";
   results: TestCaseResult[];
   error?: string;
+};
+
+// ── Admin Dashboard Types ───────────────────────────────────────
+
+export type AdminStats = {
+  totalUsers: number;
+  totalProblems: number;
+  totalContests: number;
+  totalSubmissions: number;
+  activeUsers: number;
+  systemHealth: string;
+};
+
+export type RecentSubmission = {
+  id: string;
+  userId: string;
+  username: string;
+  problemTitle: string;
+  status: string;
+  language: string;
+  submittedAt: string;
+};
+
+export type SystemActivity = {
+  id: string;
+  type: "user" | "contest" | "problem" | "system";
+  action: string;
+  description: string;
+  timestamp: string;
+};
+
+export type AdminDashboardData = {
+  stats: AdminStats;
+  recentSubmissions: RecentSubmission[];
+  systemActivity: SystemActivity[];
+  topUsers: Array<{ username: string; submissions: number; solved: number }>;
 };
