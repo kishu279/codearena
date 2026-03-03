@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { getAllContests } from "@/lib/data";
 
 export async function GET() {
-  const contests = getAllContests();
+  const contests = await getAllContests();
 
   const formattedContests = contests.map((contest) => ({
     id: contest.id,

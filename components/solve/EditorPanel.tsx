@@ -13,8 +13,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { runContestCode, submitContestCode } from "@/lib/services/contest-service";
-import { runQuestionCode, submitQuestionCode } from "@/lib/services/question-service";
+import {
+  runContestCode,
+  submitContestCode,
+} from "@/lib/services/contest-service";
+import {
+  runQuestionCode,
+  submitQuestionCode,
+} from "@/lib/services/question-service";
 import type { CodingQuestion, EditorLanguage } from "@/lib/types";
 
 type EditorPanelProps = {
@@ -32,14 +38,27 @@ const languageOptions: Array<{ label: string; value: EditorLanguage }> = [
 ];
 
 function getDefaultLanguage(question: CodingQuestion) {
-  return question.starterCode.javascript ? "javascript" : languageOptions[0].value;
+  // return { label: "JavaScript", value: "javascript" };
+  return question.starterCode.javascript
+    ? "javascript"
+    : languageOptions[0].value;
 }
 
-export default function EditorPanel({ question, questionId, contestId }: EditorPanelProps) {
+export default function EditorPanel({
+  question,
+  questionId,
+  contestId,
+}: EditorPanelProps) {
   const { theme } = useTheme();
-  const [selectedLanguage, setSelectedLanguage] = useState<EditorLanguage>(getDefaultLanguage(question));
-  const [codeByLanguage, setCodeByLanguage] = useState(() => ({ ...question.starterCode }));
-  const [consoleOutput, setConsoleOutput] = useState("Click Run to execute your code.");
+  const [selectedLanguage, setSelectedLanguage] = useState<EditorLanguage>(
+    getDefaultLanguage(question),
+  );
+  const [codeByLanguage, setCodeByLanguage] = useState(() => ({
+    ...question.starterCode,
+  }));
+  const [consoleOutput, setConsoleOutput] = useState(
+    "Click Run to execute your code.",
+  );
   const [isOutputOpen, setIsOutputOpen] = useState(true);
   const [isRunning, setIsRunning] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,21 +94,23 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
     try {
       const result = contestId
         ? await runContestCode({
-          contestId,
-          problemId: questionId,
-          language: selectedLanguage,
-          code: activeCode,
-        })
+            contestId,
+            problemId: questionId,
+            language: selectedLanguage,
+            code: activeCode,
+          })
         : await runQuestionCode({
-          questionId,
-          language: selectedLanguage,
-          code: activeCode,
-        });
+            questionId,
+            language: selectedLanguage,
+            code: activeCode,
+          });
 
       setConsoleOutput(result.stdout || "No output.");
     } catch (error) {
       setConsoleOutput(
-        error instanceof Error ? `Error: ${error.message}` : "Run failed. Please retry.",
+        error instanceof Error
+          ? `Error: ${error.message}`
+          : "Run failed. Please retry.",
       );
     } finally {
       setIsRunning(false);
@@ -103,16 +124,16 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
     try {
       const result = contestId
         ? await submitContestCode({
-          contestId,
-          problemId: questionId,
-          language: selectedLanguage,
-          code: activeCode,
-        })
+            contestId,
+            problemId: questionId,
+            language: selectedLanguage,
+            code: activeCode,
+          })
         : await submitQuestionCode({
-          questionId,
-          language: selectedLanguage,
-          code: activeCode,
-        });
+            questionId,
+            language: selectedLanguage,
+            code: activeCode,
+          });
 
       setConsoleOutput(
         [
@@ -124,7 +145,9 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
       );
     } catch (error) {
       setConsoleOutput(
-        error instanceof Error ? `Error: ${error.message}` : "Submission failed. Please retry.",
+        error instanceof Error
+          ? `Error: ${error.message}`
+          : "Submission failed. Please retry.",
       );
     } finally {
       setIsSubmitting(false);
@@ -136,12 +159,17 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
     <section className="flex h-full min-h-[560px] flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-sm)]">
       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
         <div className="flex items-center gap-3">
-          <Label htmlFor="language-select" className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+          <Label
+            htmlFor="language-select"
+            className="text-xs font-semibold uppercase tracking-wide text-text-secondary"
+          >
             Language
           </Label>
           <Select
             value={selectedLanguage}
-            onValueChange={(value) => setSelectedLanguage(value as EditorLanguage)}
+            onValueChange={(value) =>
+              setSelectedLanguage(value as EditorLanguage)
+            }
             disabled={controlsDisabled}
           >
             <SelectTrigger className="w-[160px] bg-surface-2">
@@ -165,10 +193,7 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
           >
             {runLabel}
           </Button>
-          <Button
-            onClick={handleSubmit}
-            disabled={controlsDisabled}
-          >
+          <Button onClick={handleSubmit} disabled={controlsDisabled}>
             {submitLabel}
           </Button>
         </div>
@@ -192,7 +217,9 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
 
       <footer className="border-t border-border">
         <div className="flex items-center justify-between px-4 py-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Console Output</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+            Console Output
+          </h2>
           <Button
             variant="outline"
             size="sm"
@@ -203,8 +230,9 @@ export default function EditorPanel({ question, questionId, contestId }: EditorP
         </div>
 
         <div
-          className={`overflow-hidden border-t border-border transition-all duration-200 ${isOutputOpen ? "max-h-56" : "max-h-0"
-            }`}
+          className={`overflow-hidden border-t border-border transition-all duration-200 ${
+            isOutputOpen ? "max-h-56" : "max-h-0"
+          }`}
         >
           <pre className="min-h-24 overflow-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
             {consoleOutput}

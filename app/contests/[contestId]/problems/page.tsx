@@ -13,7 +13,7 @@ const MOCK_USER_ID = "u1";
 
 export default async function ContestProblemsPage({ params }: ContestProblemsPageProps) {
   const { contestId } = await params;
-  const contest = getContestById(contestId);
+  const contest = await getContestById(contestId);
 
   if (!contest) {
     notFound();

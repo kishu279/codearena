@@ -9,7 +9,7 @@ type ContestRouteContext = {
 export async function GET(_request: Request, { params }: ContestRouteContext) {
   const { contestId } = await params;
 
-  const contest = getContestById(contestId);
+  const contest = await getContestById(contestId);
 
   if (!contest) {
     return NextResponse.json({ error: `Contest ${contestId} not found.` }, { status: 404 });

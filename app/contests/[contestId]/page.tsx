@@ -13,13 +13,13 @@ type ContestDetailProps = {
 
 export default async function ContestDetailPage({ params }: ContestDetailProps) {
   const { contestId } = await params;
-  const contest = getContestById(contestId);
+  const contest = await getContestById(contestId);
 
   if (!contest) {
     notFound();
   }
 
-  const status = getContestStatus(contest.startTime, contest.duration);
+  const status = getContestStatus(contest.startTime.toISOString(), contest.duration);
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
@@ -35,7 +35,7 @@ export default async function ContestDetailPage({ params }: ContestDetailProps) 
             <p className="mb-4 text-sm text-text-secondary">{contest.description}</p>
           )}
           <div className="space-y-1 text-sm text-text-secondary">
-            <p>Start: {formatDateTime(contest.startTime)}</p>
+            <p>Start: {formatDateTime(contest.startTime.toISOString())}</p>
             <p>Duration: {formatDuration(contest.duration)}</p>
           </div>
         </CardContent>

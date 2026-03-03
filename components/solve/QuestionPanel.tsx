@@ -40,7 +40,7 @@ export default function QuestionPanel({ question, questionId }: QuestionPanelPro
         <section className="space-y-2">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-text-secondary">Constraints</h2>
           <ul className="space-y-2 text-sm text-text-primary">
-            {question.constraints.map((constraint) => (
+            {(question.constraints || []).map((constraint) => (
               <li key={constraint} className="rounded-lg border border-border bg-surface-2 px-3 py-2">
                 {constraint}
               </li>
@@ -51,7 +51,7 @@ export default function QuestionPanel({ question, questionId }: QuestionPanelPro
         <section className="space-y-3 pb-2">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-text-secondary">Samples</h2>
           <div className="space-y-3">
-            {question.samples.map((sample, index) => (
+            {(question.samples||[]).map((sample, index) => (
               <div key={`${sample.input}-${index}`} className="rounded-xl border border-border bg-surface-2 p-4 shadow-[var(--shadow-sm)]">
                 <p className="text-xs font-semibold uppercase tracking-wide text-text-secondary">Sample {index + 1}</p>
                 <div className="mt-3 space-y-3 text-sm">

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { getAllProblems } from "@/lib/data";
 
 export async function GET() {
-  const problems = getAllProblems();
+  const problems = await getAllProblems();
 
   const formattedProblems = problems.map((problem) => ({
     id: problem.id,

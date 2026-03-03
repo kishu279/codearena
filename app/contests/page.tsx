@@ -3,12 +3,12 @@ import { getAllContests } from "@/lib/data";
 import type { ContestListItem, ContestProblem } from "@/lib/types";
 
 export default async function ContestsPage() {
-  const contests = getAllContests();
+  const contests = await getAllContests();
 
   const contestListItems: ContestListItem[] = contests.map((c) => ({
     id: c.id,
     title: c.title,
-    startTime: c.startTime,
+    startTime: c.startTime.toISOString(),
     durationMinutes: c.duration,
     problems: c.problems.map((p): ContestProblem => ({
       id: p.id,
