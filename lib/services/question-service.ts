@@ -16,13 +16,19 @@ type RunPayload = {
 type SubmitPayload = Omit<RunPayload, "customTestCases">;
 
 export async function fetchQuestionById(questionId: string, signal?: AbortSignal) {
+  console.log('[Client] Fetching question:', questionId);
   const response = await fetch(`/api/problems/${questionId}`, {
     method: "GET",
     cache: "no-store",
     signal,
   });
 
+  console.log('[Client] Response status:', response.status);
+  console.log('[Client] Response headers:', Object.fromEntries(response.headers.entries()));
+  
   const payload = (await response.json()) as QuestionResponse;
+  console.log('[Client] Response data:', payload);
+  
   if (!response.ok || !payload.data) {
     throw new Error(payload.error ?? "Unable to load question details.");
   }
