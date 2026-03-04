@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { getLabById } from "@/lib/mock-data";
 import LabDetailsLayout from "@/components/labs/LabDetailsLayout";
 
 interface LabPageProps {
@@ -8,7 +7,24 @@ interface LabPageProps {
 
 export default async function LabPage({ params }: LabPageProps) {
   const { labId } = await params;
-  const lab = getLabById(labId);
+  let lab;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/labs/${labId}`,
+    );
+
+    if (response.ok == false) {
+      notFound();
+    }
+
+    const data = await response.json();
+
+    console.log(`Fetched lab details for ${labId}:`, data);
+
+    lab = data.data;
+  } catch (error) {
+    console.error("Error fetching lab details:", error);
+  }
 
   if (!lab) {
     notFound();

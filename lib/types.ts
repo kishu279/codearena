@@ -80,6 +80,16 @@ export type LabListItem = {
   assignmentCount: number;
 };
 
+export type InstituteListItem = {
+  id: string;
+  name: string;
+  slug: string;
+  description: string | null;
+  memberCount: number;
+  labCount: number;
+  contestCount: number;
+};
+
 export type ContestSubmissionState = {
   userId: string;
   contestId: string;
@@ -219,54 +229,75 @@ export type CourseDetail = {
 
 // ── Lab Types ───────────────────────────────────────────────────
 
-export type LabVideo = {
+export type LabDetailProblem = {
   id: string;
   title: string;
-  duration: string;
+  slug: string;
+  difficulty: "EASY" | "MEDIUM" | "HARD";
+  order: number | null;
 };
 
-export type LabAssignment = {
+export type LabDetailResource = {
   id: string;
   title: string;
-  dueDate?: string;
+  description: string | null;
+  type: string;
+  url: string | null;
+  fileUrl: string | null;
+  content: string | null;
+  order: number | null;
 };
 
-export type LabProblem = {
+export type LabDetailAssignment = {
   id: string;
   title: string;
-  difficulty: "Easy" | "Medium" | "Hard";
+  description: string | null;
+  startTime: string;
+  endTime: string;
+  problems: LabDetailProblem[];
+  resource: LabDetailResource[];
 };
 
-export type LabResource = {
+export type LabDetailMember = {
   id: string;
-  title: string;
-  type: "pdf" | "link" | "video";
-};
-
-export type LabAnnouncement = {
-  id: string;
-  title: string;
-  date: string;
-};
-
-export type LabLecture = {
-  id: string;
-  title: string;
-  videos: LabVideo[];
-  assignments: LabAssignment[];
-  problems: LabProblem[];
-  resources?: LabResource[];
-  announcements?: LabAnnouncement[];
+  userId: string;
+  labId: string;
+  role: string;
+  joinedAt: string;
+  user: {
+    id: string;
+    name: string | null;
+    email: string;
+    image: string | null;
+  };
 };
 
 export type LabDetail = {
   id: string;
   title: string;
-  instructor: string;
-  description: string;
-  memberCount: number;
-  assignmentCount: number;
-  lectures: LabLecture[];
+  slug: string;
+  description: string | null;
+  instituteId: string | null;
+  createdById: string | null;
+  createdAt: string;
+  updatedAt: string;
+  institute: {
+    id: string;
+    name: string;
+    slug: string;
+    description: string | null;
+    createdAt: string;
+    updatedAt: string;
+  } | null;
+  createdBy: {
+    id: string;
+    name: string | null;
+    email: string;
+    image: string | null;
+  } | null;
+  members: LabDetailMember[];
+  assignments: LabDetailAssignment[];
+  resource: LabDetailResource[];
 };
 
 // ── Admin Dashboard Types ───────────────────────────────────────

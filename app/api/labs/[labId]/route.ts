@@ -12,6 +12,8 @@ export async function GET(_request: NextRequest, { params }: RouteContext) {
   try {
     const lab = await getLabById(labId);
 
+    console.log(`###SERVER#### Fetched lab details for ${labId}:`, lab);
+
     if (!lab) {
       return errorResponse(`Lab ${labId} not found.`, 404);
     }

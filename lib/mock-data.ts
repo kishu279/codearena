@@ -552,31 +552,55 @@ const labs: LabDetail[] = [
           { id: "v3", title: "Flexbox Deep Dive", duration: "18 min" },
         ],
         assignments: [
-          { id: "a1", title: "Build a Responsive Landing Page", dueDate: "2026-03-15" },
-          { id: "a2", title: "CSS Grid Layout Exercise", dueDate: "2026-03-17" },
+          {
+            id: "a1",
+            title: "Build a Responsive Landing Page",
+            dueDate: "2026-03-15",
+          },
+          {
+            id: "a2",
+            title: "CSS Grid Layout Exercise",
+            dueDate: "2026-03-17",
+          },
         ],
         problems: [
           { id: "pr1", title: "CSS Selector Matching", difficulty: "Easy" },
-          { id: "pr2", title: "Flexbox Alignment Challenge", difficulty: "Medium" },
+          {
+            id: "pr2",
+            title: "Flexbox Alignment Challenge",
+            difficulty: "Medium",
+          },
         ],
         resources: [
           { id: "r1", title: "MDN HTML Reference", type: "link" },
           { id: "r2", title: "CSS Tricks Flexbox Guide", type: "link" },
         ],
         announcements: [
-          { id: "ann1", title: "Assignment 1 deadline extended", date: "2026-03-10" },
+          {
+            id: "ann1",
+            title: "Assignment 1 deadline extended",
+            date: "2026-03-10",
+          },
         ],
       },
       {
         id: "lec-2",
         title: "JavaScript Essentials",
         videos: [
-          { id: "v4", title: "Variables, Scope & Closures", duration: "22 min" },
+          {
+            id: "v4",
+            title: "Variables, Scope & Closures",
+            duration: "22 min",
+          },
           { id: "v5", title: "Asynchronous JS & Promises", duration: "26 min" },
           { id: "v6", title: "DOM Manipulation", duration: "19 min" },
         ],
         assignments: [
-          { id: "a3", title: "Todo App with Vanilla JS", dueDate: "2026-03-22" },
+          {
+            id: "a3",
+            title: "Todo App with Vanilla JS",
+            dueDate: "2026-03-22",
+          },
         ],
         problems: [
           { id: "pr3", title: "Debounce Implementation", difficulty: "Medium" },
@@ -593,11 +617,23 @@ const labs: LabDetail[] = [
         videos: [
           { id: "v7", title: "Thinking in React", duration: "20 min" },
           { id: "v8", title: "useState & useEffect Hooks", duration: "28 min" },
-          { id: "v9", title: "React Context & State Management", duration: "30 min" },
+          {
+            id: "v9",
+            title: "React Context & State Management",
+            duration: "30 min",
+          },
         ],
         assignments: [
-          { id: "a4", title: "Build a Weather Dashboard", dueDate: "2026-03-29" },
-          { id: "a5", title: "Shopping Cart with Context API", dueDate: "2026-04-01" },
+          {
+            id: "a4",
+            title: "Build a Weather Dashboard",
+            dueDate: "2026-03-29",
+          },
+          {
+            id: "a5",
+            title: "Shopping Cart with Context API",
+            dueDate: "2026-04-01",
+          },
         ],
         problems: [
           { id: "pr5", title: "Custom useFetch Hook", difficulty: "Medium" },
@@ -608,7 +644,11 @@ const labs: LabDetail[] = [
           { id: "r6", title: "Component Design Patterns", type: "video" },
         ],
         announcements: [
-          { id: "ann2", title: "Guest lecture on React performance this Friday", date: "2026-03-25" },
+          {
+            id: "ann2",
+            title: "Guest lecture on React performance this Friday",
+            date: "2026-03-25",
+          },
         ],
       },
       {
@@ -620,15 +660,21 @@ const labs: LabDetail[] = [
           { id: "v12", title: "Authentication with JWT", duration: "24 min" },
         ],
         assignments: [
-          { id: "a6", title: "Connect App to Public API", dueDate: "2026-04-07" },
+          {
+            id: "a6",
+            title: "Connect App to Public API",
+            dueDate: "2026-04-07",
+          },
         ],
         problems: [
           { id: "pr7", title: "Rate Limiter Simulation", difficulty: "Medium" },
-          { id: "pr8", title: "JWT Decode Without Library", difficulty: "Hard" },
+          {
+            id: "pr8",
+            title: "JWT Decode Without Library",
+            difficulty: "Hard",
+          },
         ],
-        resources: [
-          { id: "r7", title: "REST API Design Guide", type: "pdf" },
-        ],
+        resources: [{ id: "r7", title: "REST API Design Guide", type: "pdf" }],
       },
     ],
   },
@@ -668,8 +714,16 @@ const labs: LabDetail[] = [
           { id: "v17", title: "Topological Sort", duration: "22 min" },
         ],
         assignments: [
-          { id: "a8", title: "Shortest Path in Weighted Graph", dueDate: "2026-03-21" },
-          { id: "a9", title: "Detect Cycle in Directed Graph", dueDate: "2026-03-23" },
+          {
+            id: "a8",
+            title: "Shortest Path in Weighted Graph",
+            dueDate: "2026-03-21",
+          },
+          {
+            id: "a9",
+            title: "Detect Cycle in Directed Graph",
+            dueDate: "2026-03-23",
+          },
         ],
         problems: [
           { id: "pr11", title: "Number of Islands", difficulty: "Medium" },
@@ -681,7 +735,11 @@ const labs: LabDetail[] = [
           { id: "r10", title: "Pathfinding Algorithms Video", type: "video" },
         ],
         announcements: [
-          { id: "ann3", title: "Extra office hours for graph assignment", date: "2026-03-18" },
+          {
+            id: "ann3",
+            title: "Extra office hours for graph assignment",
+            date: "2026-03-18",
+          },
         ],
       },
     ],
