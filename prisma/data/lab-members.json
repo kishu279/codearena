@@ -40,5 +40,53 @@
     "userId": "user_student_3",
     "labId": "lab_algo_1",
     "role": "STUDENT"
+  },
+  {
+    "id": "lm_8",
+    "userId": "user_instructor_2",
+    "labId": "lab_web_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_9",
+    "userId": "user_student_2",
+    "labId": "lab_web_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_10",
+    "userId": "user_student_3",
+    "labId": "lab_web_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_11",
+    "userId": "user_admin_1",
+    "labId": "lab_codearena_1",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_12",
+    "userId": "user_student_1",
+    "labId": "lab_codearena_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_13",
+    "userId": "user_student_2",
+    "labId": "lab_codearena_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_14",
+    "userId": "user_student_3",
+    "labId": "lab_codearena_1",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_15",
+    "userId": "user_1",
+    "labId": "lab_codearena_1",
+    "role": "STUDENT"
   }
 ]

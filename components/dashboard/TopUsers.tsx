@@ -14,7 +14,7 @@ export default function TopUsers({ users }: TopUsersProps) {
   return (
     <Card className="bg-surface">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">Top Users</CardTitle>
+        <CardTitle>Top Users</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-3">
@@ -26,7 +26,7 @@ export default function TopUsers({ users }: TopUsersProps) {
                 </span>
                 <span className="font-medium text-foreground">{user.username}</span>
               </div>
-              <div className="flex gap-4 text-sm text-text-secondary">
+              <div className="flex gap-4 text-sm text-muted-foreground">
                 <span>{user.solved} solved</span>
                 <span>{user.submissions} submissions</span>
               </div>

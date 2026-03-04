@@ -1,7 +1,22 @@
+// import { getLabById } from "@/lib/mock-data";
 import { prisma } from "./prisma";
-import { Difficulty, ProblemTag, ContestStatus } from "@prisma/client";
+import {
+  Difficulty,
+  ProblemTag,
+  ContestStatus,
+  LabMemberRole,
+  InstituteMemberRole,
+  ResourceType,
+} from "@prisma/client";
 
-export { Difficulty, ProblemTag, ContestStatus } from "@prisma/client";
+export {
+  Difficulty,
+  ProblemTag,
+  ContestStatus,
+  LabMemberRole,
+  InstituteMemberRole,
+  ResourceType,
+} from "@prisma/client";
 
 export interface TestCase {
   input: string;
@@ -78,6 +93,371 @@ export async function getContestById(contestId: string) {
   });
 }
 
+/// ### LABS QUERIES #### ----------------------------------------->
+export interface LabsData {
+  id: string;
+  title: string;
+  slug: string;
+  description: string | null;
+  instituteId: string | null;
+  createdById: string | null;
+  memberCount: number;
+  assignmentCount: number;
+  resourceCount: number;
+}
+
+export async function getAllLabs(): Promise<LabsData[]> {
+  const labs = await prisma.lab.findMany({
+    include: {
+      members: true,
+      assignments: true,
+      resource: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return labs.map((lab) => ({
+    id: lab.id,
+    title: lab.title,
+    slug: lab.slug,
+    description: lab.description,
+    instituteId: lab.instituteId,
+    createdById: lab.createdById,
+    memberCount: lab.members.length,
+    assignmentCount: lab.assignments.length,
+    resourceCount: lab.resource.length,
+  }));
+}
+
+export async function getLabsByInstituteId(
+  instituteId: string,
+): Promise<LabsData[]> {
+  const labs = await prisma.lab.findMany({
+    where: { instituteId },
+    include: {
+      members: true,
+      assignments: true,
+      resource: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return labs.map((lab) => ({
+    id: lab.id,
+    title: lab.title,
+    slug: lab.slug,
+    description: lab.description,
+    instituteId: lab.instituteId,
+    createdById: lab.createdById,
+    memberCount: lab.members.length,
+    assignmentCount: lab.assignments.length,
+    resourceCount: lab.resource.length,
+  }));
+}
+
+export async function getLabById(labId: string) {
+  return await prisma.lab.findUnique({
+    where: { id: labId },
+    include: {
+      institute: true,
+      createdBy: {
+        select: { id: true, name: true, email: true, image: true },
+      },
+      members: {
+        include: {
+          user: {
+            select: { id: true, name: true, email: true, image: true },
+          },
+        },
+        orderBy: { joinedAt: "asc" },
+      },
+      assignments: {
+        include: {
+          problems: {
+            orderBy: { order: "asc" },
+          },
+          resource: {
+            orderBy: { order: "asc" },
+          },
+        },
+        orderBy: { startTime: "asc" },
+      },
+      resource: {
+        where: { assignmentId: null },
+        orderBy: { order: "asc" },
+      },
+    },
+  });
+}
+
+export async function getLabBySlug(slug: string) {
+  return await prisma.lab.findUnique({
+    where: { slug },
+    include: {
+      institute: true,
+      createdBy: {
+        select: { id: true, name: true, email: true, image: true },
+      },
+      members: {
+        include: {
+          user: {
+            select: { id: true, name: true, email: true, image: true },
+          },
+        },
+        orderBy: { joinedAt: "asc" },
+      },
+      assignments: {
+        include: {
+          problems: {
+            orderBy: { order: "asc" },
+          },
+          resource: {
+            orderBy: { order: "asc" },
+          },
+        },
+        orderBy: { startTime: "asc" },
+      },
+      resource: {
+        where: { assignmentId: null },
+        orderBy: { order: "asc" },
+      },
+    },
+  });
+}
+
+export async function getLabMembers(labId: string) {
+  return await prisma.labMember.findMany({
+    where: { labId },
+    include: {
+      user: {
+        select: { id: true, name: true, email: true, image: true, role: true },
+      },
+    },
+    orderBy: { joinedAt: "asc" },
+  });
+}
+
+/// ### ASSIGNMENT QUERIES #### ------------------------------------->
+
+export async function getAssignmentById(assignmentId: string) {
+  return await prisma.assignment.findUnique({
+    where: { id: assignmentId },
+    include: {
+      lab: {
+        include: {
+          institute: true,
+        },
+      },
+      problems: {
+        orderBy: { order: "asc" },
+      },
+      resource: {
+        orderBy: { order: "asc" },
+      },
+      parent: true,
+      children: true,
+    },
+  });
+}
+
+export async function getAssignmentsByLabId(labId: string) {
+  return await prisma.assignment.findMany({
+    where: { labId },
+    include: {
+      problems: {
+        orderBy: { order: "asc" },
+      },
+      resource: {
+        orderBy: { order: "asc" },
+      },
+    },
+    orderBy: { startTime: "asc" },
+  });
+}
+
+/// ### RESOURCE QUERIES #### --------------------------------------->
+
+export async function getResourceById(resourceId: string) {
+  return await prisma.resource.findUnique({
+    where: { id: resourceId },
+    include: {
+      assignment: true,
+      lab: true,
+      uploadedBy: {
+        select: { id: true, name: true, email: true, image: true },
+      },
+    },
+  });
+}
+
+export async function getResourcesByLabId(labId: string) {
+  return await prisma.resource.findMany({
+    where: { labId, assignmentId: null },
+    include: {
+      uploadedBy: {
+        select: { id: true, name: true, email: true },
+      },
+    },
+    orderBy: { order: "asc" },
+  });
+}
+
+export async function getResourcesByAssignmentId(assignmentId: string) {
+  return await prisma.resource.findMany({
+    where: { assignmentId },
+    include: {
+      uploadedBy: {
+        select: { id: true, name: true, email: true },
+      },
+    },
+    orderBy: { order: "asc" },
+  });
+}
+
+/// ### INSTITUTE QUERIES #### ------------------------------------->
+
+export async function getAllInstitutes() {
+  const institutes = await prisma.institute.findMany({
+    include: {
+      members: true,
+      labs: true,
+      contests: true,
+    },
+    orderBy: { name: "asc" },
+  });
+
+  return institutes.map((inst) => ({
+    id: inst.id,
+    name: inst.name,
+    slug: inst.slug,
+    description: inst.description,
+    memberCount: inst.members.length,
+    labCount: inst.labs.length,
+    contestCount: inst.contests.length,
+  }));
+}
+
+export async function getInstituteById(instituteId: string) {
+  return await prisma.institute.findUnique({
+    where: { id: instituteId },
+    include: {
+      members: {
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              image: true,
+              role: true,
+            },
+          },
+        },
+        orderBy: { joinedAt: "asc" },
+      },
+      labs: {
+        include: {
+          members: true,
+          assignments: true,
+        },
+      },
+      contests: {
+        orderBy: { startTime: "desc" },
+      },
+    },
+  });
+}
+
+export async function getInstituteBySlug(slug: string) {
+  return await prisma.institute.findUnique({
+    where: { slug },
+    include: {
+      members: {
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              image: true,
+              role: true,
+            },
+          },
+        },
+        orderBy: { joinedAt: "asc" },
+      },
+      labs: {
+        include: {
+          members: true,
+          assignments: true,
+        },
+      },
+      contests: {
+        orderBy: { startTime: "desc" },
+      },
+    },
+  });
+}
+
+/// ### SUBMISSION QUERIES #### ------------------------------------->
+
+export async function getSubmissionsByUserId(userId: string) {
+  return await prisma.submission.findMany({
+    where: { userId },
+    include: {
+      problem: {
+        select: {
+          id: true,
+          title: true,
+          slug: true,
+          difficulty: true,
+          tag: true,
+        },
+      },
+      contest: {
+        select: { id: true, title: true, slug: true },
+      },
+    },
+    orderBy: { submittedAt: "desc" },
+  });
+}
+
+export async function getSubmissionsByProblemId(problemId: string) {
+  return await prisma.submission.findMany({
+    where: { problemId },
+    include: {
+      user: {
+        select: { id: true, name: true, email: true },
+      },
+    },
+    orderBy: { submittedAt: "desc" },
+  });
+}
+
+/// ### USER QUERIES #### ------------------------------------------->
+
+export async function getUserById(userId: string) {
+  return await prisma.user.findUnique({
+    where: { id: userId },
+    include: {
+      submissions: {
+        orderBy: { submittedAt: "desc" },
+        take: 20,
+      },
+      instituteMemberships: {
+        include: { institute: true },
+      },
+      labMemberships: {
+        include: { lab: true },
+      },
+      createdLabs: true,
+      createdContests: true,
+    },
+  });
+}
+
+/// ### PROBLEM QUERIES #### ---------------------------------------->
+
 export async function getProblemById(
   problemId: string,
 ): Promise<Problem | null> {
@@ -136,23 +516,27 @@ int main() {
 `,
 };
 
-export const createUser = async (name: string, email: string, image: string) => {
+export const createUser = async (
+  name: string,
+  email: string,
+  image: string,
+) => {
   const user = await prisma.user.create({
     data: {
       name,
       email,
-    }
-  })
+    },
+  });
 
-  console.log("User created successfully", user)
-  return user
-}
+  console.log("User created successfully", user);
+  return user;
+};
 
 export const findUserByEmail = async (email: string) => {
   return prisma.user.findUnique({
-    where: { email }
-  })
-}
+    where: { email },
+  });
+};
 
 export async function getCodingQuestion(
   problemId: string,
@@ -203,9 +587,4 @@ export async function getCodingQuestion(
     testCases,
     starterCode: { ...starterCodeTemplates },
   };
-}
-
-// CODE SUBMISSIONS
-export async function SaveSubmittedCode() {
-  // SAVE ALL THE CODE SUBMISSIONS IN THE DATABASE
 }

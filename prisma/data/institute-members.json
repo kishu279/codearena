@@ -34,5 +34,11 @@
     "userId": "user_instructor_1",
     "instituteId": "inst_college_1",
     "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_7",
+    "userId": "user_instructor_2",
+    "instituteId": "inst_college_1",
+    "role": "INSTRUCTOR"
   }
 ]

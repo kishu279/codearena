@@ -38,7 +38,7 @@ export default function AdminDashboardStats({ stats }: AdminStatsProps) {
             }`}
           >
             <CardHeader className="pb-2">
-              <p className="text-xs uppercase tracking-wide text-text-secondary">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 {item.icon} {item.label}
               </p>
             </CardHeader>

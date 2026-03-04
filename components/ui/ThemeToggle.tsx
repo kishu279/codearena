@@ -43,7 +43,7 @@ export default function ThemeToggle() {
           <DropdownMenuItem
             key={themeOption}
             onClick={() => setTheme(themeOption as Theme)}
-            className={theme === themeOption ? "bg-primary text-accent-foreground" : ""}
+            className={theme === themeOption ? "bg-accent text-accent-foreground font-medium" : ""}
           >
             <div className="flex w-full items-center justify-between">
               <span>{getThemeLabel(themeOption as Theme)}</span>

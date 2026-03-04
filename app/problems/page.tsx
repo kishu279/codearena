@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge, type BadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
@@ -26,16 +26,12 @@ async function getProblems(): Promise<Problem[]> {
   }
 }
 
-function getDifficultyColor(difficulty: string): string {
+function getDifficultyVariant(difficulty: string): BadgeVariant {
   switch (difficulty) {
-    case "EASY":
-      return "bg-green-500/20 text-green-400";
-    case "MEDIUM":
-      return "bg-yellow-500/20 text-yellow-400";
-    case "HARD":
-      return "bg-red-500/20 text-red-400";
-    default:
-      return "bg-gray-500/20 text-gray-400";
+    case "EASY":   return "success";
+    case "MEDIUM": return "warning";
+    case "HARD":   return "destructive";
+    default:       return "secondary";
   }
 }
 
@@ -45,40 +41,40 @@ export default async function ProblemsPage() {
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-semibold text-foreground">Problems</h1>
-      <p className="mt-2 text-sm text-text-secondary">All available problems to practice.</p>
+      <p className="mt-2 text-sm text-muted-foreground">All available problems to practice.</p>
 
-      <Card className="mt-6 bg-surface">
+      <Card className="mt-6 bg-surface shadow-sm">
         <CardHeader>
           <h2 className="text-lg font-semibold text-foreground">Problem List</h2>
         </CardHeader>
         <CardContent>
           {problems.length === 0 ? (
-            <p className="text-text-secondary">No problems found.</p>
+            <p className="text-muted-foreground">No problems found.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-border text-left text-sm text-text-secondary">
-                    <th className="pb-3 pr-4">#</th>
-                    <th className="pb-3 pr-4">Title</th>
-                    <th className="pb-3 pr-4">Difficulty</th>
-                    <th className="pb-3 pr-4">Tag</th>
-                    <th className="pb-3">Action</th>
+                  <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
+                    <th className="pb-3 pr-4 font-medium">#</th>
+                    <th className="pb-3 pr-4 font-medium">Title</th>
+                    <th className="pb-3 pr-4 font-medium">Difficulty</th>
+                    <th className="pb-3 pr-4 font-medium">Tag</th>
+                    <th className="pb-3 font-medium">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   {problems.map((problem, index) => (
-                    <tr key={problem.id} className="border-b border-border/50">
-                      <td className="py-3 pr-4 text-text-secondary">{index + 1}</td>
+                    <tr key={problem.id} className="border-b border-border/50 last:border-0">
+                      <td className="py-3 pr-4 text-sm text-muted-foreground">{index + 1}</td>
                       <td className="py-3 pr-4">
                         <span className="font-medium text-foreground">{problem.title}</span>
                       </td>
                       <td className="py-3 pr-4">
-                        <Badge className={`rounded-full ${getDifficultyColor(problem.difficulty)}`}>
+                        <Badge variant={getDifficultyVariant(problem.difficulty)}>
                           {problem.difficulty}
                         </Badge>
                       </td>
-                      <td className="py-3 pr-4 text-text-secondary">{problem.tag}</td>
+                      <td className="py-3 pr-4 text-sm text-muted-foreground">{problem.tag}</td>
                       <td className="py-3">
                         <Button variant="outline" size="sm" asChild>
                           <Link href={`/solve/${problem.id}`}>Solve</Link>

@@ -40,7 +40,7 @@ export default function SystemActivity({ activities }: SystemActivityProps) {
   return (
     <Card className="bg-surface">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">System Activity</CardTitle>
+        <CardTitle>System Activity</CardTitle>
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">
@@ -52,11 +52,11 @@ export default function SystemActivity({ activities }: SystemActivityProps) {
                   <p className={`font-medium ${getActivityColor(activity.type)}`}>
                     {activity.action}
                   </p>
-                  <span className="text-xs text-text-secondary">
+                  <span className="text-xs text-muted-foreground">
                     {formatDateTime(activity.timestamp)}
                   </span>
                 </div>
-                <p className="mt-1 text-sm text-text-secondary">{activity.description}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{activity.description}</p>
               </div>
             </li>
           ))}

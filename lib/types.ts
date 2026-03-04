@@ -12,7 +12,11 @@ export type EditorLanguage =
   | "java"
   | "cpp";
 
-export const languageOptions: Array<{ label: string; value: EditorLanguage; disabled?: boolean }> = [
+export const languageOptions: Array<{
+  label: string;
+  value: EditorLanguage;
+  disabled?: boolean;
+}> = [
   { label: "JavaScript", value: "javascript", disabled: true },
   { label: "TypeScript", value: "typescript", disabled: true },
   { label: "Python", value: "python" },
@@ -65,6 +69,15 @@ export type ContestListItem = {
   startTime: string;
   durationMinutes: number;
   problems: ContestProblem[];
+};
+
+export type LabListItem = {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  memberCount: number;
+  assignmentCount: number;
 };
 
 export type ContestSubmissionState = {
@@ -120,7 +133,7 @@ export enum Difficulty {
 export enum Tags {
   PRACTICE = "PRACTICE",
   CONTEST = "CONTEST",
-  // LAB = "LAB",
+  LAB = "LAB",
 }
 
 // ── Unified Code Runner Types ──────────────────────────────────────────
@@ -160,6 +173,100 @@ export type CodeRunnerResponse = {
   verdict: "Accepted" | "Wrong Answer" | "Runtime Error";
   results: TestCaseResult[];
   error?: string;
+};
+
+// ── Course Types ────────────────────────────────────────────────
+
+export type CourseLecture = {
+  id: string;
+  title: string;
+  duration: string;
+};
+
+export type CourseLab = {
+  id: string;
+  title: string;
+};
+
+export type CourseAssignment = {
+  id: string;
+  title: string;
+  dueDate?: string;
+};
+
+export type CourseResource = {
+  id: string;
+  title: string;
+  type: "pdf" | "link" | "video";
+};
+
+export type CourseTopic = {
+  id: string;
+  title: string;
+  lectures: CourseLecture[];
+  labs: CourseLab[];
+  assignments: CourseAssignment[];
+  resources?: CourseResource[];
+};
+
+export type CourseDetail = {
+  id: string;
+  title: string;
+  instructor: string;
+  description: string;
+  topics: CourseTopic[];
+};
+
+// ── Lab Types ───────────────────────────────────────────────────
+
+export type LabVideo = {
+  id: string;
+  title: string;
+  duration: string;
+};
+
+export type LabAssignment = {
+  id: string;
+  title: string;
+  dueDate?: string;
+};
+
+export type LabProblem = {
+  id: string;
+  title: string;
+  difficulty: "Easy" | "Medium" | "Hard";
+};
+
+export type LabResource = {
+  id: string;
+  title: string;
+  type: "pdf" | "link" | "video";
+};
+
+export type LabAnnouncement = {
+  id: string;
+  title: string;
+  date: string;
+};
+
+export type LabLecture = {
+  id: string;
+  title: string;
+  videos: LabVideo[];
+  assignments: LabAssignment[];
+  problems: LabProblem[];
+  resources?: LabResource[];
+  announcements?: LabAnnouncement[];
+};
+
+export type LabDetail = {
+  id: string;
+  title: string;
+  instructor: string;
+  description: string;
+  memberCount: number;
+  assignmentCount: number;
+  lectures: LabLecture[];
 };
 
 // ── Admin Dashboard Types ───────────────────────────────────────

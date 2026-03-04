@@ -22,18 +22,18 @@ const features = [
 export default function Features() {
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
-      <div className="mb-6">
+      <div className="mb-8">
         <h2 className="text-2xl font-semibold text-foreground">Everything you need to level up</h2>
-        <p className="mt-2 text-sm text-text-secondary">A focused workflow from practice to competition.</p>
+        <p className="mt-2 text-sm text-muted-foreground">A focused workflow from practice to competition.</p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         {features.map((feature) => (
-          <Card key={feature.title} className="bg-surface">
-            <CardHeader>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
+          <Card key={feature.title} className="bg-surface shadow-sm">
+            <CardHeader className="pb-3">
+              <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm leading-6 text-text-secondary">{feature.description}</p>
+              <p className="text-sm leading-6 text-muted-foreground">{feature.description}</p>
             </CardContent>
           </Card>
         ))}

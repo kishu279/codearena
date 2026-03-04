@@ -78,7 +78,7 @@ export default function CodeWorkspace() {
   return (
     <section className="mx-auto w-full max-w-[1540px] px-4 py-6 sm:px-6 lg:px-8">
       <div className="mb-4 flex items-center justify-between rounded-xl border border-border bg-surface px-4 py-3 shadow-[var(--shadow-sm)]">
-        <p className="text-xs uppercase tracking-wide text-text-secondary">
+        <p className="text-xs uppercase tracking-wide text-muted-foreground">
           Code Editor
         </p>
       </div>
@@ -88,7 +88,7 @@ export default function CodeWorkspace() {
           <div className="flex items-center gap-3">
             <Label
               htmlFor="language-select"
-              className="text-xs font-semibold uppercase tracking-wide text-text-secondary"
+              className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
             >
               Language
             </Label>
@@ -139,7 +139,7 @@ export default function CodeWorkspace() {
 
         <footer className="border-t border-border">
           <div className="flex items-center justify-between px-4 py-3">
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Console Output
             </h2>
             <Button

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
 import AdminDashboardStats from "@/components/dashboard/AdminDashboardStats";
 import RecentSubmissions from "@/components/dashboard/RecentSubmissions";
 import SystemActivity from "@/components/dashboard/SystemActivity";
@@ -10,23 +10,13 @@ export default async function AdminDashboardPage() {
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-      <Card className="mb-8 bg-surface">
-        <CardHeader>
-          <p className="text-xs uppercase tracking-wide text-text-secondary">
-            Admin Dashboard
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold text-foreground">
-            Platform Overview
-          </h1>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap gap-4 text-sm text-text-secondary">
-            <span>Role: Super Admin</span>
-            <span>•</span>
-            <span>Last updated: Just now</span>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="mb-8">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground">Admin Dashboard</p>
+        <h1 className="mt-1 text-3xl font-semibold text-foreground">Platform Overview</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Role: Super Admin &nbsp;·&nbsp; Last updated: Just now
+        </p>
+      </div>
 
       <AdminDashboardStats stats={adminData.stats} />
 

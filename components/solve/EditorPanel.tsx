@@ -154,7 +154,7 @@ export default function EditorPanel({
         <div className="flex items-center gap-3">
           <Label
             htmlFor="language-select"
-            className="text-xs font-semibold uppercase tracking-wide text-text-secondary"
+            className="text-xs font-semibold uppercase tracking-wide text-muted-foreground"
           >
             Language
           </Label>
@@ -210,7 +210,7 @@ export default function EditorPanel({
 
       <footer className="border-t border-border">
         <div className="flex items-center justify-between px-4 py-3">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-text-secondary">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Console Output
           </h2>
           <Button

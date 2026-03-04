@@ -25,18 +25,18 @@ export default function RecentSubmissions({ submissions }: RecentSubmissionsProp
   return (
     <Card className="bg-surface">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">Recent Submissions</CardTitle>
+        <CardTitle>Recent Submissions</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border text-left text-xs uppercase text-text-secondary">
-                <th className="pb-3 pr-4">User</th>
-                <th className="pb-3 pr-4">Problem</th>
-                <th className="pb-3 pr-4">Status</th>
-                <th className="pb-3 pr-4">Language</th>
-                <th className="pb-3">Time</th>
+              <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
+                <th className="pb-3 pr-4 font-medium">User</th>
+                <th className="pb-3 pr-4 font-medium">Problem</th>
+                <th className="pb-3 pr-4 font-medium">Status</th>
+                <th className="pb-3 pr-4 font-medium">Language</th>
+                <th className="pb-3 font-medium">Time</th>
               </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@ export default function RecentSubmissions({ submissions }: RecentSubmissionsProp
                     <span className="font-medium text-foreground">{submission.username}</span>
                   </td>
                   <td className="py-3 pr-4">
-                    <span className="text-text-secondary">{submission.problemTitle}</span>
+                    <span className="text-sm text-muted-foreground">{submission.problemTitle}</span>
                   </td>
                   <td className="py-3 pr-4">
                     <span className={`font-medium ${getStatusColor(submission.status)}`}>
@@ -54,10 +54,10 @@ export default function RecentSubmissions({ submissions }: RecentSubmissionsProp
                     </span>
                   </td>
                   <td className="py-3 pr-4">
-                    <span className="text-sm text-text-secondary">{submission.language}</span>
+                    <span className="text-sm text-muted-foreground">{submission.language}</span>
                   </td>
                   <td className="py-3">
-                    <span className="text-xs text-text-secondary">
+                    <span className="text-xs text-muted-foreground">
                       {formatDateTime(submission.submittedAt)}
                     </span>
                   </td>

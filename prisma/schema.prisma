@@ -32,7 +32,8 @@ model User {
   // Labs & Contests created by this user
   createdLabs     Lab[]     @relation("LabCreator")
   createdContests Contest[] @relation("ContestCreator")
-
+  resource        Resource[] 
+  
   @@index([email])
 }
 
@@ -262,6 +263,7 @@ model Lab {
 
   assignments   Assignment[] // tasks inside this lab
   members       LabMember[]  // instructor + students in this lab
+  resource        Resource[]
 
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
@@ -308,10 +310,49 @@ model Assignment {
   parentId        String?          // if auto-created, points to template
   parent          Assignment?      @relation("RecurringAssignment", fields: [parentId], references: [id])
   children        Assignment[]     @relation("RecurringAssignment")
+  resource        Resource[]     
 
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 
   @@index([labId])
   @@index([parentId])
+}
+
+model Resource {
+  id          String       @id @default(cuid())
+  title       String
+  description String?
+  type        ResourceType // VIDEO, DOCUMENT, LINK, NOTE
+  
+  // Content
+  url         String?      // YouTube, external links
+  fileUrl     String?      // S3/storage URL for PDFs, docs
+  content     String?      // Raw markdown/text notes
+  
+  // Relations
+  assignmentId String?
+  assignment   Assignment?  @relation(fields: [assignmentId], references: [id])
+  
+  labId        String?      // Lab-level resources (not assignment-specific)
+  lab          Lab?         @relation(fields: [labId], references: [id])
+  
+  // Metadata
+  uploadedById String
+  uploadedBy   User         @relation(fields: [uploadedById], references: [id])
+  order        Int?         // Display order
+  isPublic     Boolean      @default(false)
+  
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([assignmentId])
+}
+
+enum ResourceType {
+  VIDEO
+  DOCUMENT
+  LINK
+  NOTE
+  CODE_SNIPPET
 }

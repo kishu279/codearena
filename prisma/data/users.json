@@ -1,43 +1,65 @@
 [
   {
+    "id": "user_superadmin_1",
+    "name": "Sourav Super Admin",
+    "email": "sourav@superadmin",
+    "password": "password123",
+    "image": null,
+    "role": "SUPER_ADMIN"
+  },
+  {
     "id": "user_admin_1",
-    "name": "Admin User",
-    "email": "admin@codearena.com",
+    "name": "Sourav Admin",
+    "email": "sourav@admin",
+    "password": "password123",
     "image": null,
     "role": "ADMIN"
   },
   {
     "id": "user_instructor_1",
-    "name": "Dr. Sarah Johnson",
-    "email": "sarah.johnson@university.edu",
+    "name": "Sourav Instructor",
+    "email": "sourav@instructor",
+    "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
-    "id": "user_instructor_2",
-    "name": "Prof. Michael Chen",
-    "email": "michael.chen@university.edu",
+    "id": "user_1",
+    "name": "Sourav User",
+    "email": "sourav@user",
+    "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
     "id": "user_student_1",
     "name": "Alice Smith",
-    "email": "alice.smith@student.edu",
+    "email": "alice@student",
+    "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
     "id": "user_student_2",
     "name": "Bob Williams",
-    "email": "bob.williams@student.edu",
+    "email": "bob@student",
+    "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
     "id": "user_student_3",
     "name": "Charlie Brown",
-    "email": "charlie.brown@student.edu",
+    "email": "charlie@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_instructor_2",
+    "name": "Priya Instructor",
+    "email": "priya@instructor",
+    "password": "password123",
     "image": null,
     "role": "USER"
   }

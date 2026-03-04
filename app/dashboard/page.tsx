@@ -7,7 +7,7 @@ export default function DashboardHubPage() {
     <section className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6">
       <div className="mb-8">
         <h1 className="text-3xl font-semibold text-foreground">Dashboard Hub</h1>
-        <p className="mt-2 text-text-secondary">
+        <p className="mt-2 text-sm text-muted-foreground">
           Select a role to view the corresponding dashboard
         </p>
       </div>
@@ -15,15 +15,13 @@ export default function DashboardHubPage() {
       <div className="grid gap-6 sm:grid-cols-3">
         {/* Super Admin Dashboard */}
         <Link href="/admin/dashboard">
-          <Card className="bg-surface transition-colors hover:border-primary/50 hover:bg-surface/80">
+          <Card className="bg-surface shadow-sm transition-colors hover:border-primary/50 hover:bg-surface/80">
             <CardHeader>
-              <CardTitle className="text-xl text-foreground">👑 Super Admin</CardTitle>
-              <CardDescription className="text-text-secondary">
-                Full platform access
-              </CardDescription>
+              <CardTitle>👑 Super Admin</CardTitle>
+              <CardDescription>Full platform access</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-text-secondary">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Platform overview</li>
                 <li>• User management</li>
                 <li>• System monitoring</li>
@@ -35,15 +33,13 @@ export default function DashboardHubPage() {
 
         {/* Admin Dashboard */}
         <Link href="/admin/dashboard">
-          <Card className="bg-surface transition-colors hover:border-primary/50 hover:bg-surface/80">
+          <Card className="bg-surface shadow-sm transition-colors hover:border-primary/50 hover:bg-surface/80">
             <CardHeader>
-              <CardTitle className="text-xl text-foreground">🛡️ Admin</CardTitle>
-              <CardDescription className="text-text-secondary">
-                Contest & problem management
-              </CardDescription>
+              <CardTitle>🛡️ Admin</CardTitle>
+              <CardDescription>Contest & problem management</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-text-secondary">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Contest analytics</li>
                 <li>• Problem management</li>
                 <li>• User activity</li>
@@ -55,15 +51,13 @@ export default function DashboardHubPage() {
 
         {/* User Dashboard */}
         <Link href="/sourav/dashboard">
-          <Card className="bg-surface transition-colors hover:border-primary/50 hover:bg-surface/80">
+          <Card className="bg-surface shadow-sm transition-colors hover:border-primary/50 hover:bg-surface/80">
             <CardHeader>
-              <CardTitle className="text-xl text-foreground">👤 User</CardTitle>
-              <CardDescription className="text-text-secondary">
-                Personal progress tracking
-              </CardDescription>
+              <CardTitle>👤 User</CardTitle>
+              <CardDescription>Personal progress tracking</CardDescription>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-text-secondary">
+              <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• Your stats</li>
                 <li>• Recent activity</li>
                 <li>• Solved problems</li>
@@ -74,27 +68,27 @@ export default function DashboardHubPage() {
         </Link>
       </div>
 
-      <Card className="mt-8 bg-surface">
+      <Card className="mt-8 bg-surface shadow-sm">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold text-foreground">Demo Accounts</CardTitle>
+          <CardTitle>Demo Accounts</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-4 text-sm">
             <div className="flex flex-col gap-2">
               <p className="font-medium text-foreground">Super Admin:</p>
-              <code className="rounded bg-surface-2 px-3 py-2 text-text-secondary">
+              <code className="rounded-md bg-surface-2 px-3 py-2 text-sm text-muted-foreground">
                 /admin/dashboard
               </code>
             </div>
             <div className="flex flex-col gap-2">
               <p className="font-medium text-foreground">Admin:</p>
-              <code className="rounded bg-surface-2 px-3 py-2 text-text-secondary">
+              <code className="rounded-md bg-surface-2 px-3 py-2 text-sm text-muted-foreground">
                 /admin/dashboard
               </code>
             </div>
             <div className="flex flex-col gap-2">
               <p className="font-medium text-foreground">Regular User:</p>
-              <code className="rounded bg-surface-2 px-3 py-2 text-text-secondary">
+              <code className="rounded-md bg-surface-2 px-3 py-2 text-sm text-muted-foreground">
                 /sourav/dashboard
               </code>
             </div>

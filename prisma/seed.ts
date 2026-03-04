@@ -8,9 +8,9 @@ import pg from "pg";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const pool = new pg.Pool({ 
+const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false
+  ssl: false,
 });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
@@ -39,6 +39,24 @@ const contestsData = JSON.parse(
 const problemsData = JSON.parse(
   readFileSync(join(__dirname, "data/problems.json"), "utf-8"),
 );
+const resourcesData = JSON.parse(
+  readFileSync(join(__dirname, "data/resources.json"), "utf-8"),
+);
+
+interface RawResource {
+  id: string;
+  title: string;
+  description?: string | null;
+  type: string;
+  url?: string | null;
+  fileUrl?: string | null;
+  content?: string | null;
+  assignmentId?: string | null;
+  labId?: string | null;
+  uploadedById: string;
+  order?: number | null;
+  isPublic: boolean;
+}
 
 interface RawProblem {
   id: string;
@@ -89,6 +107,7 @@ async function main() {
 
   // ── 1. Clear existing data (in correct order due to FK constraints) ──
   console.log("🗑️  Clearing existing data...");
+  await prisma.resource.deleteMany();
   await prisma.submission.deleteMany();
   await prisma.problem.deleteMany();
   await prisma.assignment.deleteMany();
@@ -253,6 +272,29 @@ async function main() {
   }
   console.log(`   📊 Total: ${problemsData.length} problems\n`);
 
+  // ── 10. Seed Resources ──
+  console.log("📚 Seeding resources...");
+  for (const r of resourcesData as RawResource[]) {
+    await prisma.resource.create({
+      data: {
+        id: r.id,
+        title: r.title,
+        description: r.description || null,
+        type: r.type,
+        url: r.url || null,
+        fileUrl: r.fileUrl || null,
+        content: r.content || null,
+        assignmentId: r.assignmentId || null,
+        labId: r.labId || null,
+        uploadedById: r.uploadedById,
+        order: r.order ?? null,
+        isPublic: r.isPublic,
+      },
+    });
+    console.log(`   ✅ ${r.title} [${r.type}]`);
+  }
+  console.log(`   📊 Total: ${resourcesData.length} resources\n`);
+
   // ── Summary ──
   const userCount = await prisma.user.count();
   const instituteCount = await prisma.institute.count();
@@ -267,6 +309,7 @@ async function main() {
     where: { tag: "CONTEST" },
   });
   const labProbCount = await prisma.problem.count({ where: { tag: "LAB" } });
+  const resourceCount = await prisma.resource.count();
 
   console.log("─────────────────────────────────");
   console.log("📊 Seed Summary:");
@@ -279,6 +322,7 @@ async function main() {
   console.log(`     PRACTICE:   ${practiceCount}`);
   console.log(`     CONTEST:    ${contestProbCount}`);
   console.log(`     LAB:        ${labProbCount}`);
+  console.log(`   Resources:    ${resourceCount}`);
   console.log("─────────────────────────────────");
   console.log("\n✅ Seeding complete!");
 }

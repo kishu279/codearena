@@ -53,5 +53,93 @@
     "isRecurring": false,
     "recurringType": null,
     "parentId": null
+  },
+  {
+    "id": "assign_dsa_week4",
+    "title": "Week 4: Dynamic Programming Intro",
+    "description": "Introduction to memoization and tabulation through classic DP problems",
+    "labId": "lab_dsa_1",
+    "startTime": "2026-03-22T00:00:00.000Z",
+    "endTime": "2026-03-29T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_os_week2",
+    "title": "Week 2: Memory Management",
+    "description": "Study virtual memory, paging strategies, and page replacement algorithms",
+    "labId": "lab_os_1",
+    "startTime": "2026-03-08T00:00:00.000Z",
+    "endTime": "2026-03-15T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_algo_graphs",
+    "title": "Graph Algorithms Deep Dive",
+    "description": "Master BFS, DFS, shortest paths, and advanced graph traversal problems",
+    "labId": "lab_algo_1",
+    "startTime": "2026-03-24T00:00:00.000Z",
+    "endTime": "2026-04-07T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_web_basics",
+    "title": "JavaScript & String Fundamentals",
+    "description": "Core logic, string parsing, and prefix-based algorithms used in web development",
+    "labId": "lab_web_1",
+    "startTime": "2026-03-01T00:00:00.000Z",
+    "endTime": "2026-03-15T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_web_advanced",
+    "title": "Data Structures for Web Developers",
+    "description": "Hash maps, arrays, and grouping techniques commonly applied in frontend and backend systems",
+    "labId": "lab_web_1",
+    "startTime": "2026-03-15T00:00:00.000Z",
+    "endTime": "2026-03-29T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_ca_beginner",
+    "title": "Beginner Coding Challenges",
+    "description": "Entry-level problems covering stacks, subarrays, and basic control flow",
+    "labId": "lab_codearena_1",
+    "startTime": "2026-03-01T00:00:00.000Z",
+    "endTime": "2026-06-01T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_ca_intermediate",
+    "title": "Intermediate Problem Solving",
+    "description": "Medium-difficulty problems spanning interval merging and frequency analysis",
+    "labId": "lab_codearena_1",
+    "startTime": "2026-03-01T00:00:00.000Z",
+    "endTime": "2026-06-01T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
+  },
+  {
+    "id": "assign_ca_advanced",
+    "title": "Advanced Data Structures",
+    "description": "Hard problems involving LRU caches, tree serialization, and advanced design patterns",
+    "labId": "lab_codearena_1",
+    "startTime": "2026-03-01T00:00:00.000Z",
+    "endTime": "2026-06-01T23:59:59.000Z",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentId": null
   }
 ]

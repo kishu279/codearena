@@ -17,6 +17,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/problems", label: "Problems" },
   { href: "/contests", label: "Contests" },
+  { href: "/labs", label: "Labs" },
   { href: "/code", label: "Code" },
   { href: "/leaderboard", label: "Leaderboard" },
 ];
@@ -30,10 +31,10 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-foreground"
+          className="text-2xl font-semibold tracking-tight text-foreground"
         >
           CodeArena
         </Link>
@@ -55,7 +56,7 @@ export default function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition ${isActive
+                className={`text-lg transition ${isActive
                   ? "text-accent"
                   : "text-text-secondary hover:text-foreground"
                   }`}
@@ -70,12 +71,9 @@ export default function Navbar({
           <ThemeToggle />
           {isAuthenticated ? (
             <>
-              <Link
-                href={`/${username}/dashboard`}
-                className="rounded-md px-3 py-2 text-sm text-text-secondary hover:text-foreground"
-              >
-                {username}
-              </Link>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href={`/${username}/dashboard`}>{username}</Link>
+              </Button>
               <Button
                 variant="outline"
                 size="sm"
@@ -86,16 +84,11 @@ export default function Navbar({
             </>
           ) : (
             <>
-              <Link
-                href="/auth/login"
-                className="rounded-md px-3 py-2 text-sm text-text-secondary hover:text-foreground"
-              >
-                Login
-              </Link>
-              <Button asChild>
-                <Link href="/auth/signup">
-                  Sign Up
-                </Link>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/auth/login">Login</Link>
+              </Button>
+              <Button size="sm" asChild>
+                <Link href="/auth/signup">Sign Up</Link>
               </Button>
             </>
           )}
@@ -119,13 +112,11 @@ export default function Navbar({
           ))}
           {isAuthenticated ? (
             <>
-              <Link
-                href={`/${username}/dashboard`}
-                onClick={() => setIsOpen(false)}
-                className="block rounded-md px-3 py-2 text-sm text-text-secondary hover:bg-surface-2 hover:text-foreground"
-              >
-                Dashboard
-              </Link>
+              <Button variant="ghost" size="sm" className="w-full justify-start" asChild>
+                <Link href={`/${username}/dashboard`} onClick={() => setIsOpen(false)}>
+                  Dashboard
+                </Link>
+              </Button>
               <Button
                 variant="outline"
                 size="sm"
@@ -137,18 +128,13 @@ export default function Navbar({
             </>
           ) : (
             <>
-              <Link
-                href="/auth/login"
-                onClick={() => setIsOpen(false)}
-                className="block rounded-md px-3 py-2 text-sm text-text-secondary hover:bg-surface-2 hover:text-foreground"
-              >
-                Login
-              </Link>
-              <Button asChild className="w-full">
-                <Link
-                  href="/auth/signup"
-                  onClick={() => setIsOpen(false)}
-                >
+              <Button variant="ghost" size="sm" className="w-full justify-start" asChild>
+                <Link href="/auth/login" onClick={() => setIsOpen(false)}>
+                  Login
+                </Link>
+              </Button>
+              <Button size="sm" className="w-full" asChild>
+                <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
                   Sign Up
                 </Link>
               </Button>

@@ -9,6 +9,8 @@ import {
   type AdminDashboardData,
   type RecentSubmission,
   type SystemActivity,
+  type CourseDetail,
+  type LabDetail,
 } from "@/lib/types";
 
 const authUsers: AuthUser[] = [
@@ -429,4 +431,267 @@ export const adminDashboardData: AdminDashboardData = {
 
 export function getAdminDashboardData() {
   return adminDashboardData;
+}
+
+// ── Course Mock Data ──────────────────────────────────────────────
+
+// const courses: CourseDetail[] = [
+//   {
+//     id: "dsa-fundamentals",
+//     title: "Data Structures & Algorithms",
+//     instructor: "Dr. Alice Chen",
+//     description:
+//       "A comprehensive course covering core DSA concepts with hands-on labs and assignments.",
+//     topics: [
+//       {
+//         id: "topic-1",
+//         title: "Arrays & Strings",
+//         lectures: [
+//           { id: "l1", title: "Introduction to Arrays", duration: "18 min" },
+//           { id: "l2", title: "Two Pointer Technique", duration: "24 min" },
+//           { id: "l3", title: "Sliding Window", duration: "22 min" },
+//         ],
+//         labs: [
+//           { id: "lab1", title: "Array Rotation Lab" },
+//           { id: "lab2", title: "String Reversal Lab" },
+//         ],
+//         assignments: [
+//           { id: "asgn1", title: "Maximum Subarray", dueDate: "2026-03-10" },
+//           { id: "asgn2", title: "Valid Parentheses", dueDate: "2026-03-12" },
+//         ],
+//         resources: [
+//           { id: "r1", title: "Arrays Cheat Sheet", type: "pdf" },
+//           { id: "r2", title: "Visual Guide to Two Pointers", type: "link" },
+//         ],
+//       },
+//       {
+//         id: "topic-2",
+//         title: "Linked Lists",
+//         lectures: [
+//           { id: "l4", title: "Singly Linked Lists", duration: "20 min" },
+//           { id: "l5", title: "Doubly Linked Lists", duration: "18 min" },
+//           { id: "l6", title: "Floyd's Cycle Detection", duration: "26 min" },
+//         ],
+//         labs: [
+//           { id: "lab3", title: "Reverse Linked List Lab" },
+//         ],
+//         assignments: [
+//           { id: "asgn3", title: "Merge Two Sorted Lists", dueDate: "2026-03-17" },
+//         ],
+//         resources: [
+//           { id: "r3", title: "Linked List Patterns", type: "video" },
+//         ],
+//       },
+//       {
+//         id: "topic-3",
+//         title: "Trees & Binary Search Trees",
+//         lectures: [
+//           { id: "l7", title: "Binary Trees Basics", duration: "22 min" },
+//           { id: "l8", title: "Tree Traversals (BFS/DFS)", duration: "30 min" },
+//           { id: "l9", title: "Binary Search Trees", duration: "28 min" },
+//           { id: "l10", title: "Balanced BST & AVL Trees", duration: "32 min" },
+//         ],
+//         labs: [
+//           { id: "lab4", title: "Tree Traversal Lab" },
+//           { id: "lab5", title: "BST Operations Lab" },
+//         ],
+//         assignments: [
+//           { id: "asgn4", title: "Level Order Traversal", dueDate: "2026-03-24" },
+//           { id: "asgn5", title: "Lowest Common Ancestor", dueDate: "2026-03-26" },
+//         ],
+//       },
+//       {
+//         id: "topic-4",
+//         title: "Dynamic Programming",
+//         lectures: [
+//           { id: "l11", title: "Introduction to DP", duration: "25 min" },
+//           { id: "l12", title: "Memoization vs Tabulation", duration: "28 min" },
+//           { id: "l13", title: "Knapsack Problem", duration: "35 min" },
+//         ],
+//         labs: [
+//           { id: "lab6", title: "Fibonacci DP Lab" },
+//           { id: "lab7", title: "Coin Change Lab" },
+//         ],
+//         assignments: [
+//           { id: "asgn6", title: "Longest Common Subsequence", dueDate: "2026-03-31" },
+//         ],
+//         resources: [
+//           { id: "r4", title: "DP Patterns Reference", type: "pdf" },
+//         ],
+//       },
+//     ],
+//   },
+// ];
+
+// export function getCourseById(courseId: string): CourseDetail | undefined {
+//   return courses.find((c) => c.id === courseId);
+// }
+
+// export function getAllCourses(): CourseDetail[] {
+//   return courses;
+// }
+
+// ── Lab Mock Data ─────────────────────────────────────────────────
+
+const labs: LabDetail[] = [
+  {
+    id: "web-dev-lab",
+    title: "Web Development Lab",
+    instructor: "Prof. James Carter",
+    description:
+      "Hands-on lab covering modern web development with HTML, CSS, JavaScript, and React. Includes practical assignments and real-world projects.",
+    memberCount: 34,
+    assignmentCount: 8,
+    lectures: [
+      {
+        id: "lec-1",
+        title: "HTML & CSS Fundamentals",
+        videos: [
+          { id: "v1", title: "HTML Document Structure", duration: "15 min" },
+          { id: "v2", title: "CSS Box Model & Layout", duration: "20 min" },
+          { id: "v3", title: "Flexbox Deep Dive", duration: "18 min" },
+        ],
+        assignments: [
+          { id: "a1", title: "Build a Responsive Landing Page", dueDate: "2026-03-15" },
+          { id: "a2", title: "CSS Grid Layout Exercise", dueDate: "2026-03-17" },
+        ],
+        problems: [
+          { id: "pr1", title: "CSS Selector Matching", difficulty: "Easy" },
+          { id: "pr2", title: "Flexbox Alignment Challenge", difficulty: "Medium" },
+        ],
+        resources: [
+          { id: "r1", title: "MDN HTML Reference", type: "link" },
+          { id: "r2", title: "CSS Tricks Flexbox Guide", type: "link" },
+        ],
+        announcements: [
+          { id: "ann1", title: "Assignment 1 deadline extended", date: "2026-03-10" },
+        ],
+      },
+      {
+        id: "lec-2",
+        title: "JavaScript Essentials",
+        videos: [
+          { id: "v4", title: "Variables, Scope & Closures", duration: "22 min" },
+          { id: "v5", title: "Asynchronous JS & Promises", duration: "26 min" },
+          { id: "v6", title: "DOM Manipulation", duration: "19 min" },
+        ],
+        assignments: [
+          { id: "a3", title: "Todo App with Vanilla JS", dueDate: "2026-03-22" },
+        ],
+        problems: [
+          { id: "pr3", title: "Debounce Implementation", difficulty: "Medium" },
+          { id: "pr4", title: "Deep Clone an Object", difficulty: "Hard" },
+        ],
+        resources: [
+          { id: "r3", title: "JavaScript.info", type: "link" },
+          { id: "r4", title: "Async/Await Cheat Sheet", type: "pdf" },
+        ],
+      },
+      {
+        id: "lec-3",
+        title: "React & Component Architecture",
+        videos: [
+          { id: "v7", title: "Thinking in React", duration: "20 min" },
+          { id: "v8", title: "useState & useEffect Hooks", duration: "28 min" },
+          { id: "v9", title: "React Context & State Management", duration: "30 min" },
+        ],
+        assignments: [
+          { id: "a4", title: "Build a Weather Dashboard", dueDate: "2026-03-29" },
+          { id: "a5", title: "Shopping Cart with Context API", dueDate: "2026-04-01" },
+        ],
+        problems: [
+          { id: "pr5", title: "Custom useFetch Hook", difficulty: "Medium" },
+          { id: "pr6", title: "Infinite Scroll Component", difficulty: "Hard" },
+        ],
+        resources: [
+          { id: "r5", title: "React Official Docs", type: "link" },
+          { id: "r6", title: "Component Design Patterns", type: "video" },
+        ],
+        announcements: [
+          { id: "ann2", title: "Guest lecture on React performance this Friday", date: "2026-03-25" },
+        ],
+      },
+      {
+        id: "lec-4",
+        title: "APIs & Backend Integration",
+        videos: [
+          { id: "v10", title: "REST API Fundamentals", duration: "16 min" },
+          { id: "v11", title: "Fetching Data with Axios", duration: "14 min" },
+          { id: "v12", title: "Authentication with JWT", duration: "24 min" },
+        ],
+        assignments: [
+          { id: "a6", title: "Connect App to Public API", dueDate: "2026-04-07" },
+        ],
+        problems: [
+          { id: "pr7", title: "Rate Limiter Simulation", difficulty: "Medium" },
+          { id: "pr8", title: "JWT Decode Without Library", difficulty: "Hard" },
+        ],
+        resources: [
+          { id: "r7", title: "REST API Design Guide", type: "pdf" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "algo-lab",
+    title: "Algorithms & Problem Solving Lab",
+    instructor: "Dr. Priya Nair",
+    description:
+      "Intensive lab focused on competitive programming, algorithm design, and problem-solving techniques used in technical interviews.",
+    memberCount: 52,
+    assignmentCount: 10,
+    lectures: [
+      {
+        id: "lec-5",
+        title: "Sorting & Searching",
+        videos: [
+          { id: "v13", title: "Merge Sort & Quick Sort", duration: "25 min" },
+          { id: "v14", title: "Binary Search Variants", duration: "20 min" },
+        ],
+        assignments: [
+          { id: "a7", title: "Implement Merge Sort", dueDate: "2026-03-14" },
+        ],
+        problems: [
+          { id: "pr9", title: "Search in Rotated Array", difficulty: "Medium" },
+          { id: "pr10", title: "Kth Largest Element", difficulty: "Medium" },
+        ],
+        resources: [
+          { id: "r8", title: "Sorting Algorithms Visualizer", type: "link" },
+        ],
+      },
+      {
+        id: "lec-6",
+        title: "Graph Algorithms",
+        videos: [
+          { id: "v15", title: "BFS & DFS Deep Dive", duration: "28 min" },
+          { id: "v16", title: "Dijkstra's Algorithm", duration: "32 min" },
+          { id: "v17", title: "Topological Sort", duration: "22 min" },
+        ],
+        assignments: [
+          { id: "a8", title: "Shortest Path in Weighted Graph", dueDate: "2026-03-21" },
+          { id: "a9", title: "Detect Cycle in Directed Graph", dueDate: "2026-03-23" },
+        ],
+        problems: [
+          { id: "pr11", title: "Number of Islands", difficulty: "Medium" },
+          { id: "pr12", title: "Word Ladder", difficulty: "Hard" },
+          { id: "pr13", title: "Course Schedule", difficulty: "Medium" },
+        ],
+        resources: [
+          { id: "r9", title: "Graph Theory Notes", type: "pdf" },
+          { id: "r10", title: "Pathfinding Algorithms Video", type: "video" },
+        ],
+        announcements: [
+          { id: "ann3", title: "Extra office hours for graph assignment", date: "2026-03-18" },
+        ],
+      },
+    ],
+  },
+];
+
+export function getLabById(labId: string): LabDetail | undefined {
+  return labs.find((l) => l.id === labId);
+}
+
+export function getAllLabDetails(): LabDetail[] {
+  return labs;
 }

@@ -22,5 +22,21 @@
     "description": "Advanced algorithmic techniques and problem solving",
     "instituteId": "inst_college_1",
     "createdById": "user_instructor_1"
+  },
+  {
+    "id": "lab_web_1",
+    "title": "Web Development Lab",
+    "slug": "web-dev-lab",
+    "description": "Practical web development covering HTML, CSS, JavaScript and data structure applications",
+    "instituteId": "inst_college_1",
+    "createdById": "user_instructor_2"
+  },
+  {
+    "id": "lab_codearena_1",
+    "title": "CodeArena Practice Lab",
+    "slug": "codearena-practice-lab",
+    "description": "CodeArena's official self-paced practice lab covering beginner to advanced problem solving",
+    "instituteId": null,
+    "createdById": "user_admin_1"
   }
 ]
