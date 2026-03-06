@@ -189,7 +189,7 @@ export default function AssignmentDetails({
                       className="h-7 gap-1 px-2.5 text-xs"
                       onClick={() => {
                         window.open(
-                          `${process.env.NEXT_PUBLIC_BASE_URL}/solve/${problem.id}`,
+                          `${process.env.NEXT_PUBLIC_BASE_URL}/solve1/${problem.id}`,
                           "_blank",
                         );
                       }}

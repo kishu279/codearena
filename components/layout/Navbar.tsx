@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { useState } from "react";
 
@@ -27,7 +27,14 @@ export default function Navbar({
   username,
 }: NavbarProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/");
+    router.refresh();
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur">
@@ -77,7 +84,7 @@ export default function Navbar({
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => { window.location.href = "/"; }}
+                onClick={handleLogout}
               >
                 Logout
               </Button>
@@ -121,7 +128,7 @@ export default function Navbar({
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
-                onClick={() => { window.location.href = "/"; }}
+                onClick={handleLogout}
               >
                 Logout
               </Button>
