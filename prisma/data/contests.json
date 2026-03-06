@@ -1,444 +1,190 @@
 [
-    {
-        "id": "contest_weekly_01",
-        "title": "Weekly Challenge #1 — Graphs & Greedy",
-        "slug": "weekly-challenge-1",
-        "description": "Test your algorithmic skills with a mix of graph traversal and greedy problems. Three problems of increasing difficulty — solve them all within the time limit to top the leaderboard!",
-        "startTime": "2026-03-08T10:00:00.000Z",
-        "endTime": "2026-03-08T12:00:00.000Z",
-        "duration": 120,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_contest_shortest_path",
-                "title": "Shortest Path in Grid",
-                "slug": "shortest-path-in-grid",
-                "order": 1,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_contest_kth_largest",
-                "title": "Kth Largest Element",
-                "slug": "kth-largest-element",
-                "order": 2,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_contest_min_cost_path",
-                "title": "Minimum Cost Path",
-                "slug": "minimum-cost-path",
-                "order": 3,
-                "difficulty": "HARD"
-            }
-        ]
-    },
-    {
-        "id": "contest_beginner_01",
-        "title": "Beginner Contest #1 — Strings & DP",
-        "slug": "beginner-contest-1",
-        "description": "A contest designed for beginners to practice string manipulation and dynamic programming. Two problems with clear constraints — perfect for warming up!",
-        "startTime": "2026-03-15T14:00:00.000Z",
-        "endTime": "2026-03-15T16:00:00.000Z",
-        "duration": 120,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_contest_string_decode",
-                "title": "Decode String",
-                "slug": "decode-string",
-                "order": 1,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_contest_palindrome_check",
-                "title": "Palindrome Partition Count",
-                "slug": "palindrome-partition-count",
-                "order": 2,
-                "difficulty": "HARD"
-            }
-        ]
-    },
-    {
-        "id": "contest_algo_sprint",
-        "title": "Algorithm Sprint — Speed Round",
-        "slug": "algorithm-sprint-speed-round",
-        "description": "A high-intensity 90-minute speed round. Solve as many problems as you can. Problems range from easy warm-ups to brain-bending hard challenges. Rankings are based on total problems solved and time penalties.",
-        "startTime": "2026-02-22T09:00:00.000Z",
-        "endTime": "2026-02-22T10:30:00.000Z",
-        "duration": 90,
-        "status": "ENDED",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_contest_matrix_rotation",
-                "title": "Matrix Diagonal Sum",
-                "slug": "matrix-diagonal-sum",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_contest_count_primes",
-                "title": "Count Primes",
-                "slug": "count-primes",
-                "order": 2,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_contest_stock_profit",
-                "title": "Best Time to Buy and Sell Stock",
-                "slug": "best-time-to-buy-and-sell-stock",
-                "order": 3,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_contest_subsets",
-                "title": "Generate All Subsets",
-                "slug": "generate-all-subsets",
-                "order": 4,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_contest_linked_list_reverse",
-                "title": "Reverse Linked List in Groups",
-                "slug": "reverse-linked-list-in-groups",
-                "order": 5,
-                "difficulty": "HARD"
-            }
-        ]
-    },
-    {
-        "id": "contest_lab_assessment",
-        "title": "Lab Assessment — Data Structures",
-        "slug": "lab-assessment-data-structures",
-        "description": "Lab assessment covering core data structure concepts including stacks, queues, and binary search trees. This contest is restricted to enrolled students only.",
-        "startTime": "2026-03-20T08:00:00.000Z",
-        "endTime": "2026-03-20T10:00:00.000Z",
-        "duration": 120,
-        "status": "UPCOMING",
-        "isPublic": false,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_contest_lab_stack_sort",
-                "title": "Sort a Stack",
-                "slug": "sort-a-stack",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_contest_lab_queue_impl",
-                "title": "Implement Queue Using Stacks",
-                "slug": "implement-queue-using-stacks",
-                "order": 2,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_contest_lab_bst_valid",
-                "title": "Validate Binary Search Tree",
-                "slug": "validate-binary-search-tree",
-                "order": 3,
-                "difficulty": "MEDIUM"
-            }
-        ]
-    },
-    {
-        "id": "contest_weekly_02",
-        "title": "Weekly Challenge #2 — Arrays & Hashing",
-        "slug": "weekly-challenge-2",
-        "description": "This week's challenge focuses on array manipulation and hash table techniques. Master the fundamentals with these carefully curated problems!",
-        "startTime": "2026-03-22T10:00:00.000Z",
-        "endTime": "2026-03-22T12:30:00.000Z",
-        "duration": 150,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_two_sum",
-                "title": "Two Sum",
-                "slug": "two-sum",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_group_anagrams",
-                "title": "Group Anagrams",
-                "slug": "group-anagrams",
-                "order": 2,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_product_except_self",
-                "title": "Product of Array Except Self",
-                "slug": "product-of-array-except-self",
-                "order": 3,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_topk_frequent",
-                "title": "Top K Frequent Elements",
-                "slug": "top-k-frequent-elements",
-                "order": 4,
-                "difficulty": "MEDIUM"
-            }
-        ]
-    },
-    {
-        "id": "contest_weekly_03",
-        "title": "Weekly Challenge #3 — Dynamic Programming",
-        "slug": "weekly-challenge-3",
-        "description": "A deep dive into dynamic programming. From classic staircase problems to advanced job scheduling — test your DP skills here!",
-        "startTime": "2026-03-29T10:00:00.000Z",
-        "endTime": "2026-03-29T13:00:00.000Z",
-        "duration": 180,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_climbing_stairs",
-                "title": "Climbing Stairs",
-                "slug": "climbing-stairs",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_house_robber",
-                "title": "House Robber",
-                "slug": "house-robber",
-                "order": 2,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_coin_change",
-                "title": "Coin Change",
-                "slug": "coin-change",
-                "order": 3,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_longest_increasing",
-                "title": "Longest Increasing Subsequence",
-                "slug": "longest-increasing-subsequence",
-                "order": 4,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_max_profit_jobs",
-                "title": "Job Scheduling Maximum Profit",
-                "slug": "job-scheduling-maximum-profit",
-                "order": 5,
-                "difficulty": "HARD"
-            }
-        ]
-    },
-    {
-        "id": "contest_beginner_02",
-        "title": "Beginner Contest #2 — Searching & Sorting",
-        "slug": "beginner-contest-2",
-        "description": "Practice your searching and sorting fundamentals. Great for building confidence before tackling harder contests!",
-        "startTime": "2026-04-05T14:00:00.000Z",
-        "endTime": "2026-04-05T16:00:00.000Z",
-        "duration": 120,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_binary_search",
-                "title": "Binary Search",
-                "slug": "binary-search",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_merge_sorted_arrays",
-                "title": "Merge Two Sorted Arrays",
-                "slug": "merge-two-sorted-arrays",
-                "order": 2,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_search_rotated",
-                "title": "Search in Rotated Sorted Array",
-                "slug": "search-in-rotated-sorted-array",
-                "order": 3,
-                "difficulty": "MEDIUM"
-            }
-        ]
-    },
-    {
-        "id": "contest_hard_showdown",
-        "title": "Hard Showdown — Expert Only",
-        "slug": "hard-showdown-expert-only",
-        "description": "Think you're ready for the toughest challenges? This contest features only Hard-level problems. Trapping rain water, serializing trees, sliding windows — only the best will survive.",
-        "startTime": "2026-04-12T08:00:00.000Z",
-        "endTime": "2026-04-12T11:00:00.000Z",
-        "duration": 180,
-        "status": "UPCOMING",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_trapping_rain",
-                "title": "Trapping Rain Water",
-                "slug": "trapping-rain-water",
-                "order": 1,
-                "difficulty": "HARD"
-            },
-            {
-                "id": "prob_serialize_tree",
-                "title": "Serialize and Deserialize Binary Tree",
-                "slug": "serialize-deserialize-binary-tree",
-                "order": 2,
-                "difficulty": "HARD"
-            },
-            {
-                "id": "prob_min_window_substring",
-                "title": "Minimum Window Substring",
-                "slug": "minimum-window-substring",
-                "order": 3,
-                "difficulty": "HARD"
-            },
-            {
-                "id": "prob_lru_cache",
-                "title": "LRU Cache",
-                "slug": "lru-cache",
-                "order": 4,
-                "difficulty": "HARD"
-            }
-        ]
-    },
-    {
-        "id": "contest_past_warmup",
-        "title": "Warm-Up Round — February Kickoff",
-        "slug": "warm-up-round-february-kickoff",
-        "description": "A casual warm-up contest to kick off the February competitive programming season. Easy and medium problems to get everyone started.",
-        "startTime": "2026-02-01T12:00:00.000Z",
-        "endTime": "2026-02-01T14:00:00.000Z",
-        "duration": 120,
-        "status": "ENDED",
-        "isPublic": true,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_fizzbuzz",
-                "title": "FizzBuzz",
-                "slug": "fizzbuzz",
-                "order": 1,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_palindrome_number",
-                "title": "Palindrome Number",
-                "slug": "palindrome-number",
-                "order": 2,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_roman_to_integer",
-                "title": "Roman to Integer",
-                "slug": "roman-to-integer",
-                "order": 3,
-                "difficulty": "EASY"
-            },
-            {
-                "id": "prob_valid_parentheses",
-                "title": "Valid Parentheses",
-                "slug": "valid-parentheses",
-                "order": 4,
-                "difficulty": "EASY"
-            }
-        ]
-    },
-    {
-        "id": "contest_lab_graphs",
-        "title": "Lab Assessment — Graph Algorithms",
-        "slug": "lab-assessment-graph-algorithms",
-        "description": "Lab assessment focusing on graph traversal techniques: BFS, DFS, topological sort, and island problems. Restricted to enrolled students.",
-        "startTime": "2026-04-17T08:00:00.000Z",
-        "endTime": "2026-04-17T10:00:00.000Z",
-        "duration": 120,
-        "status": "UPCOMING",
-        "isPublic": false,
-        "hostedBy": "CODEARENA",
-        "isRecurring": false,
-        "recurringType": null,
-        "parentContestId": null,
-        "instituteId": null,
-        "createdById": null,
-        "problems": [
-            {
-                "id": "prob_number_islands",
-                "title": "Number of Islands",
-                "slug": "number-of-islands",
-                "order": 1,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_course_schedule",
-                "title": "Course Schedule",
-                "slug": "course-schedule",
-                "order": 2,
-                "difficulty": "MEDIUM"
-            },
-            {
-                "id": "prob_word_ladder",
-                "title": "Word Ladder",
-                "slug": "word-ladder",
-                "order": 3,
-                "difficulty": "HARD"
-            }
-        ]
-    }
+  {
+    "id": "contest_weekly_01",
+    "title": "Weekly Challenge #1 — Graphs & Greedy",
+    "slug": "weekly-challenge-1",
+    "description": "Test your algorithmic skills with a mix of graph traversal and greedy problems. Three problems of increasing difficulty.",
+    "startTime": "2026-03-08T10:00:00.000Z",
+    "endTime": "2026-03-08T12:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_beginner_01",
+    "title": "Beginner Contest #1 — Strings & DP",
+    "slug": "beginner-contest-1",
+    "description": "A contest designed for beginners to practice string manipulation and dynamic programming.",
+    "startTime": "2026-03-15T14:00:00.000Z",
+    "endTime": "2026-03-15T16:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_algo_sprint",
+    "title": "Algorithm Sprint — Speed Round",
+    "slug": "algorithm-sprint-speed-round",
+    "description": "A high-intensity 90-minute speed round. Solve as many problems as you can — rankings based on total solved and time penalties.",
+    "startTime": "2026-02-22T09:00:00.000Z",
+    "endTime": "2026-02-22T10:30:00.000Z",
+    "duration": 90,
+    "status": "ENDED",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_weekly_02",
+    "title": "Weekly Challenge #2 — Arrays & Hashing",
+    "slug": "weekly-challenge-2",
+    "description": "This week's challenge focuses on array manipulation and hash table techniques. Master the fundamentals!",
+    "startTime": "2026-03-22T10:00:00.000Z",
+    "endTime": "2026-03-22T12:30:00.000Z",
+    "duration": 150,
+    "status": "UPCOMING",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_weekly_03",
+    "title": "Weekly Challenge #3 — Dynamic Programming",
+    "slug": "weekly-challenge-3",
+    "description": "A deep dive into dynamic programming. From classic staircase problems to advanced job scheduling.",
+    "startTime": "2026-03-29T10:00:00.000Z",
+    "endTime": "2026-03-29T13:00:00.000Z",
+    "duration": 180,
+    "status": "UPCOMING",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_past_warmup",
+    "title": "Warm-Up Round — February Kickoff",
+    "slug": "warm-up-round-february-kickoff",
+    "description": "A casual warm-up contest to kick off the February competitive programming season.",
+    "startTime": "2026-02-01T12:00:00.000Z",
+    "endTime": "2026-02-01T14:00:00.000Z",
+    "duration": 120,
+    "status": "ENDED",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+  {
+    "id": "contest_hard_showdown",
+    "title": "Hard Showdown — Expert Only",
+    "slug": "hard-showdown-expert-only",
+    "description": "Think you're ready for the toughest challenges? Only Hard-level problems. Only the best will survive.",
+    "startTime": "2026-04-12T08:00:00.000Z",
+    "endTime": "2026-04-12T11:00:00.000Z",
+    "duration": 180,
+    "status": "UPCOMING",
+    "isPublic": true,
+    "hostedBy": "CODEARENA",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": null,
+    "createdById": "user_admin_1"
+  },
+
+  {
+    "id": "contest_tu_lab_assessment",
+    "title": "Tech University — DSA Lab Assessment",
+    "slug": "tu-dsa-lab-assessment",
+    "description": "Lab assessment covering core data structure concepts including stacks, queues, and binary search trees. Restricted to enrolled students.",
+    "startTime": "2026-03-20T08:00:00.000Z",
+    "endTime": "2026-03-20T10:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": false,
+    "hostedBy": "INSTITUTE",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": "inst_tech_university",
+    "createdById": "user_inst1_instructor_1"
+  },
+  {
+    "id": "contest_ec_graph_assessment",
+    "title": "Engineering College — Graph Algorithms Assessment",
+    "slug": "ec-graph-algorithms-assessment",
+    "description": "Lab assessment focusing on graph traversal techniques: BFS, DFS, topological sort, and island problems.",
+    "startTime": "2026-04-17T08:00:00.000Z",
+    "endTime": "2026-04-17T10:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": false,
+    "hostedBy": "INSTITUTE",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": "inst_engineering_college",
+    "createdById": "user_inst2_instructor_1"
+  },
+  {
+    "id": "contest_iiitd_cp_round",
+    "title": "IIIT Delhi — CP Practice Round",
+    "slug": "iiitd-cp-practice-round",
+    "description": "Internal competitive programming practice round for IIIT Delhi students. Focuses on speed and accuracy.",
+    "startTime": "2026-03-25T14:00:00.000Z",
+    "endTime": "2026-03-25T16:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": false,
+    "hostedBy": "INSTITUTE",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": "inst_iiit_delhi",
+    "createdById": "user_inst3_instructor_1"
+  },
+  {
+    "id": "contest_nits_midterm",
+    "title": "NIT Surat — Midterm Coding Test",
+    "slug": "nit-surat-midterm-coding-test",
+    "description": "Midterm assessment for NIT Surat CS students covering arrays, searching, sorting, and basic DP.",
+    "startTime": "2026-04-01T09:00:00.000Z",
+    "endTime": "2026-04-01T11:00:00.000Z",
+    "duration": 120,
+    "status": "UPCOMING",
+    "isPublic": false,
+    "hostedBy": "INSTITUTE",
+    "isRecurring": false,
+    "recurringType": null,
+    "parentContestId": null,
+    "instituteId": "inst_nit_surat",
+    "createdById": "user_inst4_instructor_1"
+  }
 ]

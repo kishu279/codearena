@@ -1,92 +1,159 @@
 [
   {
     "id": "lm_1",
-    "userId": "user_instructor_1",
-    "labId": "lab_dsa_1",
+    "userId": "user_inst1_instructor_1",
+    "labId": "lab_dsa_tu",
     "role": "INSTRUCTOR"
   },
   {
     "id": "lm_2",
-    "userId": "user_student_1",
-    "labId": "lab_dsa_1",
+    "userId": "user_inst1_student_1",
+    "labId": "lab_dsa_tu",
     "role": "STUDENT"
   },
   {
     "id": "lm_3",
-    "userId": "user_student_2",
-    "labId": "lab_dsa_1",
+    "userId": "user_inst1_student_2",
+    "labId": "lab_dsa_tu",
     "role": "STUDENT"
   },
   {
     "id": "lm_4",
-    "userId": "user_instructor_2",
-    "labId": "lab_os_1",
-    "role": "INSTRUCTOR"
+    "userId": "user_inst1_student_3",
+    "labId": "lab_dsa_tu",
+    "role": "STUDENT"
   },
+
   {
     "id": "lm_5",
-    "userId": "user_student_1",
-    "labId": "lab_os_1",
-    "role": "STUDENT"
+    "userId": "user_inst1_instructor_2",
+    "labId": "lab_os_tu",
+    "role": "INSTRUCTOR"
   },
   {
     "id": "lm_6",
-    "userId": "user_instructor_1",
-    "labId": "lab_algo_1",
-    "role": "INSTRUCTOR"
-  },
-  {
-    "id": "lm_7",
-    "userId": "user_student_3",
-    "labId": "lab_algo_1",
+    "userId": "user_inst1_student_1",
+    "labId": "lab_os_tu",
     "role": "STUDENT"
   },
   {
+    "id": "lm_7",
+    "userId": "user_inst1_student_2",
+    "labId": "lab_os_tu",
+    "role": "STUDENT"
+  },
+
+  {
     "id": "lm_8",
-    "userId": "user_instructor_2",
-    "labId": "lab_web_1",
+    "userId": "user_inst2_instructor_1",
+    "labId": "lab_algo_ec",
     "role": "INSTRUCTOR"
   },
   {
     "id": "lm_9",
-    "userId": "user_student_2",
-    "labId": "lab_web_1",
+    "userId": "user_inst2_student_1",
+    "labId": "lab_algo_ec",
     "role": "STUDENT"
   },
   {
     "id": "lm_10",
-    "userId": "user_student_3",
-    "labId": "lab_web_1",
+    "userId": "user_inst2_student_2",
+    "labId": "lab_algo_ec",
     "role": "STUDENT"
   },
+
   {
     "id": "lm_11",
-    "userId": "user_admin_1",
-    "labId": "lab_codearena_1",
+    "userId": "user_inst2_instructor_2",
+    "labId": "lab_web_ec",
     "role": "INSTRUCTOR"
   },
   {
     "id": "lm_12",
-    "userId": "user_student_1",
-    "labId": "lab_codearena_1",
+    "userId": "user_inst2_student_1",
+    "labId": "lab_web_ec",
     "role": "STUDENT"
   },
   {
     "id": "lm_13",
-    "userId": "user_student_2",
-    "labId": "lab_codearena_1",
+    "userId": "user_inst2_student_2",
+    "labId": "lab_web_ec",
     "role": "STUDENT"
   },
+
   {
     "id": "lm_14",
-    "userId": "user_student_3",
-    "labId": "lab_codearena_1",
-    "role": "STUDENT"
+    "userId": "user_inst3_instructor_1",
+    "labId": "lab_ml_iiitd",
+    "role": "INSTRUCTOR"
   },
   {
     "id": "lm_15",
-    "userId": "user_1",
-    "labId": "lab_codearena_1",
+    "userId": "user_inst3_student_1",
+    "labId": "lab_ml_iiitd",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_16",
+    "userId": "user_inst3_student_2",
+    "labId": "lab_ml_iiitd",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "lm_17",
+    "userId": "user_inst3_instructor_1",
+    "labId": "lab_cp_iiitd",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_18",
+    "userId": "user_inst3_student_1",
+    "labId": "lab_cp_iiitd",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_19",
+    "userId": "user_inst3_student_2",
+    "labId": "lab_cp_iiitd",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "lm_20",
+    "userId": "user_inst4_instructor_1",
+    "labId": "lab_dbms_nits",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_21",
+    "userId": "user_inst4_student_1",
+    "labId": "lab_dbms_nits",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_22",
+    "userId": "user_inst4_student_2",
+    "labId": "lab_dbms_nits",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "lm_23",
+    "userId": "user_inst4_instructor_1",
+    "labId": "lab_dsa_nits",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "lm_24",
+    "userId": "user_inst4_student_1",
+    "labId": "lab_dsa_nits",
+    "role": "STUDENT"
+  },
+  {
+    "id": "lm_25",
+    "userId": "user_inst4_student_2",
+    "labId": "lab_dsa_nits",
     "role": "STUDENT"
   }
 ]

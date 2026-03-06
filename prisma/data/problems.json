@@ -1,45 +1,5 @@
 [
   {
-    "id": "prob_two_sum",
-    "title": "Two Sum",
-    "slug": "two-sum",
-    "description": "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have **exactly one solution**, and you may not use the same element twice.\n\nYou can return the answer in any order.",
-    "difficulty": "EASY",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains an integer n — the size of the array.\nThe second line contains n space-separated integers — the elements of the array.\nThe third line contains the target integer.",
-    "outputFormat": "Print two space-separated integers — the indices of the two numbers (0-indexed).",
-    "constraints": "2 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9\n-10^9 <= target <= 10^9\nOnly one valid answer exists.",
-    "sampleInput": "4\n2 7 11 15\n9",
-    "sampleOutput": "0 1",
-    "testCases": [
-      {
-        "input": "4\n2 7 11 15\n9",
-        "expectedOutput": "0 1"
-      },
-      {
-        "input": "3\n3 2 4\n6",
-        "expectedOutput": "1 2"
-      },
-      {
-        "input": "2\n3 3\n6",
-        "expectedOutput": "0 1"
-      },
-      {
-        "input": "5\n1 5 3 7 2\n8",
-        "expectedOutput": "1 2"
-      },
-      {
-        "input": "4\n-1 -2 -3 -4\n-6",
-        "expectedOutput": "1 3"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
     "id": "prob_reverse_string",
     "title": "Reverse String",
     "slug": "reverse-string",
@@ -77,51 +37,9 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_dsa_week1",
-    "order": 1
-  },
-  {
-    "id": "prob_valid_parentheses",
-    "title": "Valid Parentheses",
-    "slug": "valid-parentheses",
-    "description": "Given a string `s` containing just the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.",
-    "difficulty": "EASY",
-    "tag": "LAB",
-    "inputFormat": "A single line containing the string of brackets.",
-    "outputFormat": "Print `true` if valid, `false` otherwise.",
-    "constraints": "1 <= s.length <= 10^4\ns consists of parentheses only '()[]{}'.",
-    "sampleInput": "()",
-    "sampleOutput": "true",
-    "testCases": [
-      {
-        "input": "()",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "()[]{}",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "(]",
-        "expectedOutput": "false"
-      },
-      {
-        "input": "([)]",
-        "expectedOutput": "false"
-      },
-      {
-        "input": "{[]}",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "",
-        "expectedOutput": "true"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": "assign_ca_beginner",
-    "order": 1
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
     "id": "prob_merge_sorted_arrays",
@@ -157,127 +75,9 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_dsa_week1",
-    "order": 2
-  },
-  {
-    "id": "prob_longest_substring",
-    "title": "Longest Substring Without Repeating Characters",
-    "slug": "longest-substring-without-repeating-characters",
-    "description": "Given a string `s`, find the length of the **longest substring** without repeating characters.\n\nA **substring** is a contiguous non-empty sequence of characters within a string.",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "A single line containing the string s.",
-    "outputFormat": "A single integer — the length of the longest substring without repeating characters.",
-    "constraints": "0 <= s.length <= 5 * 10^4\ns consists of English letters, digits, symbols and spaces.",
-    "sampleInput": "abcabcbb",
-    "sampleOutput": "3",
-    "testCases": [
-      {
-        "input": "abcabcbb",
-        "expectedOutput": "3"
-      },
-      {
-        "input": "bbbbb",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "pwwkew",
-        "expectedOutput": "3"
-      },
-      {
-        "input": "",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "abcdefg",
-        "expectedOutput": "7"
-      },
-      {
-        "input": "aab",
-        "expectedOutput": "2"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
-    "id": "prob_add_two_numbers",
-    "title": "Add Two Numbers",
-    "slug": "add-two-numbers",
-    "description": "You are given two non-negative integers represented as strings `num1` and `num2`. Return their sum, also as a string.\n\nYou must not convert the inputs to integers directly (imagine they can be very large).",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "Two lines, each containing a non-negative integer as a string.",
-    "outputFormat": "A single line containing the sum as a string.",
-    "constraints": "1 <= num1.length, num2.length <= 10^4\nnum1 and num2 consist of digits only.\nnum1 and num2 don't have leading zeros except the number 0 itself.",
-    "sampleInput": "11\n123",
-    "sampleOutput": "134",
-    "testCases": [
-      {
-        "input": "11\n123",
-        "expectedOutput": "134"
-      },
-      {
-        "input": "456\n77",
-        "expectedOutput": "533"
-      },
-      {
-        "input": "0\n0",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "999\n1",
-        "expectedOutput": "1000"
-      },
-      {
-        "input": "123456789\n987654321",
-        "expectedOutput": "1111111110"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
-    "id": "prob_container_water",
-    "title": "Container With Most Water",
-    "slug": "container-with-most-water",
-    "description": "You are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `i-th` line are `(i, 0)` and `(i, height[i])`.\n\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\n\nReturn the **maximum amount of water** a container can store.",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers — the heights.",
-    "outputFormat": "A single integer — the maximum area of water.",
-    "constraints": "n == height.length\n2 <= n <= 10^5\n0 <= height[i] <= 10^4",
-    "sampleInput": "9\n1 8 6 2 5 4 8 3 7",
-    "sampleOutput": "49",
-    "testCases": [
-      {
-        "input": "9\n1 8 6 2 5 4 8 3 7",
-        "expectedOutput": "49"
-      },
-      {
-        "input": "2\n1 1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "3\n4 3 2",
-        "expectedOutput": "4"
-      },
-      {
-        "input": "5\n1 2 3 4 5",
-        "expectedOutput": "6"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
     "id": "prob_binary_search",
@@ -317,455 +117,119 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_dsa_week2",
-    "order": 1
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
-    "id": "prob_max_subarray",
-    "title": "Maximum Subarray",
-    "slug": "maximum-subarray",
-    "description": "Given an integer array `nums`, find the subarray with the largest sum, and return its sum.\n\nA **subarray** is a contiguous non-empty sequence of elements within an array.",
-    "difficulty": "MEDIUM",
+    "id": "prob_linked_list_cycle",
+    "title": "Detect Cycle in Linked List",
+    "slug": "detect-cycle-in-linked-list",
+    "description": "Given a linked list represented as a sequence of node values and a position `pos` where the tail connects to (0-indexed, -1 means no cycle), determine if the linked list has a cycle.\n\nReturn `true` if there is a cycle, `false` otherwise.",
+    "difficulty": "EASY",
     "tag": "LAB",
-    "inputFormat": "The first line contains an integer n — the size of the array.\nThe second line contains n space-separated integers.",
-    "outputFormat": "A single integer — the maximum subarray sum.",
-    "constraints": "1 <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
-    "sampleInput": "9\n-2 1 -3 4 -1 2 1 -5 4",
-    "sampleOutput": "6",
+    "inputFormat": "The first line contains n — the number of nodes.\nThe second line contains n space-separated integers — the node values.\nThe third line contains pos — the position the tail connects to (-1 if no cycle).",
+    "outputFormat": "Print `true` or `false`.",
+    "constraints": "0 <= n <= 10^4\n-10^5 <= Node.val <= 10^5\npos is -1 or a valid index.",
+    "sampleInput": "4\n3 2 0 -4\n1",
+    "sampleOutput": "true",
     "testCases": [
       {
-        "input": "9\n-2 1 -3 4 -1 2 1 -5 4",
-        "expectedOutput": "6"
+        "input": "4\n3 2 0 -4\n1",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "2\n1 2\n0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1\n1\n-1",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "3\n1 2 3\n-1",
+        "expectedOutput": "false"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_dsa_week2",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
+  },
+  {
+    "id": "prob_rotate_image",
+    "title": "Rotate Image",
+    "slug": "rotate-image",
+    "description": "You are given an `n x n` 2D matrix representing an image. Rotate the image by 90 degrees clockwise.\n\nYou must rotate it **in-place**.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain n space-separated integers.",
+    "outputFormat": "Print the rotated matrix, n lines of n space-separated integers.",
+    "constraints": "1 <= n <= 20\n-1000 <= matrix[i][j] <= 1000",
+    "sampleInput": "3\n1 2 3\n4 5 6\n7 8 9",
+    "sampleOutput": "7 4 1\n8 5 2\n9 6 3",
+    "testCases": [
+      {
+        "input": "3\n1 2 3\n4 5 6\n7 8 9",
+        "expectedOutput": "7 4 1\n8 5 2\n9 6 3"
+      },
+      {
+        "input": "2\n1 2\n3 4",
+        "expectedOutput": "3 1\n4 2"
       },
       {
         "input": "1\n1",
         "expectedOutput": "1"
-      },
-      {
-        "input": "5\n5 4 -1 7 8",
-        "expectedOutput": "23"
-      },
-      {
-        "input": "3\n-1 -2 -3",
-        "expectedOutput": "-1"
-      },
-      {
-        "input": "4\n-2 -1 -3 -4",
-        "expectedOutput": "-1"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_os_week2",
-    "order": 1
-  },
-  {
-    "id": "prob_lru_cache",
-    "title": "LRU Cache",
-    "slug": "lru-cache",
-    "description": "Design a data structure that follows the constraints of a **Least Recently Used (LRU)** cache.\n\nImplement the following operations:\n- `PUT key value` — Update or insert the value. When the cache reaches its capacity, evict the least recently used key.\n- `GET key` — Return the value of the key if it exists, otherwise return `-1`.\n\nBoth operations must run in **O(1)** average time complexity.",
-    "difficulty": "HARD",
-    "tag": "LAB",
-    "inputFormat": "The first line contains two integers: capacity and number of operations q.\nThe next q lines each contain an operation: either `PUT key value` or `GET key`.",
-    "outputFormat": "For each GET operation, print the result on a new line.",
-    "constraints": "1 <= capacity <= 3000\n0 <= key <= 10^4\n0 <= value <= 10^5\nAt most 2 * 10^5 calls will be made to GET and PUT.",
-    "sampleInput": "2 6\nPUT 1 1\nPUT 2 2\nGET 1\nPUT 3 3\nGET 2\nGET 3",
-    "sampleOutput": "1\n-1\n3",
-    "testCases": [
-      {
-        "input": "2 6\nPUT 1 1\nPUT 2 2\nGET 1\nPUT 3 3\nGET 2\nGET 3",
-        "expectedOutput": "1\n-1\n3"
-      },
-      {
-        "input": "1 4\nPUT 1 10\nGET 1\nPUT 2 20\nGET 1",
-        "expectedOutput": "10\n-1"
-      },
-      {
-        "input": "2 3\nPUT 1 100\nPUT 1 200\nGET 1",
-        "expectedOutput": "200"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_ca_advanced",
-    "order": 1
-  },
-  {
-    "id": "prob_merge_intervals",
-    "title": "Merge Intervals",
-    "slug": "merge-intervals",
-    "description": "Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n — the number of intervals.\nThe next n lines each contain two space-separated integers: start and end.",
-    "outputFormat": "Print each merged interval on a new line as two space-separated integers.",
-    "constraints": "1 <= intervals.length <= 10^4\nintervals[i].length == 2\n0 <= start_i <= end_i <= 10^4",
-    "sampleInput": "4\n1 3\n2 6\n8 10\n15 18",
-    "sampleOutput": "1 6\n8 10\n15 18",
-    "testCases": [
-      {
-        "input": "4\n1 3\n2 6\n8 10\n15 18",
-        "expectedOutput": "1 6\n8 10\n15 18"
-      },
-      {
-        "input": "2\n1 4\n4 5",
-        "expectedOutput": "1 5"
-      },
-      {
-        "input": "1\n1 1",
-        "expectedOutput": "1 1"
-      },
-      {
-        "input": "3\n1 4\n0 4\n3 5",
-        "expectedOutput": "0 5"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_ca_intermediate",
-    "order": 1
-  },
-  {
-    "id": "prob_coin_change",
-    "title": "Coin Change",
-    "slug": "coin-change",
-    "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the **fewest number of coins** that you need to make up that amount. If that amount cannot be made up, return `-1`.\n\nYou may assume that you have an infinite number of each kind of coin.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n — the number of coin types.\nThe second line contains n space-separated integers — the coin denominations.\nThe third line contains the target amount.",
-    "outputFormat": "A single integer — the fewest number of coins, or -1.",
-    "constraints": "1 <= coins.length <= 12\n1 <= coins[i] <= 2^31 - 1\n0 <= amount <= 10^4",
-    "sampleInput": "3\n1 2 5\n11",
-    "sampleOutput": "3",
-    "testCases": [
-      {
-        "input": "3\n1 2 5\n11",
-        "expectedOutput": "3"
-      },
-      {
-        "input": "1\n2\n3",
-        "expectedOutput": "-1"
-      },
-      {
-        "input": "1\n1\n0",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "3\n1 5 10\n27",
-        "expectedOutput": "5"
-      },
-      {
-        "input": "2\n3 7\n1",
-        "expectedOutput": "-1"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_algo_dp",
-    "order": 1
-  },
-  {
-    "id": "prob_word_ladder",
-    "title": "Word Ladder",
-    "slug": "word-ladder",
-    "description": "Given two words, `beginWord` and `endWord`, and a dictionary `wordList`, return the **number of words in the shortest transformation sequence** from `beginWord` to `endWord`, or `0` if no such sequence exists.\n\nA transformation sequence is a sequence where:\n- Every adjacent pair of words differs by a single letter.\n- Every word in the sequence is in `wordList`.\n\nNote that `beginWord` does not need to be in `wordList`.",
-    "difficulty": "HARD",
-    "tag": "LAB",
-    "inputFormat": "The first line contains the beginWord.\nThe second line contains the endWord.\nThe third line contains an integer n — the number of words in the dictionary.\nThe next n lines each contain a word.",
-    "outputFormat": "A single integer — the length of the shortest transformation sequence, or 0.",
-    "constraints": "1 <= beginWord.length <= 10\nendWord.length == beginWord.length\n1 <= wordList.length <= 5000\nwordList[i].length == beginWord.length\nAll words consist of lowercase English letters.\nbeginWord != endWord\nAll words in wordList are unique.",
-    "sampleInput": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
-    "sampleOutput": "5",
-    "testCases": [
-      {
-        "input": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
-        "expectedOutput": "5"
-      },
-      {
-        "input": "hit\ncog\n5\nhot\ndot\ndog\nlot\nlog",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "a\nc\n2\na\nc",
-        "expectedOutput": "2"
-      }
-    ],
-    "timeLimit": 3,
-    "memoryLimit": 512,
-    "contestId": null,
-    "assignmentId": "assign_algo_graphs",
-    "order": 2
-  },
-  {
-    "id": "prob_median_sorted",
-    "title": "Median of Two Sorted Arrays",
-    "slug": "median-of-two-sorted-arrays",
-    "description": "Given two sorted arrays `nums1` and `nums2` of size `m` and `n` respectively, return the **median** of the two sorted arrays.\n\nThe overall runtime complexity should be **O(log(m+n))**.",
-    "difficulty": "HARD",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains two integers m and n.\nThe second line contains m space-separated integers — elements of nums1.\nThe third line contains n space-separated integers — elements of nums2.",
-    "outputFormat": "A single number — the median (up to 5 decimal places if needed).",
-    "constraints": "nums1.length == m\nnums2.length == n\n0 <= m <= 1000\n0 <= n <= 1000\n1 <= m + n <= 2000\n-10^6 <= nums1[i], nums2[i] <= 10^6",
-    "sampleInput": "2 1\n1 3\n2",
-    "sampleOutput": "2.00000",
-    "testCases": [
-      {
-        "input": "2 1\n1 3\n2",
-        "expectedOutput": "2.00000"
-      },
-      {
-        "input": "2 2\n1 2\n3 4",
-        "expectedOutput": "2.50000"
-      },
-      {
-        "input": "1 1\n1\n2",
-        "expectedOutput": "1.50000"
-      },
-      {
-        "input": "3 3\n1 3 5\n2 4 6",
-        "expectedOutput": "3.50000"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
-    "id": "prob_fizzbuzz",
-    "title": "FizzBuzz",
-    "slug": "fizzbuzz",
-    "description": "Given an integer `n`, return a list of strings from `1` to `n` where:\n- If the number is divisible by 3, output `Fizz`.\n- If the number is divisible by 5, output `Buzz`.\n- If the number is divisible by both 3 and 5, output `FizzBuzz`.\n- Otherwise, output the number as a string.",
-    "difficulty": "EASY",
-    "tag": "LAB",
-    "inputFormat": "A single integer n.",
-    "outputFormat": "Print n lines, each with the appropriate output.",
-    "constraints": "1 <= n <= 10^4",
-    "sampleInput": "5",
-    "sampleOutput": "1\n2\nFizz\n4\nBuzz",
-    "testCases": [
-      {
-        "input": "5",
-        "expectedOutput": "1\n2\nFizz\n4\nBuzz"
-      },
-      {
-        "input": "15",
-        "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz"
-      },
-      {
-        "input": "1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "3",
-        "expectedOutput": "1\n2\nFizz"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
-    "assignmentId": "assign_os_week1",
-    "order": 1
+    "assignmentId": "assign_dsa_week3",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
-    "id": "prob_contest_shortest_path",
-    "title": "Shortest Path in Grid",
-    "slug": "shortest-path-in-grid",
-    "description": "You are given an `m x n` grid where `0` represents an empty cell and `1` represents an obstacle. Find the length of the shortest path from the top-left corner `(0,0)` to the bottom-right corner `(m-1, n-1)`.\n\nYou can move up, down, left, or right. If no path exists, return `-1`. The path length includes both the start and end cells.",
+    "id": "prob_course_schedule",
+    "title": "Course Schedule",
+    "slug": "course-schedule",
+    "description": "There are `numCourses` courses labeled from `0` to `numCourses - 1`. You are given an array of prerequisites where `prerequisites[i] = [a, b]` indicates you must take course `b` before course `a`.\n\nReturn `true` if you can finish all courses, `false` otherwise.",
     "difficulty": "MEDIUM",
-    "tag": "CONTEST",
-    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n space-separated integers (0 or 1).",
-    "outputFormat": "A single integer — the shortest path length, or -1.",
-    "constraints": "1 <= m, n <= 100\ngrid[i][j] is 0 or 1\ngrid[0][0] == 0\ngrid[m-1][n-1] == 0",
-    "sampleInput": "3 3\n0 0 0\n1 1 0\n0 0 0",
-    "sampleOutput": "5",
+    "tag": "LAB",
+    "inputFormat": "The first line contains two integers: numCourses and number of prerequisites p.\nThe next p lines each contain two space-separated integers a b.",
+    "outputFormat": "Print `true` or `false`.",
+    "constraints": "1 <= numCourses <= 2000\n0 <= prerequisites.length <= 5000",
+    "sampleInput": "2 1\n1 0",
+    "sampleOutput": "true",
     "testCases": [
       {
-        "input": "3 3\n0 0 0\n1 1 0\n0 0 0",
-        "expectedOutput": "5"
+        "input": "2 1\n1 0",
+        "expectedOutput": "true"
       },
       {
-        "input": "3 3\n0 1 0\n0 1 0\n0 0 0",
-        "expectedOutput": "5"
+        "input": "2 2\n1 0\n0 1",
+        "expectedOutput": "false"
       },
       {
-        "input": "2 2\n0 0\n0 0",
-        "expectedOutput": "3"
+        "input": "3 2\n1 0\n2 1",
+        "expectedOutput": "true"
       },
       {
-        "input": "2 2\n0 1\n1 0",
-        "expectedOutput": "-1"
-      },
-      {
-        "input": "1 1\n0",
-        "expectedOutput": "1"
+        "input": "1 0",
+        "expectedOutput": "true"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
-    "contestId": "contest_weekly_01",
-    "assignmentId": null,
-    "order": 1
-  },
-  {
-    "id": "prob_contest_kth_largest",
-    "title": "Kth Largest Element",
-    "slug": "kth-largest-element",
-    "description": "Given an integer array `nums` and an integer `k`, return the `k-th` largest element in the array.\n\nNote that it is the `k-th` largest element in sorted order, not the `k-th` distinct element.\n\nCan you solve it without sorting?",
-    "difficulty": "MEDIUM",
-    "tag": "CONTEST",
-    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers.",
-    "outputFormat": "A single integer — the k-th largest element.",
-    "constraints": "1 <= k <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
-    "sampleInput": "6 2\n3 2 1 5 6 4",
-    "sampleOutput": "5",
-    "testCases": [
-      {
-        "input": "6 2\n3 2 1 5 6 4",
-        "expectedOutput": "5"
-      },
-      {
-        "input": "9 4\n3 2 3 1 2 4 5 5 6",
-        "expectedOutput": "4"
-      },
-      {
-        "input": "1 1\n1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "5 5\n10 20 30 40 50",
-        "expectedOutput": "10"
-      },
-      {
-        "input": "3 1\n-1 -2 -3",
-        "expectedOutput": "-1"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": "contest_weekly_01",
-    "assignmentId": null,
-    "order": 2
-  },
-  {
-    "id": "prob_contest_min_cost_path",
-    "title": "Minimum Cost Path",
-    "slug": "minimum-cost-path",
-    "description": "Given an `m x n` grid filled with non-negative numbers, find a path from the top-left to the bottom-right which **minimizes the sum** of all numbers along its path.\n\nYou can only move either **down** or **right** at any point in time.",
-    "difficulty": "HARD",
-    "tag": "CONTEST",
-    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n space-separated integers.",
-    "outputFormat": "A single integer — the minimum path sum.",
-    "constraints": "m == grid.length\nn == grid[i].length\n1 <= m, n <= 200\n0 <= grid[i][j] <= 200",
-    "sampleInput": "3 3\n1 3 1\n1 5 1\n4 2 1",
-    "sampleOutput": "7",
-    "testCases": [
-      {
-        "input": "3 3\n1 3 1\n1 5 1\n4 2 1",
-        "expectedOutput": "7"
-      },
-      {
-        "input": "2 3\n1 2 3\n4 5 6",
-        "expectedOutput": "12"
-      },
-      {
-        "input": "1 1\n0",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "2 2\n1 2\n1 1",
-        "expectedOutput": "3"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": "contest_weekly_01",
-    "assignmentId": null,
-    "order": 3
-  },
-  {
-    "id": "prob_contest_string_decode",
-    "title": "Decode String",
-    "slug": "decode-string",
-    "description": "Given an encoded string, return its decoded version.\n\nThe encoding rule is: `k[encoded_string]`, where the `encoded_string` inside the square brackets is being repeated exactly `k` times.\n\nYou may assume the input string is always valid. There are no extra white spaces, square brackets are well-formed, etc.",
-    "difficulty": "MEDIUM",
-    "tag": "CONTEST",
-    "inputFormat": "A single line containing the encoded string.",
-    "outputFormat": "A single line containing the decoded string.",
-    "constraints": "1 <= s.length <= 30\ns consists of lowercase English letters, digits, and square brackets.\n1 <= k <= 300",
-    "sampleInput": "3[a]2[bc]",
-    "sampleOutput": "aaabcbc",
-    "testCases": [
-      {
-        "input": "3[a]2[bc]",
-        "expectedOutput": "aaabcbc"
-      },
-      {
-        "input": "3[a2[c]]",
-        "expectedOutput": "accaccacc"
-      },
-      {
-        "input": "2[abc]3[cd]ef",
-        "expectedOutput": "abcabccdcdcdef"
-      },
-      {
-        "input": "abc3[cd]xyz",
-        "expectedOutput": "abccdcdcdxyz"
-      },
-      {
-        "input": "1[a]",
-        "expectedOutput": "a"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": "contest_beginner_01",
-    "assignmentId": null,
-    "order": 1
-  },
-  {
-    "id": "prob_contest_palindrome_check",
-    "title": "Palindrome Partition Count",
-    "slug": "palindrome-partition-count",
-    "description": "Given a string `s`, return the **minimum number of cuts** needed so that every substring in the partition is a palindrome.",
-    "difficulty": "HARD",
-    "tag": "CONTEST",
-    "inputFormat": "A single line containing the string s.",
-    "outputFormat": "A single integer — the minimum number of cuts.",
-    "constraints": "1 <= s.length <= 2000\ns consists of lowercase English letters only.",
-    "sampleInput": "aab",
-    "sampleOutput": "1",
-    "testCases": [
-      {
-        "input": "aab",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "a",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "ab",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "aabbcc",
-        "expectedOutput": "2"
-      },
-      {
-        "input": "racecar",
-        "expectedOutput": "0"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": "contest_beginner_01",
-    "assignmentId": null,
-    "order": 2
+    "contestId": null,
+    "assignmentId": "assign_dsa_week3",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
     "id": "prob_climbing_stairs",
@@ -805,49 +269,83 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_dsa_week4",
-    "order": 1
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
-    "id": "prob_linked_list_cycle",
-    "title": "Detect Cycle in Linked List",
-    "slug": "detect-cycle-in-linked-list",
-    "description": "Given a linked list represented as a sequence of node values and a position `pos` where the tail connects to (0-indexed, -1 means no cycle), determine if the linked list has a cycle.\n\nReturn `true` if there is a cycle, `false` otherwise.",
-    "difficulty": "EASY",
+    "id": "prob_trie_impl",
+    "title": "Implement Trie",
+    "slug": "implement-trie",
+    "description": "Implement a trie (prefix tree) with the following operations:\n\n- `INSERT word` — Inserts the word into the trie.\n- `SEARCH word` — Returns `true` if the word is in the trie.\n- `STARTSWITH prefix` — Returns `true` if any word starts with the prefix.",
+    "difficulty": "MEDIUM",
     "tag": "LAB",
-    "inputFormat": "The first line contains n — the number of nodes.\nThe second line contains n space-separated integers — the node values.\nThe third line contains pos — the position the tail connects to (-1 if no cycle).",
-    "outputFormat": "Print `true` or `false`.",
-    "constraints": "0 <= n <= 10^4\n-10^5 <= Node.val <= 10^5\npos is -1 or a valid index.",
-    "sampleInput": "4\n3 2 0 -4\n1",
-    "sampleOutput": "true",
+    "inputFormat": "The first line contains an integer q — number of operations.\nThe next q lines each contain an operation.",
+    "outputFormat": "For each SEARCH and STARTSWITH operation, print the result on a new line.",
+    "constraints": "1 <= word.length, prefix.length <= 2000\nword and prefix consist of lowercase English letters.\nAt most 3 * 10^4 operations.",
+    "sampleInput": "5\nINSERT apple\nSEARCH apple\nSEARCH app\nSTARTSWITH app\nINSERT app",
+    "sampleOutput": "true\nfalse\ntrue",
     "testCases": [
       {
-        "input": "4\n3 2 0 -4\n1",
-        "expectedOutput": "true"
+        "input": "5\nINSERT apple\nSEARCH apple\nSEARCH app\nSTARTSWITH app\nINSERT app",
+        "expectedOutput": "true\nfalse\ntrue"
       },
       {
-        "input": "2\n1 2\n0",
-        "expectedOutput": "true"
+        "input": "3\nINSERT hello\nSEARCH world\nSTARTSWITH hel",
+        "expectedOutput": "false\ntrue"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_dsa_week4",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
+  },
+  {
+    "id": "prob_fizzbuzz",
+    "title": "FizzBuzz",
+    "slug": "fizzbuzz",
+    "description": "Given an integer `n`, return a list of strings from `1` to `n` where:\n- divisible by 3 → `Fizz`\n- divisible by 5 → `Buzz`\n- divisible by both → `FizzBuzz`\n- otherwise → the number as a string.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "A single integer n.",
+    "outputFormat": "Print n lines, each with the appropriate output.",
+    "constraints": "1 <= n <= 10^4",
+    "sampleInput": "5",
+    "sampleOutput": "1\n2\nFizz\n4\nBuzz",
+    "testCases": [
+      {
+        "input": "5",
+        "expectedOutput": "1\n2\nFizz\n4\nBuzz"
       },
       {
-        "input": "1\n1\n-1",
-        "expectedOutput": "false"
+        "input": "15",
+        "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz"
       },
       {
-        "input": "3\n1 2 3\n-1",
-        "expectedOutput": "false"
+        "input": "1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "3",
+        "expectedOutput": "1\n2\nFizz"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": null,
-    "assignmentId": "assign_dsa_week2",
-    "order": 2
+    "assignmentId": "assign_os_week1",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
     "id": "prob_palindrome_number",
     "title": "Palindrome Number",
     "slug": "palindrome-number",
-    "description": "Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwise.\n\nAn integer is a palindrome when it reads the same forward and backward.",
+    "description": "Given an integer `x`, return `true` if `x` is a palindrome, and `false` otherwise.",
     "difficulty": "EASY",
     "tag": "LAB",
     "inputFormat": "A single integer x.",
@@ -881,321 +379,53 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_os_week1",
-    "order": 2
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
-    "id": "prob_roman_to_integer",
-    "title": "Roman to Integer",
-    "slug": "roman-to-integer",
-    "description": "Given a roman numeral string, convert it to an integer.\n\nRoman numerals: I=1, V=5, X=10, L=50, C=100, D=500, M=1000.\nSubtraction cases: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.",
-    "difficulty": "EASY",
-    "tag": "LAB",
-    "inputFormat": "A single line containing the roman numeral string.",
-    "outputFormat": "A single integer — the converted value.",
-    "constraints": "1 <= s.length <= 15\ns contains only characters: I, V, X, L, C, D, M.\nIt is guaranteed s is a valid roman numeral in [1, 3999].",
-    "sampleInput": "MCMXCIV",
-    "sampleOutput": "1994",
-    "testCases": [
-      {
-        "input": "III",
-        "expectedOutput": "3"
-      },
-      {
-        "input": "LVIII",
-        "expectedOutput": "58"
-      },
-      {
-        "input": "MCMXCIV",
-        "expectedOutput": "1994"
-      },
-      {
-        "input": "IX",
-        "expectedOutput": "9"
-      },
-      {
-        "input": "CDXLIV",
-        "expectedOutput": "444"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": "assign_web_basics",
-    "order": 2
-  },
-  {
-    "id": "prob_longest_common_prefix",
-    "title": "Longest Common Prefix",
-    "slug": "longest-common-prefix",
-    "description": "Write a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string.",
-    "difficulty": "EASY",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n — the number of strings.\nThe next n lines each contain a string.",
-    "outputFormat": "A single line — the longest common prefix (empty line if none).",
-    "constraints": "1 <= strs.length <= 200\n0 <= strs[i].length <= 200\nstrs[i] consists of lowercase English letters only.",
-    "sampleInput": "3\nflower\nflow\nflight",
-    "sampleOutput": "fl",
-    "testCases": [
-      {
-        "input": "3\nflower\nflow\nflight",
-        "expectedOutput": "fl"
-      },
-      {
-        "input": "3\ndog\nracecar\ncar",
-        "expectedOutput": ""
-      },
-      {
-        "input": "1\nalone",
-        "expectedOutput": "alone"
-      },
-      {
-        "input": "2\naa\naa",
-        "expectedOutput": "aa"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": "assign_web_basics",
-    "order": 1
-  },
-  {
-    "id": "prob_group_anagrams",
-    "title": "Group Anagrams",
-    "slug": "group-anagrams",
-    "description": "Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.\n\nAn anagram is a word formed by rearranging the letters of a different word, using all the original letters exactly once.",
+    "id": "prob_max_subarray",
+    "title": "Maximum Subarray",
+    "slug": "maximum-subarray",
+    "description": "Given an integer array `nums`, find the subarray with the largest sum, and return its sum.",
     "difficulty": "MEDIUM",
     "tag": "LAB",
-    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain a string.",
-    "outputFormat": "Print each group on a new line, with words space-separated. Groups sorted alphabetically by their first element.",
-    "constraints": "1 <= strs.length <= 10^4\n0 <= strs[i].length <= 100\nstrs[i] consists of lowercase English letters.",
-    "sampleInput": "6\neat\ntea\ntan\nate\nnat\nbat",
-    "sampleOutput": "ate eat tea\nbat\nnat tan",
+    "inputFormat": "The first line contains an integer n — the size of the array.\nThe second line contains n space-separated integers.",
+    "outputFormat": "A single integer — the maximum subarray sum.",
+    "constraints": "1 <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
+    "sampleInput": "9\n-2 1 -3 4 -1 2 1 -5 4",
+    "sampleOutput": "6",
     "testCases": [
       {
-        "input": "6\neat\ntea\ntan\nate\nnat\nbat",
-        "expectedOutput": "ate eat tea\nbat\nnat tan"
-      },
-      {
-        "input": "1\na",
-        "expectedOutput": "a"
-      },
-      {
-        "input": "3\nabc\nbca\ncab",
-        "expectedOutput": "abc bca cab"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_web_advanced",
-    "order": 1
-  },
-  {
-    "id": "prob_product_except_self",
-    "title": "Product of Array Except Self",
-    "slug": "product-of-array-except-self",
-    "description": "Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.\n\nYou must solve it in O(n) time and **without using division**.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
-    "outputFormat": "A single line of n space-separated integers — the result array.",
-    "constraints": "2 <= nums.length <= 10^5\n-30 <= nums[i] <= 30\nThe product of any prefix or suffix fits in a 32-bit integer.",
-    "sampleInput": "4\n1 2 3 4",
-    "sampleOutput": "24 12 8 6",
-    "testCases": [
-      {
-        "input": "4\n1 2 3 4",
-        "expectedOutput": "24 12 8 6"
-      },
-      {
-        "input": "5\n-1 1 0 -3 3",
-        "expectedOutput": "0 0 9 0 0"
-      },
-      {
-        "input": "3\n2 3 4",
-        "expectedOutput": "12 8 6"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_web_advanced",
-    "order": 2
-  },
-  {
-    "id": "prob_rotate_image",
-    "title": "Rotate Image",
-    "slug": "rotate-image",
-    "description": "You are given an `n x n` 2D matrix representing an image. Rotate the image by 90 degrees clockwise.\n\nYou must rotate it **in-place**, meaning you have to modify the input matrix directly.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain n space-separated integers.",
-    "outputFormat": "Print the rotated matrix, n lines of n space-separated integers.",
-    "constraints": "1 <= n <= 20\n-1000 <= matrix[i][j] <= 1000",
-    "sampleInput": "3\n1 2 3\n4 5 6\n7 8 9",
-    "sampleOutput": "7 4 1\n8 5 2\n9 6 3",
-    "testCases": [
-      {
-        "input": "3\n1 2 3\n4 5 6\n7 8 9",
-        "expectedOutput": "7 4 1\n8 5 2\n9 6 3"
-      },
-      {
-        "input": "2\n1 2\n3 4",
-        "expectedOutput": "3 1\n4 2"
+        "input": "9\n-2 1 -3 4 -1 2 1 -5 4",
+        "expectedOutput": "6"
       },
       {
         "input": "1\n1",
         "expectedOutput": "1"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": "assign_dsa_week3",
-    "order": 1
-  },
-  {
-    "id": "prob_spiral_matrix",
-    "title": "Spiral Matrix",
-    "slug": "spiral-matrix",
-    "description": "Given an `m x n` matrix, return all elements of the matrix in spiral order (clockwise, starting from the top-left).",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n space-separated integers.",
-    "outputFormat": "A single line of space-separated integers in spiral order.",
-    "constraints": "1 <= m, n <= 10\n-100 <= matrix[i][j] <= 100",
-    "sampleInput": "3 3\n1 2 3\n4 5 6\n7 8 9",
-    "sampleOutput": "1 2 3 6 9 8 7 4 5",
-    "testCases": [
-      {
-        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
-        "expectedOutput": "1 2 3 6 9 8 7 4 5"
       },
       {
-        "input": "3 4\n1 2 3 4\n5 6 7 8\n9 10 11 12",
-        "expectedOutput": "1 2 3 4 8 12 11 10 9 5 6 7"
+        "input": "5\n5 4 -1 7 8",
+        "expectedOutput": "23"
       },
       {
-        "input": "1 4\n1 2 3 4",
-        "expectedOutput": "1 2 3 4"
-      }
-    ],
-    "timeLimit": 1,
-    "memoryLimit": 128,
-    "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
-    "id": "prob_jump_game",
-    "title": "Jump Game",
-    "slug": "jump-game",
-    "description": "You are given an integer array `nums` where each element represents your maximum jump length from that position.\n\nReturn `true` if you can reach the last index, or `false` otherwise.",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
-    "outputFormat": "Print `true` or `false`.",
-    "constraints": "1 <= nums.length <= 10^4\n0 <= nums[i] <= 10^5",
-    "sampleInput": "5\n2 3 1 1 4",
-    "sampleOutput": "true",
-    "testCases": [
-      {
-        "input": "5\n2 3 1 1 4",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "5\n3 2 1 0 4",
-        "expectedOutput": "false"
-      },
-      {
-        "input": "1\n0",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "3\n1 2 3",
-        "expectedOutput": "true"
+        "input": "3\n-1 -2 -3",
+        "expectedOutput": "-1"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
-    "assignmentId": null,
-    "order": null
-  },
-  {
-    "id": "prob_number_islands",
-    "title": "Number of Islands",
-    "slug": "number-of-islands",
-    "description": "Given an `m x n` 2D grid map of `1`s (land) and `0`s (water), return the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n characters (0 or 1) space-separated.",
-    "outputFormat": "A single integer — the number of islands.",
-    "constraints": "m == grid.length\nn == grid[i].length\n1 <= m, n <= 300\ngrid[i][j] is '0' or '1'.",
-    "sampleInput": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
-    "sampleOutput": "1",
-    "testCases": [
-      {
-        "input": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
-        "expectedOutput": "3"
-      },
-      {
-        "input": "1 1\n0",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "1 1\n1",
-        "expectedOutput": "1"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_algo_graphs",
-    "order": 1
-  },
-  {
-    "id": "prob_topk_frequent",
-    "title": "Top K Frequent Elements",
-    "slug": "top-k-frequent-elements",
-    "description": "Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.\n\nIt is guaranteed that the answer is unique.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers.",
-    "outputFormat": "A single line of k space-separated integers (sorted in ascending order).",
-    "constraints": "1 <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4\nk is in the range [1, the number of unique elements].",
-    "sampleInput": "6 2\n1 1 1 2 2 3",
-    "sampleOutput": "1 2",
-    "testCases": [
-      {
-        "input": "6 2\n1 1 1 2 2 3",
-        "expectedOutput": "1 2"
-      },
-      {
-        "input": "1 1\n1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "7 3\n1 1 2 2 3 3 3",
-        "expectedOutput": "1 2 3"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_ca_beginner",
-    "order": 2
+    "assignmentId": "assign_os_week2",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
     "id": "prob_house_robber",
     "title": "House Robber",
     "slug": "house-robber",
-    "description": "You are a robber planning to rob houses along a street. Each house has a certain amount of money. Adjacent houses have security systems connected — if two adjacent houses are broken into on the same night, the police will be alerted.\n\nGiven an array `nums` representing the amount of money at each house, return the **maximum amount** you can rob tonight without alerting the police.",
+    "description": "You are a robber planning to rob houses along a street. Adjacent houses have security systems — if two adjacent houses are broken into, the police will be alerted.\n\nReturn the **maximum amount** you can rob without alerting the police.",
     "difficulty": "MEDIUM",
     "tag": "LAB",
     "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
@@ -1225,145 +455,57 @@
     "memoryLimit": 128,
     "contestId": null,
     "assignmentId": "assign_os_week2",
-    "order": 2
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
   },
   {
-    "id": "prob_course_schedule",
-    "title": "Course Schedule",
-    "slug": "course-schedule",
-    "description": "There are `numCourses` courses labeled from `0` to `numCourses - 1`. You are given an array of prerequisites where `prerequisites[i] = [a, b]` indicates you must take course `b` before course `a`.\n\nReturn `true` if you can finish all courses, `false` otherwise.",
+    "id": "prob_coin_change",
+    "title": "Coin Change",
+    "slug": "coin-change",
+    "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount`.\n\nReturn the **fewest number of coins** that you need to make up that amount. If that amount cannot be made up, return `-1`.",
     "difficulty": "MEDIUM",
     "tag": "LAB",
-    "inputFormat": "The first line contains two integers: numCourses and number of prerequisites p.\nThe next p lines each contain two space-separated integers a b.",
-    "outputFormat": "Print `true` or `false`.",
-    "constraints": "1 <= numCourses <= 2000\n0 <= prerequisites.length <= 5000",
-    "sampleInput": "2 1\n1 0",
-    "sampleOutput": "true",
+    "inputFormat": "The first line contains an integer n — the number of coin types.\nThe second line contains n space-separated integers — the coin denominations.\nThe third line contains the target amount.",
+    "outputFormat": "A single integer — the fewest number of coins, or -1.",
+    "constraints": "1 <= coins.length <= 12\n1 <= coins[i] <= 2^31 - 1\n0 <= amount <= 10^4",
+    "sampleInput": "3\n1 2 5\n11",
+    "sampleOutput": "3",
     "testCases": [
       {
-        "input": "2 1\n1 0",
-        "expectedOutput": "true"
+        "input": "3\n1 2 5\n11",
+        "expectedOutput": "3"
       },
       {
-        "input": "2 2\n1 0\n0 1",
-        "expectedOutput": "false"
+        "input": "1\n2\n3",
+        "expectedOutput": "-1"
       },
       {
-        "input": "3 2\n1 0\n2 1",
-        "expectedOutput": "true"
+        "input": "1\n1\n0",
+        "expectedOutput": "0"
       },
       {
-        "input": "1 0",
-        "expectedOutput": "true"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_dsa_week3",
-    "order": 2
-  },
-  {
-    "id": "prob_trie_impl",
-    "title": "Implement Trie",
-    "slug": "implement-trie",
-    "description": "Implement a trie (prefix tree) with the following operations:\n\n- `INSERT word` — Inserts the word into the trie.\n- `SEARCH word` — Returns `true` if the word is in the trie, `false` otherwise.\n- `STARTSWITH prefix` — Returns `true` if any word starts with the prefix.",
-    "difficulty": "MEDIUM",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer q — number of operations.\nThe next q lines each contain an operation.",
-    "outputFormat": "For each SEARCH and STARTSWITH operation, print the result on a new line.",
-    "constraints": "1 <= word.length, prefix.length <= 2000\nword and prefix consist of lowercase English letters.\nAt most 3 * 10^4 operations.",
-    "sampleInput": "5\nINSERT apple\nSEARCH apple\nSEARCH app\nSTARTSWITH app\nINSERT app",
-    "sampleOutput": "true\nfalse\ntrue",
-    "testCases": [
-      {
-        "input": "5\nINSERT apple\nSEARCH apple\nSEARCH app\nSTARTSWITH app\nINSERT app",
-        "expectedOutput": "true\nfalse\ntrue"
-      },
-      {
-        "input": "3\nINSERT hello\nSEARCH world\nSTARTSWITH hel",
-        "expectedOutput": "false\ntrue"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_dsa_week4",
-    "order": 2
-  },
-  {
-    "id": "prob_trapping_rain",
-    "title": "Trapping Rain Water",
-    "slug": "trapping-rain-water",
-    "description": "Given `n` non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
-    "difficulty": "HARD",
-    "tag": "LAB",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated non-negative integers.",
-    "outputFormat": "A single integer — the total water trapped.",
-    "constraints": "n == height.length\n1 <= n <= 2 * 10^4\n0 <= height[i] <= 10^5",
-    "sampleInput": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
-    "sampleOutput": "6",
-    "testCases": [
-      {
-        "input": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
-        "expectedOutput": "6"
-      },
-      {
-        "input": "5\n4 2 0 3 2",
+        "input": "3\n1 5 10\n27",
         "expectedOutput": "5"
       },
       {
-        "input": "3\n1 0 1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "4\n4 3 2 1",
-        "expectedOutput": "0"
+        "input": "2\n3 7\n1",
+        "expectedOutput": "-1"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
-    "assignmentId": "assign_ca_advanced",
-    "order": 2
-  },
-  {
-    "id": "prob_serialize_tree",
-    "title": "Serialize and Deserialize Binary Tree",
-    "slug": "serialize-deserialize-binary-tree",
-    "description": "Design an algorithm to serialize and deserialize a binary tree.\n\nSerialization is the process of converting a tree to a string representation so that it can be reconstructed later.\n\nInput is given as a level-order traversal where `null` represents missing nodes. Process the serialization and deserialization, then output the level-order traversal of the deserialized tree.",
-    "difficulty": "HARD",
-    "tag": "LAB",
-    "inputFormat": "A single line of space-separated values (integers or 'null') representing level-order traversal.",
-    "outputFormat": "The same level-order traversal after serialize → deserialize round-trip.",
-    "constraints": "The number of nodes is in range [0, 10^4].\n-1000 <= Node.val <= 1000",
-    "sampleInput": "1 2 3 null null 4 5",
-    "sampleOutput": "1 2 3 null null 4 5",
-    "testCases": [
-      {
-        "input": "1 2 3 null null 4 5",
-        "expectedOutput": "1 2 3 null null 4 5"
-      },
-      {
-        "input": "1",
-        "expectedOutput": "1"
-      },
-      {
-        "input": "null",
-        "expectedOutput": "null"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": null,
-    "assignmentId": "assign_ca_intermediate",
-    "order": 2
+    "assignmentId": "assign_algo_dp",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
   },
   {
     "id": "prob_longest_increasing",
     "title": "Longest Increasing Subsequence",
     "slug": "longest-increasing-subsequence",
-    "description": "Given an integer array `nums`, return the length of the longest **strictly increasing** subsequence.\n\nA subsequence is derived by deleting some (or no) elements without changing the order of the remaining elements.",
+    "description": "Given an integer array `nums`, return the length of the longest **strictly increasing** subsequence.",
     "difficulty": "MEDIUM",
     "tag": "LAB",
     "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
@@ -1393,15 +535,423 @@
     "memoryLimit": 256,
     "contestId": null,
     "assignmentId": "assign_algo_dp",
-    "order": 2
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
   },
   {
-    "id": "prob_contest_matrix_rotation",
-    "title": "Matrix Diagonal Sum",
-    "slug": "matrix-diagonal-sum",
-    "description": "Given a square matrix `mat`, return the sum of the matrix diagonals.\n\nOnly include the sum of all elements on the primary diagonal and the secondary diagonal. If an element is on both diagonals (center of odd-sized matrix), count it only once.",
+    "id": "prob_number_islands",
+    "title": "Number of Islands",
+    "slug": "number-of-islands",
+    "description": "Given an `m x n` 2D grid map of `1`s (land) and `0`s (water), return the number of islands.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n characters (0 or 1) space-separated.",
+    "outputFormat": "A single integer — the number of islands.",
+    "constraints": "1 <= m, n <= 300\ngrid[i][j] is '0' or '1'.",
+    "sampleInput": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+    "sampleOutput": "1",
+    "testCases": [
+      {
+        "input": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "1 1\n0",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "1 1\n1",
+        "expectedOutput": "1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_algo_graphs",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_word_ladder",
+    "title": "Word Ladder",
+    "slug": "word-ladder",
+    "description": "Given two words, `beginWord` and `endWord`, and a dictionary `wordList`, return the **number of words in the shortest transformation sequence** from `beginWord` to `endWord`, or `0` if no such sequence exists.",
+    "difficulty": "HARD",
+    "tag": "LAB",
+    "inputFormat": "The first line contains the beginWord.\nThe second line contains the endWord.\nThe third line contains an integer n.\nThe next n lines each contain a word.",
+    "outputFormat": "A single integer — the length of the shortest transformation sequence, or 0.",
+    "constraints": "1 <= beginWord.length <= 10\n1 <= wordList.length <= 5000",
+    "sampleInput": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
+    "sampleOutput": "5",
+    "testCases": [
+      {
+        "input": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "hit\ncog\n5\nhot\ndot\ndog\nlot\nlog",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "a\nc\n2\na\nc",
+        "expectedOutput": "2"
+      }
+    ],
+    "timeLimit": 3,
+    "memoryLimit": 512,
+    "contestId": null,
+    "assignmentId": "assign_algo_graphs",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_longest_common_prefix",
+    "title": "Longest Common Prefix",
+    "slug": "longest-common-prefix",
+    "description": "Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string.",
     "difficulty": "EASY",
-    "tag": "CONTEST",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n — the number of strings.\nThe next n lines each contain a string.",
+    "outputFormat": "A single line — the longest common prefix.",
+    "constraints": "1 <= strs.length <= 200\n0 <= strs[i].length <= 200",
+    "sampleInput": "3\nflower\nflow\nflight",
+    "sampleOutput": "fl",
+    "testCases": [
+      {
+        "input": "3\nflower\nflow\nflight",
+        "expectedOutput": "fl"
+      },
+      {
+        "input": "3\ndog\nracecar\ncar",
+        "expectedOutput": ""
+      },
+      {
+        "input": "1\nalone",
+        "expectedOutput": "alone"
+      },
+      {
+        "input": "2\naa\naa",
+        "expectedOutput": "aa"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_web_basics",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_roman_to_integer",
+    "title": "Roman to Integer",
+    "slug": "roman-to-integer",
+    "description": "Given a roman numeral string, convert it to an integer.\n\nI=1, V=5, X=10, L=50, C=100, D=500, M=1000.\nSubtraction cases: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "A single line containing the roman numeral string.",
+    "outputFormat": "A single integer — the converted value.",
+    "constraints": "1 <= s.length <= 15\nThe value is in [1, 3999].",
+    "sampleInput": "MCMXCIV",
+    "sampleOutput": "1994",
+    "testCases": [
+      {
+        "input": "III",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "LVIII",
+        "expectedOutput": "58"
+      },
+      {
+        "input": "MCMXCIV",
+        "expectedOutput": "1994"
+      },
+      {
+        "input": "IX",
+        "expectedOutput": "9"
+      },
+      {
+        "input": "CDXLIV",
+        "expectedOutput": "444"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_web_basics",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_group_anagrams",
+    "title": "Group Anagrams",
+    "slug": "group-anagrams",
+    "description": "Given an array of strings `strs`, group the anagrams together. An anagram is a word formed by rearranging the letters of another word.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain a string.",
+    "outputFormat": "Print each group on a new line, words space-separated, groups sorted alphabetically.",
+    "constraints": "1 <= strs.length <= 10^4\n0 <= strs[i].length <= 100",
+    "sampleInput": "6\neat\ntea\ntan\nate\nnat\nbat",
+    "sampleOutput": "ate eat tea\nbat\nnat tan",
+    "testCases": [
+      {
+        "input": "6\neat\ntea\ntan\nate\nnat\nbat",
+        "expectedOutput": "ate eat tea\nbat\nnat tan"
+      },
+      {
+        "input": "1\na",
+        "expectedOutput": "a"
+      },
+      {
+        "input": "3\nabc\nbca\ncab",
+        "expectedOutput": "abc bca cab"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_web_advanced",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_product_except_self",
+    "title": "Product of Array Except Self",
+    "slug": "product-of-array-except-self",
+    "description": "Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.\n\nSolve in O(n) time **without using division**.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
+    "outputFormat": "A single line of n space-separated integers.",
+    "constraints": "2 <= nums.length <= 10^5\n-30 <= nums[i] <= 30",
+    "sampleInput": "4\n1 2 3 4",
+    "sampleOutput": "24 12 8 6",
+    "testCases": [
+      {
+        "input": "4\n1 2 3 4",
+        "expectedOutput": "24 12 8 6"
+      },
+      {
+        "input": "5\n-1 1 0 -3 3",
+        "expectedOutput": "0 0 9 0 0"
+      },
+      {
+        "input": "3\n2 3 4",
+        "expectedOutput": "12 8 6"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_web_advanced",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_valid_parentheses",
+    "title": "Valid Parentheses",
+    "slug": "valid-parentheses",
+    "description": "Given a string `s` containing just the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "A single line containing the string of brackets.",
+    "outputFormat": "Print `true` if valid, `false` otherwise.",
+    "constraints": "1 <= s.length <= 10^4\ns consists of parentheses only '()[]{}'.",
+    "sampleInput": "()",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "()",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "()[]{}",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "(]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "([)]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "{[]}",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "",
+        "expectedOutput": "true"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_cp_warmup",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_topk_frequent",
+    "title": "Top K Frequent Elements",
+    "slug": "top-k-frequent-elements",
+    "description": "Given an integer array `nums` and an integer `k`, return the `k` most frequent elements.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers.",
+    "outputFormat": "A single line of k space-separated integers (sorted ascending).",
+    "constraints": "1 <= nums.length <= 10^5\nk is in the range [1, number of unique elements].",
+    "sampleInput": "6 2\n1 1 1 2 2 3",
+    "sampleOutput": "1 2",
+    "testCases": [
+      {
+        "input": "6 2\n1 1 1 2 2 3",
+        "expectedOutput": "1 2"
+      },
+      {
+        "input": "1 1\n1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "7 3\n1 1 2 2 3 3 3",
+        "expectedOutput": "1 2 3"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_cp_warmup",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_merge_intervals",
+    "title": "Merge Intervals",
+    "slug": "merge-intervals",
+    "description": "Given an array of `intervals` where `intervals[i] = [start_i, end_i]`, merge all overlapping intervals.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain two space-separated integers: start and end.",
+    "outputFormat": "Print each merged interval on a new line.",
+    "constraints": "1 <= intervals.length <= 10^4\n0 <= start_i <= end_i <= 10^4",
+    "sampleInput": "4\n1 3\n2 6\n8 10\n15 18",
+    "sampleOutput": "1 6\n8 10\n15 18",
+    "testCases": [
+      {
+        "input": "4\n1 3\n2 6\n8 10\n15 18",
+        "expectedOutput": "1 6\n8 10\n15 18"
+      },
+      {
+        "input": "2\n1 4\n4 5",
+        "expectedOutput": "1 5"
+      },
+      {
+        "input": "1\n1 1",
+        "expectedOutput": "1 1"
+      },
+      {
+        "input": "3\n1 4\n0 4\n3 5",
+        "expectedOutput": "0 5"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_cp_intermediate",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_serialize_tree",
+    "title": "Serialize and Deserialize Binary Tree",
+    "slug": "serialize-deserialize-binary-tree",
+    "description": "Design an algorithm to serialize and deserialize a binary tree. Input is level-order with `null` for missing nodes.",
+    "difficulty": "HARD",
+    "tag": "LAB",
+    "inputFormat": "A single line of space-separated values (integers or 'null').",
+    "outputFormat": "The same level-order traversal after serialize → deserialize round-trip.",
+    "constraints": "The number of nodes is in range [0, 10^4].\n-1000 <= Node.val <= 1000",
+    "sampleInput": "1 2 3 null null 4 5",
+    "sampleOutput": "1 2 3 null null 4 5",
+    "testCases": [
+      {
+        "input": "1 2 3 null null 4 5",
+        "expectedOutput": "1 2 3 null null 4 5"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "null",
+        "expectedOutput": "null"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_cp_intermediate",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_ml_two_sum",
+    "title": "Two Sum",
+    "slug": "two-sum-ml",
+    "description": "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.\nThe third line contains the target integer.",
+    "outputFormat": "Print two space-separated integers — the indices (0-indexed).",
+    "constraints": "2 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9\nOnly one valid answer exists.",
+    "sampleInput": "4\n2 7 11 15\n9",
+    "sampleOutput": "0 1",
+    "testCases": [
+      {
+        "input": "4\n2 7 11 15\n9",
+        "expectedOutput": "0 1"
+      },
+      {
+        "input": "3\n3 2 4\n6",
+        "expectedOutput": "1 2"
+      },
+      {
+        "input": "2\n3 3\n6",
+        "expectedOutput": "0 1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_ml_basics",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_ml_matrix_diagonal",
+    "title": "Matrix Diagonal Sum",
+    "slug": "matrix-diagonal-sum-ml",
+    "description": "Given a square matrix `mat`, return the sum of the matrix diagonals. If an element is on both diagonals, count it only once.",
+    "difficulty": "EASY",
+    "tag": "LAB",
     "inputFormat": "The first line contains an integer n.\nThe next n lines each contain n space-separated integers.",
     "outputFormat": "A single integer — the diagonal sum.",
     "constraints": "1 <= n <= 100\n1 <= mat[i][j] <= 100",
@@ -1419,27 +969,595 @@
       {
         "input": "1\n5",
         "expectedOutput": "5"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_ml_basics",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_ml_sort_colors",
+    "title": "Sort Colors",
+    "slug": "sort-colors-ml",
+    "description": "Given an array `nums` with n objects colored red (0), white (1), and blue (2), sort them in-place so that objects of the same color are adjacent (Dutch National Flag problem).",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers (0, 1, or 2).",
+    "outputFormat": "A single line of n space-separated sorted integers.",
+    "constraints": "n == nums.length\n1 <= n <= 300\nnums[i] is 0, 1, or 2.",
+    "sampleInput": "6\n2 0 2 1 1 0",
+    "sampleOutput": "0 0 1 1 2 2",
+    "testCases": [
+      {
+        "input": "6\n2 0 2 1 1 0",
+        "expectedOutput": "0 0 1 1 2 2"
       },
       {
-        "input": "4\n1 1 1 1\n1 1 1 1\n1 1 1 1\n1 1 1 1",
-        "expectedOutput": "8"
+        "input": "3\n2 0 1",
+        "expectedOutput": "0 1 2"
+      },
+      {
+        "input": "1\n0",
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_ml_classification",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_ml_kth_largest",
+    "title": "Kth Largest Element in Array",
+    "slug": "kth-largest-element-ml",
+    "description": "Given an integer array `nums` and an integer `k`, return the `k-th` largest element in sorted order.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers.",
+    "outputFormat": "A single integer — the k-th largest element.",
+    "constraints": "1 <= k <= nums.length <= 10^5\n-10^4 <= nums[i] <= 10^4",
+    "sampleInput": "6 2\n3 2 1 5 6 4",
+    "sampleOutput": "5",
+    "testCases": [
+      {
+        "input": "6 2\n3 2 1 5 6 4",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "9 4\n3 2 3 1 2 4 5 5 6",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "1 1\n1",
+        "expectedOutput": "1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_ml_classification",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_dbms_search_rotated",
+    "title": "Search in Rotated Sorted Array",
+    "slug": "search-in-rotated-sorted-array-dbms",
+    "description": "Given a sorted integer array that has been rotated at an unknown pivot, find the target value's index or return -1. Must achieve O(log n).",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.\nThe third line contains the target.",
+    "outputFormat": "A single integer — the index of target, or -1.",
+    "constraints": "1 <= nums.length <= 5000\nAll values are unique.",
+    "sampleInput": "7\n4 5 6 7 0 1 2\n0",
+    "sampleOutput": "4",
+    "testCases": [
+      {
+        "input": "7\n4 5 6 7 0 1 2\n0",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "7\n4 5 6 7 0 1 2\n3",
+        "expectedOutput": "-1"
+      },
+      {
+        "input": "1\n1\n0",
+        "expectedOutput": "-1"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_dbms_sql",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_dbms_container_water",
+    "title": "Container With Most Water",
+    "slug": "container-with-most-water-dbms",
+    "description": "Given `n` vertical lines, find two lines that together with the x-axis form a container with the most water.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers — the heights.",
+    "outputFormat": "A single integer — the maximum area.",
+    "constraints": "2 <= n <= 10^5\n0 <= height[i] <= 10^4",
+    "sampleInput": "9\n1 8 6 2 5 4 8 3 7",
+    "sampleOutput": "49",
+    "testCases": [
+      {
+        "input": "9\n1 8 6 2 5 4 8 3 7",
+        "expectedOutput": "49"
+      },
+      {
+        "input": "2\n1 1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "3\n4 3 2",
+        "expectedOutput": "4"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_dbms_sql",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_dbms_bst_validate",
+    "title": "Validate Binary Search Tree",
+    "slug": "validate-bst-dbms",
+    "description": "Given the root of a binary tree (level-order with `null`), determine if it is a valid BST.",
+    "difficulty": "MEDIUM",
+    "tag": "LAB",
+    "inputFormat": "A single line of space-separated values (integers or 'null').",
+    "outputFormat": "Print `true` or `false`.",
+    "constraints": "1 <= number of nodes <= 10^4",
+    "sampleInput": "2 1 3",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "2 1 3",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "5 1 4 null null 3 6",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "true"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_dbms_indexing",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_dbms_lru_cache",
+    "title": "LRU Cache",
+    "slug": "lru-cache-dbms",
+    "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.\n\nBoth GET and PUT operations must run in O(1) average time.",
+    "difficulty": "HARD",
+    "tag": "LAB",
+    "inputFormat": "The first line contains two integers: capacity and number of operations q.\nThe next q lines each contain an operation: either `PUT key value` or `GET key`.",
+    "outputFormat": "For each GET operation, print the result on a new line.",
+    "constraints": "1 <= capacity <= 3000\n0 <= key <= 10^4\n0 <= value <= 10^5",
+    "sampleInput": "2 6\nPUT 1 1\nPUT 2 2\nGET 1\nPUT 3 3\nGET 2\nGET 3",
+    "sampleOutput": "1\n-1\n3",
+    "testCases": [
+      {
+        "input": "2 6\nPUT 1 1\nPUT 2 2\nGET 1\nPUT 3 3\nGET 2\nGET 3",
+        "expectedOutput": "1\n-1\n3"
+      },
+      {
+        "input": "1 4\nPUT 1 10\nGET 1\nPUT 2 20\nGET 1",
+        "expectedOutput": "10\n-1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_dbms_indexing",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_nits_reverse_string",
+    "title": "Reverse a String",
+    "slug": "reverse-string-nits",
+    "description": "Reverse the given string in-place.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "A single line containing the string to reverse.",
+    "outputFormat": "A single line containing the reversed string.",
+    "constraints": "1 <= s.length <= 10^5",
+    "sampleInput": "hello",
+    "sampleOutput": "olleh",
+    "testCases": [
+      {
+        "input": "hello",
+        "expectedOutput": "olleh"
+      },
+      {
+        "input": "a",
+        "expectedOutput": "a"
+      },
+      {
+        "input": "racecar",
+        "expectedOutput": "racecar"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_dsa_nits_week1",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_nits_merge_sorted",
+    "title": "Merge Sorted Arrays",
+    "slug": "merge-sorted-arrays-nits",
+    "description": "Merge two sorted arrays into a single sorted array.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "The first line contains integers m and n.\nThe second line contains m integers.\nThe third line contains n integers.",
+    "outputFormat": "A single line of merged sorted integers.",
+    "constraints": "0 <= m, n <= 200",
+    "sampleInput": "3 3\n1 2 3\n2 5 6",
+    "sampleOutput": "1 2 2 3 5 6",
+    "testCases": [
+      {
+        "input": "3 3\n1 2 3\n2 5 6",
+        "expectedOutput": "1 2 2 3 5 6"
+      },
+      {
+        "input": "4 3\n1 3 5 7\n2 4 6",
+        "expectedOutput": "1 2 3 4 5 6 7"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_dsa_nits_week1",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_nits_stack_sort",
+    "title": "Sort a Stack",
+    "slug": "sort-a-stack-nits",
+    "description": "Given a stack of integers (top first), sort it using only one temporary stack.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers (top first).",
+    "outputFormat": "A single line of sorted integers (smallest first).",
+    "constraints": "1 <= n <= 5000",
+    "sampleInput": "5\n5 3 1 4 2",
+    "sampleOutput": "1 2 3 4 5",
+    "testCases": [
+      {
+        "input": "5\n5 3 1 4 2",
+        "expectedOutput": "1 2 3 4 5"
+      },
+      {
+        "input": "3\n3 2 1",
+        "expectedOutput": "1 2 3"
+      },
+      {
+        "input": "1\n42",
+        "expectedOutput": "42"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": "assign_dsa_nits_week2",
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_nits_queue_impl",
+    "title": "Implement Queue Using Stacks",
+    "slug": "queue-using-stacks-nits",
+    "description": "Implement a FIFO queue using only two stacks.",
+    "difficulty": "EASY",
+    "tag": "LAB",
+    "inputFormat": "The first line contains an integer q.\nThe next q lines each contain an operation.",
+    "outputFormat": "For each POP, PEEK, EMPTY operation, print the result.",
+    "constraints": "1 <= x <= 9\nAt most 100 operations.",
+    "sampleInput": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
+    "sampleOutput": "1\n1\nfalse\n2",
+    "testCases": [
+      {
+        "input": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
+        "expectedOutput": "1\n1\nfalse\n2"
+      },
+      {
+        "input": "3\nPUSH 5\nPOP\nEMPTY",
+        "expectedOutput": "5\ntrue"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": "assign_dsa_nits_week2",
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_contest_shortest_path",
+    "title": "Shortest Path in Grid",
+    "slug": "shortest-path-in-grid",
+    "description": "Find the length of the shortest path from top-left to bottom-right in an `m x n` grid (0 = empty, 1 = obstacle). Return -1 if no path exists.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n space-separated integers (0 or 1).",
+    "outputFormat": "A single integer — the shortest path length, or -1.",
+    "constraints": "1 <= m, n <= 100\ngrid[0][0] == 0\ngrid[m-1][n-1] == 0",
+    "sampleInput": "3 3\n0 0 0\n1 1 0\n0 0 0",
+    "sampleOutput": "5",
+    "testCases": [
+      {
+        "input": "3 3\n0 0 0\n1 1 0\n0 0 0",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "2 2\n0 1\n1 0",
+        "expectedOutput": "-1"
+      },
+      {
+        "input": "1 1\n0",
+        "expectedOutput": "1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_01",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_kth_largest",
+    "title": "Kth Largest Element",
+    "slug": "kth-largest-element",
+    "description": "Given an integer array `nums` and an integer `k`, return the `k-th` largest element in sorted order.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= k <= nums.length <= 10^5",
+    "sampleInput": "6 2\n3 2 1 5 6 4",
+    "sampleOutput": "5",
+    "testCases": [
+      {
+        "input": "6 2\n3 2 1 5 6 4",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "9 4\n3 2 3 1 2 4 5 5 6",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "1 1\n1",
+        "expectedOutput": "1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_01",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_min_cost_path",
+    "title": "Minimum Cost Path",
+    "slug": "minimum-cost-path",
+    "description": "Given an `m x n` grid, find a path from top-left to bottom-right which minimizes the sum. Move only down or right.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "The first line contains two integers m and n.\nThe next m lines each contain n space-separated integers.",
+    "outputFormat": "A single integer — the minimum path sum.",
+    "constraints": "1 <= m, n <= 200\n0 <= grid[i][j] <= 200",
+    "sampleInput": "3 3\n1 3 1\n1 5 1\n4 2 1",
+    "sampleOutput": "7",
+    "testCases": [
+      {
+        "input": "3 3\n1 3 1\n1 5 1\n4 2 1",
+        "expectedOutput": "7"
+      },
+      {
+        "input": "2 3\n1 2 3\n4 5 6",
+        "expectedOutput": "12"
+      },
+      {
+        "input": "1 1\n0",
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_01",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_string_decode",
+    "title": "Decode String",
+    "slug": "decode-string",
+    "description": "Given an encoded string `k[encoded_string]`, return the decoded version.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "A single line containing the encoded string.",
+    "outputFormat": "A single line containing the decoded string.",
+    "constraints": "1 <= s.length <= 30\n1 <= k <= 300",
+    "sampleInput": "3[a]2[bc]",
+    "sampleOutput": "aaabcbc",
+    "testCases": [
+      {
+        "input": "3[a]2[bc]",
+        "expectedOutput": "aaabcbc"
+      },
+      {
+        "input": "3[a2[c]]",
+        "expectedOutput": "accaccacc"
+      },
+      {
+        "input": "2[abc]3[cd]ef",
+        "expectedOutput": "abcabccdcdcdef"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_beginner_01",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_palindrome_check",
+    "title": "Palindrome Partition Count",
+    "slug": "palindrome-partition-count",
+    "description": "Given a string `s`, return the minimum number of cuts so that every substring is a palindrome.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "A single line containing the string s.",
+    "outputFormat": "A single integer — the minimum number of cuts.",
+    "constraints": "1 <= s.length <= 2000",
+    "sampleInput": "aab",
+    "sampleOutput": "1",
+    "testCases": [
+      {
+        "input": "aab",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "a",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "ab",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "racecar",
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_beginner_01",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_jump_game",
+    "title": "Jump Game",
+    "slug": "jump-game-contest",
+    "description": "Given an integer array where each element represents your maximum jump length, return `true` if you can reach the last index.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.",
+    "outputFormat": "Print `true` or `false`.",
+    "constraints": "1 <= nums.length <= 10^4\n0 <= nums[i] <= 10^5",
+    "sampleInput": "5\n2 3 1 1 4",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "5\n2 3 1 1 4",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "5\n3 2 1 0 4",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "1\n0",
+        "expectedOutput": "true"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_beginner_01",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_matrix_diagonal",
+    "title": "Matrix Diagonal Sum [Contest: algo sprint]",
+    "slug": "matrix-diagonal-sum",
+    "description": "Return the sum of both diagonals of a square matrix. Center counted once for odd-sized matrices.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "The first line contains n.\nThe next n lines each contain n integers.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= n <= 100",
+    "sampleInput": "3\n1 2 3\n4 5 6\n7 8 9",
+    "sampleOutput": "25",
+    "testCases": [
+      {
+        "input": "3\n1 2 3\n4 5 6\n7 8 9",
+        "expectedOutput": "25"
+      },
+      {
+        "input": "2\n1 2\n3 4",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "1\n5",
+        "expectedOutput": "5"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_algo_sprint",
     "assignmentId": null,
-    "order": 1
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
     "id": "prob_contest_count_primes",
     "title": "Count Primes",
     "slug": "count-primes",
-    "description": "Given an integer `n`, return the number of prime numbers that are strictly less than `n`.\n\nUse the Sieve of Eratosthenes for an efficient solution.",
+    "description": "Return the number of prime numbers strictly less than `n`. Use the Sieve of Eratosthenes.",
     "difficulty": "MEDIUM",
     "tag": "CONTEST",
     "inputFormat": "A single integer n.",
-    "outputFormat": "A single integer — the count of primes less than n.",
+    "outputFormat": "A single integer.",
     "constraints": "0 <= n <= 5 * 10^6",
     "sampleInput": "10",
     "sampleOutput": "4",
@@ -1450,10 +1568,6 @@
       },
       {
         "input": "0",
-        "expectedOutput": "0"
-      },
-      {
-        "input": "1",
         "expectedOutput": "0"
       },
       {
@@ -1469,18 +1583,20 @@
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
     "assignmentId": null,
-    "order": 2
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
     "id": "prob_contest_stock_profit",
     "title": "Best Time to Buy and Sell Stock",
     "slug": "best-time-to-buy-and-sell-stock",
-    "description": "You are given an array `prices` where `prices[i]` is the price of a stock on the `i-th` day.\n\nYou want to maximize your profit by choosing a single day to buy and a different day in the future to sell.\n\nReturn the maximum profit. If no profit is possible, return 0.",
+    "description": "Maximize profit by choosing a single day to buy and a different day to sell. Return 0 if no profit.",
     "difficulty": "EASY",
     "tag": "CONTEST",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers — the prices.",
+    "inputFormat": "The first line contains n.\nThe second line contains n prices.",
     "outputFormat": "A single integer — the maximum profit.",
-    "constraints": "1 <= prices.length <= 10^5\n0 <= prices[i] <= 10^4",
+    "constraints": "1 <= prices.length <= 10^5",
     "sampleInput": "6\n7 1 5 3 6 4",
     "sampleOutput": "5",
     "testCases": [
@@ -1495,28 +1611,26 @@
       {
         "input": "2\n1 2",
         "expectedOutput": "1"
-      },
-      {
-        "input": "3\n2 4 1",
-        "expectedOutput": "2"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
     "contestId": "contest_algo_sprint",
     "assignmentId": null,
-    "order": 3
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
     "id": "prob_contest_subsets",
     "title": "Generate All Subsets",
     "slug": "generate-all-subsets",
-    "description": "Given an integer array `nums` of unique elements, return all possible subsets (the power set).\n\nThe solution set must not contain duplicate subsets. Return them in lexicographic order.",
+    "description": "Return all possible subsets (power set) of unique elements in lexicographic order.",
     "difficulty": "MEDIUM",
     "tag": "CONTEST",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers (sorted).",
-    "outputFormat": "Print each subset on a new line, space-separated. Empty subset as empty line. Subsets in lexicographic order.",
-    "constraints": "1 <= nums.length <= 10\n-10 <= nums[i] <= 10\nAll elements are unique.",
+    "inputFormat": "The first line contains n.\nThe second line contains n sorted integers.",
+    "outputFormat": "Each subset on a new line, space-separated.",
+    "constraints": "1 <= nums.length <= 10",
     "sampleInput": "3\n1 2 3",
     "sampleOutput": "\n1\n1 2\n1 2 3\n1 3\n2\n2 3\n3",
     "testCases": [
@@ -1533,17 +1647,19 @@
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
     "assignmentId": null,
-    "order": 4
+    "order": 4,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
     "id": "prob_contest_linked_list_reverse",
     "title": "Reverse Linked List in Groups",
     "slug": "reverse-linked-list-in-groups",
-    "description": "Given a linked list represented as space-separated values and an integer `k`, reverse the nodes of the list `k` at a time and return the modified list.\n\nIf the number of remaining nodes is less than `k`, leave them as is.",
+    "description": "Reverse the linked list `k` nodes at a time. Leave remaining nodes as-is if less than `k`.",
     "difficulty": "HARD",
     "tag": "CONTEST",
-    "inputFormat": "The first line contains two integers n and k.\nThe second line contains n space-separated integers — the node values.",
-    "outputFormat": "A single line of space-separated integers — the modified list.",
+    "inputFormat": "The first line contains n and k.\nThe second line contains n values.",
+    "outputFormat": "Space-separated modified list.",
     "constraints": "1 <= n <= 5000\n1 <= k <= n",
     "sampleInput": "5 2\n1 2 3 4 5",
     "sampleOutput": "2 1 4 3 5",
@@ -1557,10 +1673,6 @@
         "expectedOutput": "3 2 1 4 5"
       },
       {
-        "input": "3 1\n1 2 3",
-        "expectedOutput": "1 2 3"
-      },
-      {
         "input": "4 4\n1 2 3 4",
         "expectedOutput": "4 3 2 1"
       }
@@ -1569,154 +1681,446 @@
     "memoryLimit": 256,
     "contestId": "contest_algo_sprint",
     "assignmentId": null,
-    "order": 5
+    "order": 5,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
-    "id": "prob_contest_lab_stack_sort",
-    "title": "Sort a Stack",
-    "slug": "sort-a-stack",
-    "description": "Given a stack of integers (represented as space-separated values, top first), sort the stack such that the smallest element is on top.\n\nYou may only use one additional temporary stack. No other data structures are allowed.",
+    "id": "prob_contest_w2_two_sum",
+    "title": "Two Sum [Contest: weekly 02]",
+    "slug": "two-sum-weekly2",
+    "description": "Given an array and a target, return the indices of the two numbers that add up to the target.",
     "difficulty": "EASY",
     "tag": "CONTEST",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers (top of stack first).",
-    "outputFormat": "A single line of n space-separated integers — sorted stack (smallest first).",
-    "constraints": "1 <= n <= 5000\n-10^6 <= values <= 10^6",
-    "sampleInput": "5\n5 3 1 4 2",
-    "sampleOutput": "1 2 3 4 5",
+    "inputFormat": "n, array, target.",
+    "outputFormat": "Two space-separated indices.",
+    "constraints": "2 <= nums.length <= 10^4",
+    "sampleInput": "4\n2 7 11 15\n9",
+    "sampleOutput": "0 1",
     "testCases": [
       {
-        "input": "5\n5 3 1 4 2",
-        "expectedOutput": "1 2 3 4 5"
+        "input": "4\n2 7 11 15\n9",
+        "expectedOutput": "0 1"
       },
       {
-        "input": "3\n3 2 1",
-        "expectedOutput": "1 2 3"
+        "input": "3\n3 2 4\n6",
+        "expectedOutput": "1 2"
       },
       {
-        "input": "1\n42",
-        "expectedOutput": "42"
-      },
-      {
-        "input": "4\n-1 5 -3 2",
-        "expectedOutput": "-3 -1 2 5"
+        "input": "2\n3 3\n6",
+        "expectedOutput": "0 1"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
-    "contestId": "contest_lab_assessment",
+    "contestId": "contest_weekly_02",
     "assignmentId": null,
-    "order": 1
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
-    "id": "prob_contest_lab_queue_impl",
-    "title": "Implement Queue Using Stacks",
-    "slug": "implement-queue-using-stacks",
-    "description": "Implement a FIFO queue using only two stacks. The queue should support:\n\n- `PUSH x` — Push element x to the back of the queue.\n- `POP` — Remove and print the front element.\n- `PEEK` — Print the front element without removing.\n- `EMPTY` — Print `true` if empty, `false` otherwise.",
-    "difficulty": "EASY",
+    "id": "prob_contest_w2_group_anagrams",
+    "title": "Group Anagrams [Contest: weekly 02]",
+    "slug": "group-anagrams-weekly2",
+    "description": "Group anagrams together from an array of strings.",
+    "difficulty": "MEDIUM",
     "tag": "CONTEST",
-    "inputFormat": "The first line contains an integer q — number of operations.\nThe next q lines each contain an operation.",
-    "outputFormat": "For each POP, PEEK, EMPTY operation, print the result on a new line.",
-    "constraints": "1 <= x <= 9\nAt most 100 operations.\nPOP and PEEK are always valid.",
-    "sampleInput": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
-    "sampleOutput": "1\n1\nfalse\n2",
+    "inputFormat": "n and n strings.",
+    "outputFormat": "Groups on separate lines.",
+    "constraints": "1 <= strs.length <= 10^4",
+    "sampleInput": "6\neat\ntea\ntan\nate\nnat\nbat",
+    "sampleOutput": "ate eat tea\nbat\nnat tan",
     "testCases": [
       {
-        "input": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
-        "expectedOutput": "1\n1\nfalse\n2"
+        "input": "6\neat\ntea\ntan\nate\nnat\nbat",
+        "expectedOutput": "ate eat tea\nbat\nnat tan"
       },
       {
-        "input": "3\nPUSH 5\nPOP\nEMPTY",
-        "expectedOutput": "5\ntrue"
+        "input": "1\na",
+        "expectedOutput": "a"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_02",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_w2_product",
+    "title": "Product of Array Except Self [Contest: weekly 02]",
+    "slug": "product-except-self-weekly2",
+    "description": "Return array where each element is the product of all other elements. O(n) without division.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "n and array.",
+    "outputFormat": "Space-separated result.",
+    "constraints": "2 <= nums.length <= 10^5",
+    "sampleInput": "4\n1 2 3 4",
+    "sampleOutput": "24 12 8 6",
+    "testCases": [
+      {
+        "input": "4\n1 2 3 4",
+        "expectedOutput": "24 12 8 6"
+      },
+      {
+        "input": "5\n-1 1 0 -3 3",
+        "expectedOutput": "0 0 9 0 0"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_02",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_w3_stairs",
+    "title": "Climbing Stairs [Contest: weekly 03]",
+    "slug": "climbing-stairs-weekly3",
+    "description": "How many distinct ways to climb n steps (1 or 2 steps at a time)?",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A single integer n.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= n <= 45",
+    "sampleInput": "3",
+    "sampleOutput": "3",
+    "testCases": [
+      {
+        "input": "2",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "3",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "5",
+        "expectedOutput": "8"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "89"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
-    "contestId": "contest_lab_assessment",
+    "contestId": "contest_weekly_03",
     "assignmentId": null,
-    "order": 2
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
-    "id": "prob_contest_lab_bst_valid",
-    "title": "Validate Binary Search Tree",
-    "slug": "validate-binary-search-tree",
-    "description": "Given the root of a binary tree (represented as level-order traversal with `null` for missing nodes), determine if it is a valid BST.\n\nA valid BST has:\n- Left subtree contains only nodes with keys less than the node's key.\n- Right subtree contains only nodes with keys greater than the node's key.\n- Both left and right subtrees must also be valid BSTs.",
+    "id": "prob_contest_w3_robber",
+    "title": "House Robber [Contest: weekly 03]",
+    "slug": "house-robber-weekly3",
+    "description": "Rob non-adjacent houses for maximum profit.",
     "difficulty": "MEDIUM",
     "tag": "CONTEST",
-    "inputFormat": "A single line of space-separated values (integers or 'null').",
-    "outputFormat": "Print `true` or `false`.",
-    "constraints": "1 <= number of nodes <= 10^4\n-2^31 <= Node.val <= 2^31 - 1",
-    "sampleInput": "2 1 3",
-    "sampleOutput": "true",
-    "testCases": [
-      {
-        "input": "2 1 3",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "5 1 4 null null 3 6",
-        "expectedOutput": "false"
-      },
-      {
-        "input": "1",
-        "expectedOutput": "true"
-      },
-      {
-        "input": "5 4 6 null null 3 7",
-        "expectedOutput": "false"
-      }
-    ],
-    "timeLimit": 2,
-    "memoryLimit": 256,
-    "contestId": "contest_lab_assessment",
-    "assignmentId": null,
-    "order": 3
-  },
-  {
-    "id": "prob_search_rotated",
-    "title": "Search in Rotated Sorted Array",
-    "slug": "search-in-rotated-sorted-array",
-    "description": "You are given a sorted integer array `nums` that has been rotated at an unknown pivot index. Given a `target` value, return its index or `-1` if not found.\n\nYou must achieve O(log n) runtime.",
-    "difficulty": "MEDIUM",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains an integer n.\nThe second line contains n space-separated integers.\nThe third line contains the target.",
-    "outputFormat": "A single integer — the index of target, or -1.",
-    "constraints": "1 <= nums.length <= 5000\n-10^4 <= nums[i] <= 10^4\nAll values of nums are unique.",
-    "sampleInput": "7\n4 5 6 7 0 1 2\n0",
+    "inputFormat": "n and array.",
+    "outputFormat": "Maximum amount.",
+    "constraints": "1 <= nums.length <= 100",
+    "sampleInput": "4\n1 2 3 1",
     "sampleOutput": "4",
     "testCases": [
       {
-        "input": "7\n4 5 6 7 0 1 2\n0",
+        "input": "4\n1 2 3 1",
         "expectedOutput": "4"
       },
       {
-        "input": "7\n4 5 6 7 0 1 2\n3",
+        "input": "5\n2 7 9 3 1",
+        "expectedOutput": "12"
+      },
+      {
+        "input": "1\n5",
+        "expectedOutput": "5"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_weekly_03",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_w3_coin",
+    "title": "Coin Change [Contest: weekly 03]",
+    "slug": "coin-change-weekly3",
+    "description": "Fewest coins to make the amount. Return -1 if impossible.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "n coins, denominations, target.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= coins.length <= 12",
+    "sampleInput": "3\n1 2 5\n11",
+    "sampleOutput": "3",
+    "testCases": [
+      {
+        "input": "3\n1 2 5\n11",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "1\n2\n3",
         "expectedOutput": "-1"
       },
       {
         "input": "1\n1\n0",
-        "expectedOutput": "-1"
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_03",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_w3_lis",
+    "title": "Longest Increasing Subsequence [Contest: weekly 03]",
+    "slug": "lis-weekly3",
+    "description": "Return the length of the longest strictly increasing subsequence.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "n and array.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= nums.length <= 2500",
+    "sampleInput": "8\n10 9 2 5 3 7 101 18",
+    "sampleOutput": "4",
+    "testCases": [
+      {
+        "input": "8\n10 9 2 5 3 7 101 18",
+        "expectedOutput": "4"
       },
       {
-        "input": "5\n3 4 5 1 2\n4",
+        "input": "7\n7 7 7 7 7 7 7",
         "expectedOutput": "1"
+      },
+      {
+        "input": "5\n1 2 3 4 5",
+        "expectedOutput": "5"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_03",
+    "assignmentId": null,
+    "order": 4,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_w3_jobs",
+    "title": "Job Scheduling Maximum Profit",
+    "slug": "job-scheduling-weekly3",
+    "description": "Maximum profit from non-overlapping jobs.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "n jobs with start, end, profit.",
+    "outputFormat": "Maximum profit.",
+    "constraints": "1 <= n <= 5 * 10^4",
+    "sampleInput": "3\n1 2 50\n3 5 20\n6 19 100",
+    "sampleOutput": "170",
+    "testCases": [
+      {
+        "input": "3\n1 2 50\n3 5 20\n6 19 100",
+        "expectedOutput": "170"
+      },
+      {
+        "input": "3\n1 3 20\n2 5 20\n3 10 100",
+        "expectedOutput": "120"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_weekly_03",
+    "assignmentId": null,
+    "order": 5,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_warmup_fizz",
+    "title": "FizzBuzz [Contest: past warmup]",
+    "slug": "fizzbuzz-warmup",
+    "description": "Classic FizzBuzz.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A single integer n.",
+    "outputFormat": "n lines of output.",
+    "constraints": "1 <= n <= 10^4",
+    "sampleInput": "5",
+    "sampleOutput": "1\n2\nFizz\n4\nBuzz",
+    "testCases": [
+      {
+        "input": "5",
+        "expectedOutput": "1\n2\nFizz\n4\nBuzz"
+      },
+      {
+        "input": "15",
+        "expectedOutput": "1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz"
       }
     ],
     "timeLimit": 1,
     "memoryLimit": 128,
-    "contestId": null,
+    "contestId": "contest_past_warmup",
     "assignmentId": null,
-    "order": null
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
-    "id": "prob_min_window_substring",
+    "id": "prob_contest_warmup_palindrome",
+    "title": "Palindrome Number [Contest: past warmup]",
+    "slug": "palindrome-number-warmup",
+    "description": "Return true if integer x is a palindrome.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A single integer.",
+    "outputFormat": "true or false.",
+    "constraints": "-2^31 <= x <= 2^31 - 1",
+    "sampleInput": "121",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_past_warmup",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_warmup_roman",
+    "title": "Roman to Integer [Contest: past warmup]",
+    "slug": "roman-to-integer-warmup",
+    "description": "Convert roman numeral to integer.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A roman numeral string.",
+    "outputFormat": "A single integer.",
+    "constraints": "Value in [1, 3999].",
+    "sampleInput": "MCMXCIV",
+    "sampleOutput": "1994",
+    "testCases": [
+      {
+        "input": "III",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "MCMXCIV",
+        "expectedOutput": "1994"
+      },
+      {
+        "input": "IX",
+        "expectedOutput": "9"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_past_warmup",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_hard_trap",
+    "title": "Trapping Rain Water",
+    "slug": "trapping-rain-water",
+    "description": "Compute how much water the elevation map can trap after raining.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "n and heights.",
+    "outputFormat": "Total water trapped.",
+    "constraints": "1 <= n <= 2 * 10^4",
+    "sampleInput": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
+    "sampleOutput": "6",
+    "testCases": [
+      {
+        "input": "12\n0 1 0 2 1 0 1 3 2 1 2 1",
+        "expectedOutput": "6"
+      },
+      {
+        "input": "5\n4 2 0 3 2",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "4\n4 3 2 1",
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_hard_showdown",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_hard_serialize",
+    "title": "Serialize and Deserialize Binary Tree [Contest: hard showdown]",
+    "slug": "serialize-tree-hard",
+    "description": "Serialize/deserialize a binary tree via level-order traversal.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "Level-order with nulls.",
+    "outputFormat": "Same after round-trip.",
+    "constraints": "0 <= nodes <= 10^4",
+    "sampleInput": "1 2 3 null null 4 5",
+    "sampleOutput": "1 2 3 null null 4 5",
+    "testCases": [
+      {
+        "input": "1 2 3 null null 4 5",
+        "expectedOutput": "1 2 3 null null 4 5"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_hard_showdown",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_contest_hard_window",
     "title": "Minimum Window Substring",
     "slug": "minimum-window-substring",
-    "description": "Given two strings `s` and `t`, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If there is no such substring, return an empty string.\n\nIf there are multiple answers, return the one that appears first.",
+    "description": "Return the minimum window in `s` that contains all characters of `t`.",
     "difficulty": "HARD",
-    "tag": "PRACTICE",
-    "inputFormat": "The first line contains string s.\nThe second line contains string t.",
-    "outputFormat": "A single line — the minimum window substring, or empty line if none.",
-    "constraints": "1 <= s.length, t.length <= 10^5\ns and t consist of uppercase and lowercase English letters.",
+    "tag": "CONTEST",
+    "inputFormat": "Two strings s and t.",
+    "outputFormat": "The minimum window or empty.",
+    "constraints": "1 <= s.length, t.length <= 10^5",
     "sampleInput": "ADOBECODEBANC\nABC",
     "sampleOutput": "BANC",
     "testCases": [
@@ -1731,28 +2135,700 @@
       {
         "input": "a\naa",
         "expectedOutput": ""
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_hard_showdown",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_inst_tu_stack_sort",
+    "title": "Sort a Stack [Contest: tu lab assessment]",
+    "slug": "sort-a-stack-tu",
+    "description": "Sort a stack using only one temporary stack.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "n and stack values.",
+    "outputFormat": "Sorted stack.",
+    "constraints": "1 <= n <= 5000",
+    "sampleInput": "5\n5 3 1 4 2",
+    "sampleOutput": "1 2 3 4 5",
+    "testCases": [
+      {
+        "input": "5\n5 3 1 4 2",
+        "expectedOutput": "1 2 3 4 5"
       },
       {
-        "input": "aa\naa",
-        "expectedOutput": "aa"
+        "input": "3\n3 2 1",
+        "expectedOutput": "1 2 3"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_tu_lab_assessment",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
+  },
+  {
+    "id": "prob_inst_tu_queue_impl",
+    "title": "Implement Queue Using Stacks [Contest: tu lab assessment]",
+    "slug": "queue-using-stacks-tu",
+    "description": "Implement a FIFO queue using only two stacks.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "q operations.",
+    "outputFormat": "Results of POP, PEEK, EMPTY.",
+    "constraints": "At most 100 operations.",
+    "sampleInput": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
+    "sampleOutput": "1\n1\nfalse\n2",
+    "testCases": [
+      {
+        "input": "6\nPUSH 1\nPUSH 2\nPEEK\nPOP\nEMPTY\nPOP",
+        "expectedOutput": "1\n1\nfalse\n2"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_tu_lab_assessment",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
+  },
+  {
+    "id": "prob_inst_tu_bst_valid",
+    "title": "Validate Binary Search Tree [Contest: tu lab assessment]",
+    "slug": "validate-bst-tu",
+    "description": "Determine if a binary tree (level-order) is a valid BST.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "Level-order with nulls.",
+    "outputFormat": "true or false.",
+    "constraints": "1 <= nodes <= 10^4",
+    "sampleInput": "2 1 3",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "2 1 3",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "5 1 4 null null 3 6",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "true"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_tu_lab_assessment",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_tech_university"
+  },
+  {
+    "id": "prob_inst_ec_islands",
+    "title": "Number of Islands [Contest: ec graph assessment]",
+    "slug": "number-of-islands-ec",
+    "description": "Count the number of islands in a 2D grid of 1s and 0s.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "m, n, and grid.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= m, n <= 300",
+    "sampleInput": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+    "sampleOutput": "1",
+    "testCases": [
+      {
+        "input": "4 5\n1 1 1 1 0\n1 1 0 1 0\n1 1 0 0 0\n0 0 0 0 0",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "4 5\n1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1",
+        "expectedOutput": "3"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_ec_graph_assessment",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_inst_ec_course_sched",
+    "title": "Course Schedule [Contest: ec graph assessment]",
+    "slug": "course-schedule-ec",
+    "description": "Can you finish all courses given prerequisites?",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "numCourses, prerequisites.",
+    "outputFormat": "true or false.",
+    "constraints": "1 <= numCourses <= 2000",
+    "sampleInput": "2 1\n1 0",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "2 1\n1 0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "2 2\n1 0\n0 1",
+        "expectedOutput": "false"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_ec_graph_assessment",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_inst_ec_word_ladder",
+    "title": "Word Ladder [Contest: ec graph assessment]",
+    "slug": "word-ladder-ec",
+    "description": "Shortest transformation sequence length between two words.",
+    "difficulty": "HARD",
+    "tag": "CONTEST",
+    "inputFormat": "beginWord, endWord, dictionary.",
+    "outputFormat": "A single integer, or 0.",
+    "constraints": "1 <= wordList.length <= 5000",
+    "sampleInput": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
+    "sampleOutput": "5",
+    "testCases": [
+      {
+        "input": "hit\ncog\n6\nhot\ndot\ndog\nlot\nlog\ncog",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "hit\ncog\n5\nhot\ndot\ndog\nlot\nlog",
+        "expectedOutput": "0"
+      }
+    ],
+    "timeLimit": 3,
+    "memoryLimit": 512,
+    "contestId": "contest_ec_graph_assessment",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_engineering_college"
+  },
+  {
+    "id": "prob_inst_iiitd_binary_search",
+    "title": "Binary Search [Contest: iiitd cp round]",
+    "slug": "binary-search-iiitd",
+    "description": "Find target index in a sorted array using O(log n).",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "n, sorted array, target.",
+    "outputFormat": "Index or -1.",
+    "constraints": "1 <= nums.length <= 10^4",
+    "sampleInput": "6\n-1 0 3 5 9 12\n9",
+    "sampleOutput": "4",
+    "testCases": [
+      {
+        "input": "6\n-1 0 3 5 9 12\n9",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "6\n-1 0 3 5 9 12\n2",
+        "expectedOutput": "-1"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_iiitd_cp_round",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_inst_iiitd_merge_intervals",
+    "title": "Merge Intervals [Contest: iiitd cp round]",
+    "slug": "merge-intervals-iiitd",
+    "description": "Merge all overlapping intervals.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "n intervals.",
+    "outputFormat": "Merged intervals.",
+    "constraints": "1 <= intervals.length <= 10^4",
+    "sampleInput": "4\n1 3\n2 6\n8 10\n15 18",
+    "sampleOutput": "1 6\n8 10\n15 18",
+    "testCases": [
+      {
+        "input": "4\n1 3\n2 6\n8 10\n15 18",
+        "expectedOutput": "1 6\n8 10\n15 18"
+      },
+      {
+        "input": "2\n1 4\n4 5",
+        "expectedOutput": "1 5"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_iiitd_cp_round",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_inst_iiitd_spiral",
+    "title": "Spiral Matrix",
+    "slug": "spiral-matrix-iiitd",
+    "description": "Return all elements of a matrix in spiral order.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "m, n, and matrix.",
+    "outputFormat": "Space-separated spiral order.",
+    "constraints": "1 <= m, n <= 10",
+    "sampleInput": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "sampleOutput": "1 2 3 6 9 8 7 4 5",
+    "testCases": [
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "expectedOutput": "1 2 3 6 9 8 7 4 5"
+      },
+      {
+        "input": "1 4\n1 2 3 4",
+        "expectedOutput": "1 2 3 4"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_iiitd_cp_round",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_iiit_delhi"
+  },
+  {
+    "id": "prob_inst_nits_fizzbuzz",
+    "title": "FizzBuzz [Contest: nits midterm]",
+    "slug": "fizzbuzz-nits",
+    "description": "Classic FizzBuzz.",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A single integer n.",
+    "outputFormat": "n lines.",
+    "constraints": "1 <= n <= 10^4",
+    "sampleInput": "5",
+    "sampleOutput": "1\n2\nFizz\n4\nBuzz",
+    "testCases": [
+      {
+        "input": "5",
+        "expectedOutput": "1\n2\nFizz\n4\nBuzz"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_nits_midterm",
+    "assignmentId": null,
+    "order": 1,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_inst_nits_max_subarray",
+    "title": "Maximum Subarray [Contest: nits midterm]",
+    "slug": "maximum-subarray-nits",
+    "description": "Find the contiguous subarray with the largest sum.",
+    "difficulty": "MEDIUM",
+    "tag": "CONTEST",
+    "inputFormat": "n and array.",
+    "outputFormat": "Maximum sum.",
+    "constraints": "1 <= nums.length <= 10^5",
+    "sampleInput": "9\n-2 1 -3 4 -1 2 1 -5 4",
+    "sampleOutput": "6",
+    "testCases": [
+      {
+        "input": "9\n-2 1 -3 4 -1 2 1 -5 4",
+        "expectedOutput": "6"
+      },
+      {
+        "input": "3\n-1 -2 -3",
+        "expectedOutput": "-1"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": "contest_nits_midterm",
+    "assignmentId": null,
+    "order": 2,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_inst_nits_climbing",
+    "title": "Climbing Stairs [Contest: nits midterm]",
+    "slug": "climbing-stairs-nits",
+    "description": "Distinct ways to climb n steps (1 or 2 at a time).",
+    "difficulty": "EASY",
+    "tag": "CONTEST",
+    "inputFormat": "A single integer n.",
+    "outputFormat": "A single integer.",
+    "constraints": "1 <= n <= 45",
+    "sampleInput": "3",
+    "sampleOutput": "3",
+    "testCases": [
+      {
+        "input": "2",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "3",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "5",
+        "expectedOutput": "8"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": "contest_nits_midterm",
+    "assignmentId": null,
+    "order": 3,
+    "visibility": "INSTITUTE_ONLY",
+    "instituteId": "inst_nit_surat"
+  },
+  {
+    "id": "prob_two_sum",
+    "title": "Two Sum [Practice]",
+    "slug": "two-sum",
+    "description": "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to `target`.",
+    "difficulty": "EASY",
+    "tag": "PRACTICE",
+    "inputFormat": "n, array, target.",
+    "outputFormat": "Two space-separated indices.",
+    "constraints": "2 <= nums.length <= 10^4\nOnly one valid answer exists.",
+    "sampleInput": "4\n2 7 11 15\n9",
+    "sampleOutput": "0 1",
+    "testCases": [
+      {
+        "input": "4\n2 7 11 15\n9",
+        "expectedOutput": "0 1"
+      },
+      {
+        "input": "3\n3 2 4\n6",
+        "expectedOutput": "1 2"
+      },
+      {
+        "input": "2\n3 3\n6",
+        "expectedOutput": "0 1"
+      },
+      {
+        "input": "5\n1 5 3 7 2\n8",
+        "expectedOutput": "1 2"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
     "assignmentId": null,
-    "order": null
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_longest_substring",
+    "title": "Longest Substring Without Repeating Characters",
+    "slug": "longest-substring-without-repeating-characters",
+    "description": "Find the length of the longest substring without repeating characters.",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "A string s.",
+    "outputFormat": "A single integer.",
+    "constraints": "0 <= s.length <= 5 * 10^4",
+    "sampleInput": "abcabcbb",
+    "sampleOutput": "3",
+    "testCases": [
+      {
+        "input": "abcabcbb",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "bbbbb",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "pwwkew",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "abcdefg",
+        "expectedOutput": "7"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_add_two_numbers",
+    "title": "Add Two Numbers",
+    "slug": "add-two-numbers",
+    "description": "Add two non-negative integers represented as strings. Must not convert to integers directly.",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "Two lines, each a non-negative integer string.",
+    "outputFormat": "The sum as a string.",
+    "constraints": "1 <= num1.length, num2.length <= 10^4",
+    "sampleInput": "11\n123",
+    "sampleOutput": "134",
+    "testCases": [
+      {
+        "input": "11\n123",
+        "expectedOutput": "134"
+      },
+      {
+        "input": "456\n77",
+        "expectedOutput": "533"
+      },
+      {
+        "input": "0\n0",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "999\n1",
+        "expectedOutput": "1000"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_container_water",
+    "title": "Container With Most Water [Practice]",
+    "slug": "container-with-most-water",
+    "description": "Find two lines that form the container holding the most water.",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "n and heights.",
+    "outputFormat": "Maximum area.",
+    "constraints": "2 <= n <= 10^5",
+    "sampleInput": "9\n1 8 6 2 5 4 8 3 7",
+    "sampleOutput": "49",
+    "testCases": [
+      {
+        "input": "9\n1 8 6 2 5 4 8 3 7",
+        "expectedOutput": "49"
+      },
+      {
+        "input": "2\n1 1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "3\n4 3 2",
+        "expectedOutput": "4"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_median_sorted",
+    "title": "Median of Two Sorted Arrays",
+    "slug": "median-of-two-sorted-arrays",
+    "description": "Return the median of two sorted arrays in O(log(m+n)) time.",
+    "difficulty": "HARD",
+    "tag": "PRACTICE",
+    "inputFormat": "m, n, nums1, nums2.",
+    "outputFormat": "The median.",
+    "constraints": "0 <= m, n <= 1000\n1 <= m + n <= 2000",
+    "sampleInput": "2 1\n1 3\n2",
+    "sampleOutput": "2.00000",
+    "testCases": [
+      {
+        "input": "2 1\n1 3\n2",
+        "expectedOutput": "2.00000"
+      },
+      {
+        "input": "2 2\n1 2\n3 4",
+        "expectedOutput": "2.50000"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_spiral_matrix",
+    "title": "Spiral Matrix [Practice]",
+    "slug": "spiral-matrix",
+    "description": "Return all elements of a matrix in spiral order.",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "m, n, matrix.",
+    "outputFormat": "Space-separated spiral order.",
+    "constraints": "1 <= m, n <= 10",
+    "sampleInput": "3 3\n1 2 3\n4 5 6\n7 8 9",
+    "sampleOutput": "1 2 3 6 9 8 7 4 5",
+    "testCases": [
+      {
+        "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+        "expectedOutput": "1 2 3 6 9 8 7 4 5"
+      },
+      {
+        "input": "1 4\n1 2 3 4",
+        "expectedOutput": "1 2 3 4"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_jump_game",
+    "title": "Jump Game [Practice]",
+    "slug": "jump-game",
+    "description": "Return true if you can reach the last index.",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "n and array.",
+    "outputFormat": "true or false.",
+    "constraints": "1 <= nums.length <= 10^4",
+    "sampleInput": "5\n2 3 1 1 4",
+    "sampleOutput": "true",
+    "testCases": [
+      {
+        "input": "5\n2 3 1 1 4",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "5\n3 2 1 0 4",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "1\n0",
+        "expectedOutput": "true"
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_search_rotated",
+    "title": "Search in Rotated Sorted Array [Practice]",
+    "slug": "search-in-rotated-sorted-array",
+    "description": "Search for target in a rotated sorted array. O(log n).",
+    "difficulty": "MEDIUM",
+    "tag": "PRACTICE",
+    "inputFormat": "n, array, target.",
+    "outputFormat": "Index or -1.",
+    "constraints": "1 <= nums.length <= 5000\nAll values unique.",
+    "sampleInput": "7\n4 5 6 7 0 1 2\n0",
+    "sampleOutput": "4",
+    "testCases": [
+      {
+        "input": "7\n4 5 6 7 0 1 2\n0",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "7\n4 5 6 7 0 1 2\n3",
+        "expectedOutput": "-1"
+      },
+      {
+        "input": "1\n1\n0",
+        "expectedOutput": "-1"
+      }
+    ],
+    "timeLimit": 1,
+    "memoryLimit": 128,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
+  },
+  {
+    "id": "prob_min_window_substring",
+    "title": "Minimum Window Substring [Practice]",
+    "slug": "min-window-substring",
+    "description": "Return the minimum window in s containing all chars of t.",
+    "difficulty": "HARD",
+    "tag": "PRACTICE",
+    "inputFormat": "Two strings.",
+    "outputFormat": "Minimum window or empty.",
+    "constraints": "1 <= s.length, t.length <= 10^5",
+    "sampleInput": "ADOBECODEBANC\nABC",
+    "sampleOutput": "BANC",
+    "testCases": [
+      {
+        "input": "ADOBECODEBANC\nABC",
+        "expectedOutput": "BANC"
+      },
+      {
+        "input": "a\na",
+        "expectedOutput": "a"
+      },
+      {
+        "input": "a\naa",
+        "expectedOutput": ""
+      }
+    ],
+    "timeLimit": 2,
+    "memoryLimit": 256,
+    "contestId": null,
+    "assignmentId": null,
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
   },
   {
     "id": "prob_max_profit_jobs",
-    "title": "Job Scheduling Maximum Profit",
+    "title": "Job Scheduling Maximum Profit [Practice]",
     "slug": "job-scheduling-maximum-profit",
-    "description": "You have `n` jobs where every job is scheduled between `startTime[i]` and `endTime[i]`, earning a profit of `profit[i]`.\n\nReturn the maximum profit you can achieve such that no two jobs overlap. A job ending at time `t` does not conflict with a job starting at time `t`.",
+    "description": "Maximum profit from non-overlapping jobs.",
     "difficulty": "HARD",
     "tag": "PRACTICE",
-    "inputFormat": "The first line contains an integer n.\nThe next n lines each contain three space-separated integers: start end profit.",
-    "outputFormat": "A single integer — the maximum profit.",
-    "constraints": "1 <= n <= 5 * 10^4\n1 <= startTime[i] < endTime[i] <= 10^9\n1 <= profit[i] <= 10^4",
+    "inputFormat": "n jobs with start, end, profit.",
+    "outputFormat": "Maximum profit.",
+    "constraints": "1 <= n <= 5 * 10^4",
     "sampleInput": "3\n1 2 50\n3 5 20\n6 19 100",
     "sampleOutput": "170",
     "testCases": [
@@ -1763,16 +2839,14 @@
       {
         "input": "3\n1 3 20\n2 5 20\n3 10 100",
         "expectedOutput": "120"
-      },
-      {
-        "input": "3\n1 2 5\n1 3 6\n2 4 4",
-        "expectedOutput": "9"
       }
     ],
     "timeLimit": 2,
     "memoryLimit": 256,
     "contestId": null,
     "assignmentId": null,
-    "order": null
+    "order": null,
+    "visibility": "PUBLIC",
+    "instituteId": null
   }
 ]

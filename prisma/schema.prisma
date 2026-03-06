@@ -95,6 +95,11 @@ enum ContestHost {
   INSTITUTE
 }
 
+enum ProblemVisibility {
+  PUBLIC
+  INSTITUTE_ONLY
+}
+
 // ─── Models ──────────────────────────────────────────────
 
 model Problem {
@@ -124,6 +129,11 @@ model Problem {
   assignmentId  String?
   assignment    Assignment? @relation(fields: [assignmentId], references: [id])
 
+  // Visibility & Authority
+  visibility    ProblemVisibility @default(PUBLIC)
+  instituteId   String?
+  institute     Institute?  @relation(fields: [instituteId], references: [id])
+
   submissions   Submission[]
 
   createdAt     DateTime   @default(now())
@@ -133,7 +143,9 @@ model Problem {
   @@index([tag])
   @@index([contestId])
   @@index([assignmentId])
+  @@index([instituteId])
   @@index([slug])
+  @@index([visibility])
 }
 
 model Contest {
@@ -219,6 +231,7 @@ model Institute {
   members     InstituteMember[]   // admin, instructor, student via join table
   labs        Lab[]               // labs belonging to this institute
   contests    Contest[]           // contests hosted by this institute
+  problems    Problem[]           // problems owned by this institute
 
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt

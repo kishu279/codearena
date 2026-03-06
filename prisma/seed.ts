@@ -1,7 +1,16 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { PrismaClient } from "@prisma/client";
+import {
+  PrismaClient,
+  type ContestStatus,
+  type ContestHost,
+  type RecurringType,
+  type Difficulty,
+  type ProblemTag,
+  type ProblemVisibility,
+  type ResourceType,
+} from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
 
@@ -55,7 +64,7 @@ interface RawResource {
   labId?: string | null;
   uploadedById: string;
   order?: number | null;
-  isPublic: boolean;
+  isPublic?: boolean;
 }
 
 interface RawProblem {
@@ -76,6 +85,8 @@ interface RawProblem {
   contestId?: string | null;
   assignmentId?: string | null;
   order?: number | null;
+  visibility?: string;
+  instituteId?: string | null;
 }
 
 interface RawContest {
@@ -93,13 +104,7 @@ interface RawContest {
   recurringType?: string | null;
   parentContestId?: string | null;
   instituteId?: string | null;
-  problems?: {
-    id: string;
-    title: string;
-    slug: string;
-    difficulty: string;
-    order: number | null;
-  }[];
+  createdById?: string | null;
 }
 
 async function main() {
@@ -229,13 +234,14 @@ async function main() {
         startTime: new Date(c.startTime),
         endTime: new Date(c.endTime),
         duration: c.duration,
-        status: c.status,
+        status: c.status as ContestStatus,
         isPublic: c.isPublic,
-        hostedBy: c.hostedBy || "CODEARENA",
+        hostedBy: (c.hostedBy || "CODEARENA") as ContestHost,
         isRecurring: c.isRecurring || false,
-        recurringType: c.recurringType || null,
+        recurringType: (c.recurringType || null) as RecurringType | null,
         parentContestId: c.parentContestId || null,
         instituteId: c.instituteId || null,
+        createdById: c.createdById || null,
       },
     });
     console.log(`   ✅ ${c.title}`);
@@ -251,8 +257,8 @@ async function main() {
         title: p.title,
         slug: p.slug,
         description: p.description,
-        difficulty: p.difficulty,
-        tag: p.tag,
+        difficulty: p.difficulty as Difficulty,
+        tag: p.tag as ProblemTag,
         inputFormat: p.inputFormat || null,
         outputFormat: p.outputFormat || null,
         constraints: p.constraints || null,
@@ -266,6 +272,8 @@ async function main() {
         contestId: p.contestId || null,
         assignmentId: p.assignmentId || null,
         order: p.order ?? null,
+        visibility: (p.visibility || "PUBLIC") as ProblemVisibility,
+        instituteId: p.instituteId || null,
       },
     });
     console.log(`   ✅ ${p.title} [${p.difficulty}] [${p.tag}]`);
@@ -280,7 +288,7 @@ async function main() {
         id: r.id,
         title: r.title,
         description: r.description || null,
-        type: r.type,
+        type: r.type as ResourceType,
         url: r.url || null,
         fileUrl: r.fileUrl || null,
         content: r.content || null,
@@ -288,7 +296,7 @@ async function main() {
         labId: r.labId || null,
         uploadedById: r.uploadedById,
         order: r.order ?? null,
-        isPublic: r.isPublic,
+        isPublic: r.isPublic ?? false,
       },
     });
     console.log(`   ✅ ${r.title} [${r.type}]`);

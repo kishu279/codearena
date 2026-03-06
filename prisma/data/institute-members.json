@@ -1,44 +1,119 @@
 [
   {
     "id": "im_1",
-    "userId": "user_instructor_1",
-    "instituteId": "inst_university_1",
-    "role": "INSTRUCTOR"
+    "userId": "user_inst1_admin",
+    "instituteId": "inst_tech_university",
+    "role": "ADMIN"
   },
   {
     "id": "im_2",
-    "userId": "user_instructor_2",
-    "instituteId": "inst_university_1",
+    "userId": "user_inst1_instructor_1",
+    "instituteId": "inst_tech_university",
     "role": "INSTRUCTOR"
   },
   {
     "id": "im_3",
-    "userId": "user_student_1",
-    "instituteId": "inst_university_1",
-    "role": "STUDENT"
+    "userId": "user_inst1_instructor_2",
+    "instituteId": "inst_tech_university",
+    "role": "INSTRUCTOR"
   },
   {
     "id": "im_4",
-    "userId": "user_student_2",
-    "instituteId": "inst_university_1",
+    "userId": "user_inst1_student_1",
+    "instituteId": "inst_tech_university",
     "role": "STUDENT"
   },
   {
     "id": "im_5",
-    "userId": "user_student_3",
-    "instituteId": "inst_college_1",
+    "userId": "user_inst1_student_2",
+    "instituteId": "inst_tech_university",
     "role": "STUDENT"
   },
   {
     "id": "im_6",
-    "userId": "user_instructor_1",
-    "instituteId": "inst_college_1",
+    "userId": "user_inst1_student_3",
+    "instituteId": "inst_tech_university",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "im_7",
+    "userId": "user_inst2_admin",
+    "instituteId": "inst_engineering_college",
+    "role": "ADMIN"
+  },
+  {
+    "id": "im_8",
+    "userId": "user_inst2_instructor_1",
+    "instituteId": "inst_engineering_college",
     "role": "INSTRUCTOR"
   },
   {
-    "id": "im_7",
-    "userId": "user_instructor_2",
-    "instituteId": "inst_college_1",
+    "id": "im_9",
+    "userId": "user_inst2_instructor_2",
+    "instituteId": "inst_engineering_college",
     "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_10",
+    "userId": "user_inst2_student_1",
+    "instituteId": "inst_engineering_college",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_11",
+    "userId": "user_inst2_student_2",
+    "instituteId": "inst_engineering_college",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "im_12",
+    "userId": "user_inst3_admin",
+    "instituteId": "inst_iiit_delhi",
+    "role": "ADMIN"
+  },
+  {
+    "id": "im_13",
+    "userId": "user_inst3_instructor_1",
+    "instituteId": "inst_iiit_delhi",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_14",
+    "userId": "user_inst3_student_1",
+    "instituteId": "inst_iiit_delhi",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_15",
+    "userId": "user_inst3_student_2",
+    "instituteId": "inst_iiit_delhi",
+    "role": "STUDENT"
+  },
+
+  {
+    "id": "im_16",
+    "userId": "user_inst4_admin",
+    "instituteId": "inst_nit_surat",
+    "role": "ADMIN"
+  },
+  {
+    "id": "im_17",
+    "userId": "user_inst4_instructor_1",
+    "instituteId": "inst_nit_surat",
+    "role": "INSTRUCTOR"
+  },
+  {
+    "id": "im_18",
+    "userId": "user_inst4_student_1",
+    "instituteId": "inst_nit_surat",
+    "role": "STUDENT"
+  },
+  {
+    "id": "im_19",
+    "userId": "user_inst4_student_2",
+    "instituteId": "inst_nit_surat",
+    "role": "STUDENT"
   }
 ]

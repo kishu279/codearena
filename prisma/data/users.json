@@ -16,23 +16,31 @@
     "role": "ADMIN"
   },
   {
-    "id": "user_instructor_1",
-    "name": "Sourav Instructor",
-    "email": "sourav@instructor",
+    "id": "user_inst1_admin",
+    "name": "Ravi Kumar",
+    "email": "ravi@techuniversity",
     "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
-    "id": "user_1",
-    "name": "Sourav User",
-    "email": "sourav@user",
+    "id": "user_inst1_instructor_1",
+    "name": "Dr. Ananya Sharma",
+    "email": "ananya@techuniversity",
     "password": "password123",
     "image": null,
     "role": "USER"
   },
   {
-    "id": "user_student_1",
+    "id": "user_inst1_instructor_2",
+    "name": "Prof. Vikram Singh",
+    "email": "vikram@techuniversity",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst1_student_1",
     "name": "Alice Smith",
     "email": "alice@student",
     "password": "password123",
@@ -40,7 +48,7 @@
     "role": "USER"
   },
   {
-    "id": "user_student_2",
+    "id": "user_inst1_student_2",
     "name": "Bob Williams",
     "email": "bob@student",
     "password": "password123",
@@ -48,7 +56,7 @@
     "role": "USER"
   },
   {
-    "id": "user_student_3",
+    "id": "user_inst1_student_3",
     "name": "Charlie Brown",
     "email": "charlie@student",
     "password": "password123",
@@ -56,9 +64,105 @@
     "role": "USER"
   },
   {
-    "id": "user_instructor_2",
-    "name": "Priya Instructor",
-    "email": "priya@instructor",
+    "id": "user_inst2_admin",
+    "name": "Dr. Meena Iyer",
+    "email": "meena@engineeringcollege",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst2_instructor_1",
+    "name": "Prof. Arjun Reddy",
+    "email": "arjun@engineeringcollege",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst2_instructor_2",
+    "name": "Dr. Priya Nair",
+    "email": "priya@engineeringcollege",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst2_student_1",
+    "name": "Diana Patel",
+    "email": "diana@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst2_student_2",
+    "name": "Ethan Roy",
+    "email": "ethan@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst3_admin",
+    "name": "Prof. Sanjay Gupta",
+    "email": "sanjay@iiitdelhi",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst3_instructor_1",
+    "name": "Dr. Kavita Desai",
+    "email": "kavita@iiitdelhi",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst3_student_1",
+    "name": "Fiona Das",
+    "email": "fiona@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst3_student_2",
+    "name": "George Mehta",
+    "email": "george@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst4_admin",
+    "name": "Dr. Lakshmi Venkat",
+    "email": "lakshmi@nitsurat",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst4_instructor_1",
+    "name": "Prof. Rahul Joshi",
+    "email": "rahul@nitsurat",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst4_student_1",
+    "name": "Hannah Sen",
+    "email": "hannah@student",
+    "password": "password123",
+    "image": null,
+    "role": "USER"
+  },
+  {
+    "id": "user_inst4_student_2",
+    "name": "Ian Chopra",
+    "email": "ian@student",
     "password": "password123",
     "image": null,
     "role": "USER"

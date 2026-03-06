@@ -1,42 +1,66 @@
 [
   {
-    "id": "lab_dsa_1",
+    "id": "lab_dsa_tu",
     "title": "Data Structures & Algorithms Lab",
-    "slug": "dsa-lab",
-    "description": "Comprehensive lab covering fundamental data structures and algorithms",
-    "instituteId": "inst_university_1",
-    "createdById": "user_instructor_1"
+    "slug": "dsa-lab-tech-university",
+    "description": "Comprehensive lab covering fundamental data structures and algorithms including arrays, linked lists, trees, graphs, and dynamic programming.",
+    "instituteId": "inst_tech_university",
+    "createdById": "user_inst1_instructor_1"
   },
   {
-    "id": "lab_os_1",
+    "id": "lab_os_tu",
     "title": "Operating Systems Lab",
-    "slug": "os-lab",
-    "description": "Hands-on lab for operating system concepts and implementation",
-    "instituteId": "inst_university_1",
-    "createdById": "user_instructor_2"
+    "slug": "os-lab-tech-university",
+    "description": "Hands-on lab for operating system concepts including process management, memory management, and scheduling algorithms.",
+    "instituteId": "inst_tech_university",
+    "createdById": "user_inst1_instructor_2"
   },
   {
-    "id": "lab_algo_1",
+    "id": "lab_algo_ec",
     "title": "Advanced Algorithms Lab",
-    "slug": "advanced-algorithms-lab",
-    "description": "Advanced algorithmic techniques and problem solving",
-    "instituteId": "inst_college_1",
-    "createdById": "user_instructor_1"
+    "slug": "advanced-algorithms-engineering-college",
+    "description": "Advanced algorithmic techniques covering dynamic programming, graph algorithms, greedy approaches, and divide & conquer.",
+    "instituteId": "inst_engineering_college",
+    "createdById": "user_inst2_instructor_1"
   },
   {
-    "id": "lab_web_1",
+    "id": "lab_web_ec",
     "title": "Web Development Lab",
-    "slug": "web-dev-lab",
-    "description": "Practical web development covering HTML, CSS, JavaScript and data structure applications",
-    "instituteId": "inst_college_1",
-    "createdById": "user_instructor_2"
+    "slug": "web-dev-engineering-college",
+    "description": "Practical web development lab covering HTML, CSS, JavaScript, React, and data structure applications in frontend and backend systems.",
+    "instituteId": "inst_engineering_college",
+    "createdById": "user_inst2_instructor_2"
   },
   {
-    "id": "lab_codearena_1",
-    "title": "CodeArena Practice Lab",
-    "slug": "codearena-practice-lab",
-    "description": "CodeArena's official self-paced practice lab covering beginner to advanced problem solving",
-    "instituteId": null,
-    "createdById": "user_admin_1"
+    "id": "lab_ml_iiitd",
+    "title": "Machine Learning Foundations Lab",
+    "slug": "ml-foundations-iiit-delhi",
+    "description": "Introductory ML lab covering linear algebra, probability, classification, regression, and neural network basics through coding exercises.",
+    "instituteId": "inst_iiit_delhi",
+    "createdById": "user_inst3_instructor_1"
+  },
+  {
+    "id": "lab_cp_iiitd",
+    "title": "Competitive Programming Lab",
+    "slug": "competitive-programming-iiit-delhi",
+    "description": "Intensive competitive programming lab focused on contest strategy, speed coding, and advanced problem-solving techniques.",
+    "instituteId": "inst_iiit_delhi",
+    "createdById": "user_inst3_instructor_1"
+  },
+  {
+    "id": "lab_dbms_nits",
+    "title": "Database Management Systems Lab",
+    "slug": "dbms-lab-nit-surat",
+    "description": "Lab covering relational databases, SQL, normalization, indexing, and query optimization with hands-on coding assignments.",
+    "instituteId": "inst_nit_surat",
+    "createdById": "user_inst4_instructor_1"
+  },
+  {
+    "id": "lab_dsa_nits",
+    "title": "Data Structures Lab",
+    "slug": "dsa-lab-nit-surat",
+    "description": "Foundational data structures lab covering arrays, stacks, queues, trees, and sorting algorithms for first-year CS students.",
+    "instituteId": "inst_nit_surat",
+    "createdById": "user_inst4_instructor_1"
   }
 ]

@@ -1,14 +1,26 @@
 [
   {
-    "id": "inst_university_1",
+    "id": "inst_tech_university",
     "name": "Tech University",
     "slug": "tech-university",
-    "description": "Leading technical university offering computer science programs"
+    "description": "Leading technical university offering computer science and engineering programs with state-of-the-art labs and research facilities."
   },
   {
-    "id": "inst_college_1",
+    "id": "inst_engineering_college",
     "name": "Engineering College",
     "slug": "engineering-college",
-    "description": "Premier engineering institution"
+    "description": "Premier engineering institution focused on practical learning, industry partnerships, and competitive programming excellence."
+  },
+  {
+    "id": "inst_iiit_delhi",
+    "name": "IIIT Delhi",
+    "slug": "iiit-delhi",
+    "description": "Indraprastha Institute of Information Technology Delhi — a research-led institution specializing in IT and interdisciplinary studies."
+  },
+  {
+    "id": "inst_nit_surat",
+    "name": "NIT Surat",
+    "slug": "nit-surat",
+    "description": "National Institute of Technology Surat — one of India's top NITs known for strong CS fundamentals and competitive programming culture."
   }
 ]
