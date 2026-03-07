@@ -13,6 +13,7 @@ import type {
   TestCaseInput,
   TestCaseResult,
 } from "@/lib/types";
+import { cookies } from "next/headers";
 
 type RouteContext = {
   params: Promise<{ problemId: string }>;
@@ -20,6 +21,9 @@ type RouteContext = {
 
 export async function POST(request: NextRequest, { params }: RouteContext) {
   const { problemId } = await params;
+  const cookiesStore = await cookies();
+  const sessionCookie = cookiesStore.get("codearena_session");
+  const userObject = sessionCookie ? sessionCookie.value : null;
 
   try {
     const body: CodeRunnerRequest = await request.json();
@@ -143,6 +147,7 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
 
     if (action === "submit") {
       // submissions
+      let userId = userObject ? JSON.parse(userObject).id : "user_admin_1"; // default to admin if no user info
       const submissionRequest: CreateSubmissionRequest = {
         code,
         language,
@@ -150,7 +155,7 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
         status: verdict === "Accepted" ? "ACCEPTED" : "WRONG_ANSWER",
         testCasesPassed: passedCount,
         totalTestCases: results.length,
-        userId: "anonymous", // TODO: get from session cookie
+        userId: userId,
         contestId: problem.contestId!,
         error: error, // include runtime error message if present
         memory: memory,
@@ -159,8 +164,8 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
       };
 
       console.log("Creating submission with data:", submissionRequest);
-      // const submissionResponse = await createSubmission(submissionRequest);
-      // console.log("Created submission with ID:", submissionResponse.id);
+      const submissionResponse = await createSubmission(submissionRequest);
+      console.log("Created submission with ID:", submissionResponse.id);
     } else {
       console.log("running the codeon the server piston");
     }
