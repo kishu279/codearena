@@ -10,7 +10,6 @@ import {
   type RecentSubmission,
   type SystemActivity,
   type CourseDetail,
-  type LabDetail,
 } from "@/lib/types";
 
 const authUsers: AuthUser[] = [
@@ -890,7 +889,8 @@ export function getAdminDashboardData() {
 
 // ── Lab Mock Data ─────────────────────────────────────────────────
 
-const labs: LabDetail[] = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const labs: any[] = [
   {
     id: "web-dev-lab",
     title: "Web Development Lab",
@@ -1103,10 +1103,10 @@ const labs: LabDetail[] = [
   },
 ];
 
-export function getLabById(labId: string): LabDetail | undefined {
-  return labs.find((l) => l.id === labId);
+export function getLabById(labId: string) {
+  return labs.find((l: { id: string }) => l.id === labId);
 }
 
-export function getAllLabDetails(): LabDetail[] {
+export function getAllLabDetails() {
   return labs;
 }

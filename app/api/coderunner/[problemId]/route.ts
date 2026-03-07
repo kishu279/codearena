@@ -199,8 +199,8 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
 // ── Helper ─────────────────────────────────────────────────────────────
 
 interface ProblemWithTestData {
-  sampleInput?: string;
-  sampleOutput?: string;
+  sampleInput?: string | null;
+  sampleOutput?: string | null;
   testCases?: unknown;
 }
 

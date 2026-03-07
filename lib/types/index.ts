@@ -1,3 +1,51 @@
-export * from './database.types';
-export * from './api.types';
-export * from './frontend.types';
+export * from "./database.types";
+export * from "./api.types";
+
+// frontend.types has names that collide with database.types
+// (ContestListItem, ContestStatus, UserStats).
+// Explicitly re-exporting the frontend versions resolves the ambiguity
+// since the UI components rely on these shapes.
+export {
+  type ContestListItem,
+  type ContestStatus,
+  type UserStats,
+  type QuestionDifficulty,
+  type EditorLanguage,
+  type ProblemAttemptStatus,
+  languageOptions,
+  type RecentActivityItem,
+  type DashboardUser,
+  type ContestProblem,
+  type ContestSubmissionState,
+  type QuestionSample,
+  type CodingQuestion,
+  type RunCodeResult,
+  type SubmitCodeResult,
+  type LeaderboardFilter,
+  type LeaderboardRow,
+  type LabCardItem,
+  type LabDetailView,
+  type LabMemberView,
+  type AssignmentView,
+  type AssignmentProblemView,
+  type ResourceView,
+  type InstituteDetailView,
+  type InstituteMemberView,
+  type InstituteLabView,
+  type LabListItem,
+  type LabVideo,
+  type LabAssignment,
+  type LabProblem,
+  type LabResource,
+  type LabAnnouncement,
+  type LabLecture,
+  type LabDetail,
+  type AdminStats,
+  type RecentSubmission,
+  type SystemActivity,
+  type AdminDashboardData,
+  type LoginFormData,
+  type SignupFormData,
+  type ProblemFormData,
+  type ContestFormData,
+} from "./frontend.types";
