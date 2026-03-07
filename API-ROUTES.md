@@ -156,35 +156,138 @@ Deletes an institute.
 
 ## Role-Check Summary
 
-| Action                          | Required Role                         |
-| ------------------------------- | ------------------------------------- |
-| Create lab (institute)          | ADMIN or institute INSTRUCTOR         |
-| Create lab (platform)           | ADMIN / SUPER_ADMIN                   |
-| Update/Delete lab               | Lab creator, lab INSTRUCTOR, or ADMIN |
-| Create/Update/Delete assignment | Lab INSTRUCTOR or ADMIN               |
-| Create resource                 | Lab INSTRUCTOR or ADMIN               |
-| Create institute                | SUPER_ADMIN / ADMIN                   |
-| Update institute                | ADMIN or institute ADMIN/INSTRUCTOR   |
-| Delete institute                | SUPER_ADMIN / ADMIN                   |
-| All GET routes                  | Open (no auth required)               |
+| Action                          | Required Role                          |
+| ------------------------------- | -------------------------------------- |
+| Create lab (institute)          | ADMIN or institute INSTRUCTOR          |
+| Create lab (platform)           | ADMIN / SUPER_ADMIN                    |
+| Update/Delete lab               | Lab creator, lab INSTRUCTOR, or ADMIN  |
+| Create/Update/Delete assignment | Lab INSTRUCTOR or ADMIN                |
+| Create resource                 | Lab INSTRUCTOR or ADMIN                |
+| Create institute                | SUPER_ADMIN / ADMIN                    |
+| Update institute                | ADMIN or institute ADMIN/INSTRUCTOR    |
+| Delete institute                | SUPER_ADMIN / ADMIN                    |
+| Update/Delete problem           | SUPER_ADMIN / ADMIN                    |
+| Create contest                  | SUPER_ADMIN / ADMIN                    |
+| Update/Delete contest           | SUPER_ADMIN / ADMIN or contest creator |
+| All GET routes                  | Open (no auth required)                |
 
 ---
 
-## Existing Routes (unchanged)
+## Problems
 
-### `GET /api/problems` — lists all problems
+### `GET /api/problems`
 
-### `GET /api/problems/[problemId]` — coding question detail
+Lists all problems (summary format).
 
-### `GET /api/contests` — lists all contests with problems
+- Returns: `{ data: ProblemListItem[] }` — id, title, slug, difficulty, tag, contestId
 
-### `GET /api/contests/[contestId]` — contest detail with problems
+### `GET /api/problems/[problemId]`
 
-### `POST /api/coderunner/[problemId]` — run/submit code
+Full coding question detail with constraints, samples, test cases, and starter code.
 
-### `POST /api/auth/login` — login
+- Returns: `{ data: CodingQuestionData }`
 
-### `POST /api/auth/signup` — signup
+### `PUT /api/problems/[problemId]`
+
+Updates a problem.
+
+- Body: `{ userId, title?, slug?, description?, difficulty?, tag?, inputFormat?, outputFormat?, constraints?, sampleInput?, sampleOutput?, testCases?, timeLimit?, memoryLimit?, contestId?, assignmentId?, visibility?, instituteId?, order? }`
+- Role: SUPER_ADMIN / ADMIN only
+- Returns: `{ data: Problem }`
+
+### `DELETE /api/problems/[problemId]`
+
+Deletes a problem.
+
+- Body: `{ userId }`
+- Role: SUPER_ADMIN / ADMIN only
+- Returns: `{ data: { deleted: true } }`
+
+---
+
+## Contests
+
+### `GET /api/contests`
+
+Lists all contests with their problems.
+
+- Returns: `{ data: ContestListItem[] }` — id, title, startTime, endTime, duration, status, isPublic, description, problems[]
+
+### `POST /api/contests`
+
+Creates a new contest.
+
+- Body: `{ userId, title, slug, startTime, endTime, duration, description?, status?, isPublic?, hostedBy?, instituteId? }`
+- Role: SUPER_ADMIN / ADMIN only
+- Returns: `{ data: Contest }`
+
+### `GET /api/contests/[contestId]`
+
+Full contest detail with problems.
+
+- Returns: `{ data: ContestDetail }` — includes problems with id, title, slug, difficulty, order, tag
+
+### `PUT /api/contests/[contestId]`
+
+Updates a contest.
+
+- Body: `{ userId, title?, slug?, description?, startTime?, endTime?, duration?, status?, isPublic?, hostedBy?, instituteId? }`
+- Role: SUPER_ADMIN / ADMIN or contest creator
+- Returns: `{ data: Contest }`
+
+### `DELETE /api/contests/[contestId]`
+
+Deletes a contest.
+
+- Body: `{ userId }`
+- Role: SUPER_ADMIN / ADMIN or contest creator
+- Returns: `{ data: { deleted: true } }`
+
+---
+
+## Auth
+
+### `POST /api/auth/login`
+
+Logs in a user. Sets `codearena_session` httpOnly cookie.
+
+- Body: `{ email, password }`
+- Returns: `{ ok: true, user: { id, name, email } }`
+
+### `POST /api/auth/logout`
+
+Logs out the current user. Deletes `codearena_session` cookie.
+
+- Returns: `{ ok: true }`
+
+### `POST /api/auth/signup`
+
+Registers a new user.
+
+- Body: `{ username, email, password }`
+- Returns: `{ ok: true }`
+
+### `GET|POST /api/auth/[...nextauth]`
+
+NextAuth catch-all handler (Google, GitHub, etc.).
+
+---
+
+## Code Runner
+
+### `POST /api/coderunner/[problemId]`
+
+Runs or submits code against a problem's test cases via Piston.
+
+- Body: `{ code, language, action }` — action: `run` | `submit`
+- Returns: `{ data: { verdict, results[] } }`
+
+### `POST /api/runcode`
+
+Runs arbitrary code via Piston (no problem context).
+
+- Body: `{ code, language, input? }`
+- Returns: `{ output, error? }`
 
 ---
 

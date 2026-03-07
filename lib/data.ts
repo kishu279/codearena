@@ -401,6 +401,30 @@ export async function getInstituteBySlug(slug: string) {
 
 /// ### SUBMISSION QUERIES #### ------------------------------------->
 
+export type SubmissionStatus =
+  | "PENDING"
+  | "ACCEPTED"
+  | "WRONG_ANSWER"
+  | "TIME_LIMIT_EXCEEDED"
+  | "MEMORY_LIMIT_EXCEEDED"
+  | "RUNTIME_ERROR"
+  | "COMPILATION_ERROR";
+
+export type CreateSubmissionRequest = {
+  userId: string; // from the session cookie
+  problemId: string; // from the route param
+  code: string; // source code
+  language: string; // "python", "cpp", etc.
+  status: SubmissionStatus; // "ACCEPTED" | "WRONG_ANSWER" | "RUNTIME_ERROR" | ...
+  testCasesPassed: number; // how many passed
+  totalTestCases: number; // total run
+  contestId?: string; // only if contest submission
+  runtime?: number; // ms (from Date.now() wrapper)
+  memory?: number; // KB (null for now — Piston doesn't provide it)
+  output?: string; // stdout summary
+  error?: string; // stderr if any
+};
+
 export async function getSubmissionsByUserId(userId: string) {
   return await prisma.submission.findMany({
     where: { userId },
@@ -432,6 +456,16 @@ export async function getSubmissionsByProblemId(problemId: string) {
     },
     orderBy: { submittedAt: "desc" },
   });
+}
+
+export async function createSubmission(
+  submissionData: CreateSubmissionRequest,
+): Promise<ReturnType<typeof prisma.submission.create>> {
+  const response = await prisma.submission.create({
+    data: submissionData,
+  });
+
+  return response;
 }
 
 /// ### USER QUERIES #### ------------------------------------------->

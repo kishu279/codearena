@@ -63,10 +63,11 @@ export default function Navbar({
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-lg transition ${isActive
-                  ? "text-accent"
-                  : "text-text-secondary hover:text-foreground"
-                  }`}
+                className={`text-lg transition ${
+                  isActive
+                    ? "text-accent"
+                    : "text-text-secondary hover:text-foreground"
+                }`}
               >
                 {link.label}
               </Link>
@@ -81,11 +82,7 @@ export default function Navbar({
               <Button variant="ghost" size="sm" asChild>
                 <Link href={`/${username}/dashboard`}>{username}</Link>
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleLogout}
-              >
+              <Button variant="outline" size="sm" onClick={handleLogout}>
                 Logout
               </Button>
             </>
@@ -119,8 +116,16 @@ export default function Navbar({
           ))}
           {isAuthenticated ? (
             <>
-              <Button variant="ghost" size="sm" className="w-full justify-start" asChild>
-                <Link href={`/${username}/dashboard`} onClick={() => setIsOpen(false)}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                asChild
+              >
+                <Link
+                  href={`/${username}/dashboard`}
+                  onClick={() => setIsOpen(false)}
+                >
                   Dashboard
                 </Link>
               </Button>
@@ -135,7 +140,12 @@ export default function Navbar({
             </>
           ) : (
             <>
-              <Button variant="ghost" size="sm" className="w-full justify-start" asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-full justify-start"
+                asChild
+              >
                 <Link href="/auth/login" onClick={() => setIsOpen(false)}>
                   Login
                 </Link>

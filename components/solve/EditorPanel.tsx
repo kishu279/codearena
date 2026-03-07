@@ -32,9 +32,7 @@ type EditorPanelProps = {
 
 function getDefaultLanguage(question: CodingQuestion) {
   // return { label: "JavaScript", value: "javascript" };
-  return question.starterCode.javascript
-    ? "python"
-    : languageOptions[0].value;
+  return question.starterCode.javascript ? "python" : languageOptions[0].value;
 }
 
 export default function EditorPanel({
@@ -98,7 +96,21 @@ export default function EditorPanel({
             code: activeCode,
           });
 
-      setConsoleOutput(result.stdout || "No output.");
+      const lines: string[] = [];
+      lines.push(
+        `━━━ Run Results: ${result.passed}/${result.totalTests} passed ━━━`,
+      );
+      lines.push(
+        `⏱ Runtime: ${result.runtimeMs} ms  |  💾 Memory: ${(result.memoryBytes / (1024 * 1024)).toFixed(2)} MB`,
+      );
+      lines.push("");
+      lines.push(result.testSummary);
+      if (result.stderr) {
+        lines.push("");
+        lines.push("━━━ Stderr ━━━");
+        lines.push(result.stderr);
+      }
+      setConsoleOutput(lines.join("\n"));
     } catch (error) {
       setConsoleOutput(
         error instanceof Error
@@ -128,14 +140,26 @@ export default function EditorPanel({
             code: activeCode,
           });
 
-      setConsoleOutput(
-        [
-          `Status: ${result.status}`,
-          result.message,
-          `Runtime: ${result.runtimeMs} ms`,
-          `Memory: ${result.memoryMb} MB`,
-        ].join("\n"),
+      const icon =
+        result.status === "Accepted"
+          ? "✅"
+          : result.status === "Runtime Error"
+            ? "💥"
+            : "❌";
+      const lines: string[] = [];
+      lines.push(`━━━ ${icon} ${result.status} ━━━`);
+      lines.push(result.message);
+      lines.push(
+        `⏱ Runtime: ${result.runtimeMs} ms  |  💾 Memory: ${(result.memoryBytes / (1024 * 1024)).toFixed(2)} MB`,
       );
+      lines.push("");
+      lines.push(result.testSummary);
+      if (result.stderr) {
+        lines.push("");
+        lines.push("━━━ Stderr ━━━");
+        lines.push(result.stderr);
+      }
+      setConsoleOutput(lines.join("\n"));
     } catch (error) {
       setConsoleOutput(
         error instanceof Error
@@ -170,7 +194,11 @@ export default function EditorPanel({
             </SelectTrigger>
             <SelectContent>
               {languageOptions.map((option) => (
-                <SelectItem key={option.value} value={option.value} disabled={option.disabled}>
+                <SelectItem
+                  key={option.value}
+                  value={option.value}
+                  disabled={option.disabled}
+                >
                   {option.label}
                 </SelectItem>
               ))}

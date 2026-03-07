@@ -125,13 +125,27 @@ export type RunCodeResult = {
   status: "success";
   stdout: string;
   runtimeMs: number;
+  memoryBytes: number;
+  stderr: string;
+  testSummary: string;
+  totalTests: number;
+  passed: number;
 };
 
 export type SubmitCodeResult = {
-  status: "Accepted" | "Wrong Answer" | "Runtime Error";
+  status:
+    | "Accepted"
+    | "Wrong Answer"
+    | "Runtime Error"
+    | "Time Limit Exceeded"
+    | "Memory Limit Exceeded";
   message: string;
   runtimeMs: number;
-  memoryMb: number;
+  memoryBytes: number;
+  stderr: string;
+  testSummary: string;
+  totalTests: number;
+  passed: number;
 };
 
 export enum Difficulty {
@@ -155,6 +169,7 @@ export type ProblemType = "PRACTICE" | "CONTEST" | "LAB";
 export type TestCaseInput = {
   input: string;
   expectedOutput: string;
+  // problem: string | null;
 };
 
 export type TestCaseResult = {
@@ -162,6 +177,9 @@ export type TestCaseResult = {
   expectedOutput: string;
   actualOutput: string;
   passed: boolean;
+  stderr: string | null;
+  cpuTime: number | null;
+  memory: number | null;
 };
 
 export type CodeRunnerRequest = {
@@ -183,6 +201,8 @@ export type CodeRunnerResponse = {
   verdict: "Accepted" | "Wrong Answer" | "Runtime Error";
   results: TestCaseResult[];
   error?: string;
+  memory: number;
+  runtime: number;
 };
 
 // ── Course Types ────────────────────────────────────────────────
