@@ -5,6 +5,7 @@ import {
   CreateSubmissionRequest,
   getProblemById,
 } from "@/lib/data";
+import { getAuthSession } from "@/lib/auth";
 import { pistonClient } from "@/lib/services/piston-client";
 import type {
   CodeRunnerAction,
@@ -13,7 +14,6 @@ import type {
   TestCaseInput,
   TestCaseResult,
 } from "@/lib/types";
-import { cookies } from "next/headers";
 
 type RouteContext = {
   params: Promise<{ problemId: string }>;
@@ -21,9 +21,7 @@ type RouteContext = {
 
 export async function POST(request: NextRequest, { params }: RouteContext) {
   const { problemId } = await params;
-  const cookiesStore = await cookies();
-  const sessionCookie = cookiesStore.get("codearena_session");
-  const userObject = sessionCookie ? sessionCookie.value : null;
+  const session = await getAuthSession();
 
   try {
     const body: CodeRunnerRequest = await request.json();
@@ -147,7 +145,7 @@ export async function POST(request: NextRequest, { params }: RouteContext) {
 
     if (action === "submit") {
       // submissions
-      let userId = userObject ? JSON.parse(userObject).id : "user_admin_1"; // default to admin if no user info
+      let userId = session?.user?.id ?? "anonymous";
       const submissionRequest: CreateSubmissionRequest = {
         code,
         language,

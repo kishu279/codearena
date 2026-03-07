@@ -1,7 +1,41 @@
-import { getServerSession, type DefaultSession, type NextAuthOptions } from "next-auth";
+import {
+  getServerSession,
+  type DefaultSession,
+  type NextAuthOptions,
+} from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcryptjs";
 
-import { getAuthUser } from "@/lib/mock-data";
+// import { getAuthUser } from "@/lib/mock-data";
+import { prisma } from "./prisma";
+import { getUser } from "./data";
+
+const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID || "";
+const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || "";
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || "";
+
+if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET) {
+  console.warn(
+    "GitHub OAuth credentials are not set. GitHub login will be unavailable.",
+  );
+}
+
+if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
+  console.warn(
+    "Google OAuth credentials are not set. Google login will be unavailable.",
+  );
+}
+
+const NEXTAUTH_SECRET = process.env.NEXTAUTH_SECRET;
+if (!NEXTAUTH_SECRET) {
+  console.warn(
+    "NEXTAUTH_SECRET is not set. Please set it to a secure random string in production.",
+  );
+}
 
 declare module "next-auth" {
   interface Session {
@@ -24,7 +58,10 @@ declare module "next-auth/jwt" {
 }
 
 export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt" },
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
   pages: {
     signIn: "/auth/login",
   },
@@ -32,7 +69,8 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username or email", type: "text" },
+        username: { label: "Username", type: "text" },
+        email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
@@ -41,17 +79,30 @@ export const authOptions: NextAuthOptions = {
 
         if (!identifier || !password) return null;
 
-        const user = getAuthUser(identifier);
+        // const user = getAuthUser(identifier);
+        const user = await getUser(credentials?.email, credentials?.username);
         if (!user) return null;
-        if (user.password !== password) return null;
+        const isValid = await bcrypt.compare(password, user.password!!);
+
+        if (!isValid) return null;
 
         return {
           id: user.id,
-          name: user.username,
+          name: user.name,
           email: user.email,
-          username: user.username,
+          username: user.username ?? user.name ?? user.email,
         };
       },
+    }),
+
+    GithubProvider({
+      clientId: GITHUB_CLIENT_ID!!,
+      clientSecret: GITHUB_CLIENT_SECRET!!,
+    }),
+
+    GoogleProvider({
+      clientId: GOOGLE_CLIENT_ID!!,
+      clientSecret: GOOGLE_CLIENT_SECRET!!,
     }),
   ],
   callbacks: {
@@ -70,6 +121,8 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
+  adapter: PrismaAdapter(prisma),
+  secret: NEXTAUTH_SECRET,
 };
 
 export function getAuthSession() {

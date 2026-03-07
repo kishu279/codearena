@@ -490,6 +490,14 @@ export async function getUserById(userId: string) {
   });
 }
 
+export async function getUser(email?: string, username?: string) {
+  return await prisma.user.findFirst({
+    where: {
+      OR: [{ email: email }, { username: username }],
+    },
+  });
+}
+
 /// ### PROBLEM QUERIES #### ---------------------------------------->
 
 export async function getProblemById(

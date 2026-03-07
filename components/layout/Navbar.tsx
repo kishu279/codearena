@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 import { useState } from "react";
 
@@ -27,13 +28,10 @@ export default function Navbar({
   username,
 }: NavbarProps) {
   const pathname = usePathname();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
-  async function handleLogout() {
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/");
-    router.refresh();
+  function handleLogout() {
+    signOut({ callbackUrl: "/" });
   }
 
   return (
