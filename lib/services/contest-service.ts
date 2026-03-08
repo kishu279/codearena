@@ -16,6 +16,37 @@ type ContestRunPayload = {
 
 type ContestSubmitPayload = Omit<ContestRunPayload, "customTestCases">;
 
+// export async function fetchAllContests(): Promise<
+//   {
+//     id: string;
+//     title: string;
+//     startTime: Date;
+//     endTime: Date;
+//     duration: number;
+//     status: string;
+//     isPublic: boolean;
+//     description?: string;
+//     problems?: {
+//       id: string;
+//       title: string;
+//       difficulty: string;
+//       order: number;
+//     }[];
+//   }[]
+// > {
+//   const response = await fetch("/api/contests", {
+//     method: "GET",
+//     cache: "no-store",
+//   });
+
+//   if (!response.ok) {
+//     throw new Error("Failed to fetch contests.");
+//   }
+
+//   const data = await response.json();
+//   return data.data || [];
+// }
+
 export async function runContestCode(
   payload: ContestRunPayload,
 ): Promise<RunCodeResult> {

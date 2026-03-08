@@ -4,7 +4,15 @@ import { getAllContests } from "@/lib/data";
 import { errorResponse, successResponse, isGlobalAdmin } from "@/lib/api-utils";
 
 // GET /api/contests
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const page = searchParams.get("page")
+    ? parseInt(searchParams.get("page") as string, 10)
+    : 1;
+  const limit = searchParams.get("limit") || "10";
+
+  console.log(`Fetching contests - page: ${page}, limit: ${limit}`);
+
   try {
     const contests = await getAllContests();
 

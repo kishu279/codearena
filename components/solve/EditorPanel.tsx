@@ -251,11 +251,11 @@ export default function EditorPanel({
         </div>
 
         <div
-          className={`overflow-hidden border-t border-border transition-all duration-200 ${
-            isOutputOpen ? "max-h-56" : "max-h-0"
+          className={`border-t border-border transition-all duration-200 ${
+            isOutputOpen ? "max-h-56" : "max-h-0 overflow-hidden"
           }`}
         >
-          <pre className="min-h-24 overflow-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
+          <pre className="max-h-56 min-h-24 overflow-y-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
             {consoleOutput}
           </pre>
         </div>

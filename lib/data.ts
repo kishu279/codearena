@@ -79,11 +79,43 @@ export async function getAllProblems() {
   return await prisma.problem.findMany();
 }
 
+export async function getProblemsByPage(page: number, limit: number = 10) {
+  const [problems, total] = await Promise.all([
+    prisma.problem.findMany({
+      skip: (page - 1) * limit,
+      take: limit,
+      orderBy: { createdAt: "desc" },
+    }),
+    prisma.problem.count(),
+  ]);
+
+  return { page, limit, total, data: problems };
+}
+
 export async function getAllContests() {
   return await prisma.contest.findMany({
     include: { problems: { orderBy: { order: "asc" } } },
     orderBy: { startTime: "asc" },
   });
+}
+
+export async function getContestsByPage(page: number, limit: number = 10) {
+  const [contests, total] = await Promise.all([
+    prisma.contest.findMany({
+      skip: (page - 1) * limit,
+      take: limit,
+      include: { problems: { orderBy: { order: "asc" } } },
+      orderBy: { startTime: "asc" },
+    }),
+    prisma.contest.count(),
+  ]);
+
+  return {
+    page: page,
+    limit,
+    total,
+    data: contests,
+  };
 }
 
 export async function getContestById(contestId: string) {
@@ -129,30 +161,40 @@ export async function getAllLabs(): Promise<LabsData[]> {
   }));
 }
 
-export async function getLabsByInstituteId(
-  instituteId: string,
-): Promise<LabsData[]> {
-  const labs = await prisma.lab.findMany({
-    where: { instituteId },
-    include: {
-      members: true,
-      assignments: true,
-      resource: true,
-    },
-    orderBy: { createdAt: "desc" },
-  });
+export async function getLabsByPage(
+  page: number,
+  limit: number = 10,
+): Promise<{ page: number; limit: number; total: number; data: LabsData[] }> {
+  const [labs, total] = await Promise.all([
+    prisma.lab.findMany({
+      skip: (page - 1) * limit,
+      take: limit,
+      include: {
+        members: true,
+        assignments: true,
+        resource: true,
+      },
+      orderBy: { createdAt: "desc" },
+    }),
+    prisma.lab.count(),
+  ]);
 
-  return labs.map((lab) => ({
-    id: lab.id,
-    title: lab.title,
-    slug: lab.slug,
-    description: lab.description,
-    instituteId: lab.instituteId,
-    createdById: lab.createdById,
-    memberCount: lab.members.length,
-    assignmentCount: lab.assignments.length,
-    resourceCount: lab.resource.length,
-  }));
+  return {
+    page,
+    limit,
+    total,
+    data: labs.map((lab) => ({
+      id: lab.id,
+      title: lab.title,
+      slug: lab.slug,
+      description: lab.description,
+      instituteId: lab.instituteId,
+      createdById: lab.createdById,
+      memberCount: lab.members.length,
+      assignmentCount: lab.assignments.length,
+      resourceCount: lab.resource.length,
+    })),
+  };
 }
 
 export async function getLabById(labId: string) {
@@ -335,6 +377,37 @@ export async function getAllInstitutes() {
     labCount: inst.labs.length,
     contestCount: inst.contests.length,
   }));
+}
+
+export async function getInstitutesByPage(page: number, limit: number = 10) {
+  const [institutes, total] = await Promise.all([
+    prisma.institute.findMany({
+      skip: (page - 1) * limit,
+      take: limit,
+      include: {
+        members: true,
+        labs: true,
+        contests: true,
+      },
+      orderBy: { name: "asc" },
+    }),
+    prisma.institute.count(),
+  ]);
+
+  return {
+    page,
+    limit,
+    total,
+    data: institutes.map((inst) => ({
+      id: inst.id,
+      name: inst.name,
+      slug: inst.slug,
+      description: inst.description,
+      memberCount: inst.members.length,
+      labCount: inst.labs.length,
+      contestCount: inst.contests.length,
+    })),
+  };
 }
 
 export async function getInstituteById(instituteId: string) {

@@ -1,39 +1,32 @@
 import LabCard from "@/components/labs/LabCard";
-import { getAllLabDetails } from "@/lib/mock-data";
+import PaginationBar from "@/components/PaginationBar";
+import { getLabsByPage } from "@/lib/data";
 import type { LabListItem } from "@/lib/types";
 
-export default async function LabsPage() {
-  let labListItems: LabListItem[] = [];
+export const revalidate = 60;
 
-  // const labListItems: LabListItem[] = getAllLabDetails().map((lab) => ({
-  //   id: lab.id,
-  //   title: lab.title,
-  //   slug: lab.id,
-  //   description: lab.description,
-  //   memberCount: lab.memberCount,
-  //   assignmentCount: lab.assignmentCount,
-  // }));
+export default async function LabsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const page = parseInt(params?.page as string) || 1;
+  const limit = 10;
+
+  let labListItems: LabListItem[] = [];
+  let totalPages = 1;
 
   try {
-    console.log("Fetching labs data from API...");
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/labs`,
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch labs: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    console.log("Fetched labs data:", data);
-
-    labListItems = (data.labs || []).map((lab: any) => ({
+    const { total, data } = await getLabsByPage(page, limit);
+    totalPages = Math.ceil(total / limit);
+    labListItems = data.map((lab) => ({
       id: lab.id,
       title: lab.title,
-      slug: lab.id,
-      description: lab.description,
-      memberCount: lab.memberCount || 0, // Assuming API returns memberCount
-      assignmentCount: lab.assignmentCount || 0, // Assuming API returns assignmentCount
+      slug: lab.slug,
+      description: lab.description || "",
+      memberCount: lab.memberCount,
+      assignmentCount: lab.assignmentCount,
     }));
   } catch (error) {
     console.error("Error fetching labs:", error);
@@ -51,6 +44,8 @@ export default async function LabsPage() {
           <LabCard key={lab.id} lab={lab} />
         ))}
       </div>
+
+      <PaginationBar currentPage={page} totalPages={totalPages} />
     </section>
   );
 }

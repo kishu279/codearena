@@ -1,20 +1,26 @@
 import InstituteCard from "@/components/institute/InstituteCard";
+import PaginationBar from "@/components/PaginationBar";
+import { getInstitutesByPage } from "@/lib/data";
 import type { InstituteListItem } from "@/lib/types";
 
-export default async function InstitutesPage() {
+export const revalidate = 60;
+
+export default async function InstitutesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const params = await searchParams;
+  const page = parseInt(params?.page as string) || 1;
+  const limit = 10;
+
   let institutes: InstituteListItem[] = [];
+  let totalPages = 1;
 
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/institutes`,
-    );
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch institutes: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    institutes = data.data || [];
+    const { total, data } = await getInstitutesByPage(page, limit);
+    institutes = data;
+    totalPages = Math.ceil(total / limit);
   } catch (error) {
     console.error("Error fetching institutes:", error);
   }
@@ -35,6 +41,8 @@ export default async function InstitutesPage() {
       {institutes.length === 0 && (
         <p className="mt-6 text-muted-foreground">No institutes found.</p>
       )}
+
+      <PaginationBar currentPage={page} totalPages={totalPages} />
     </section>
   );
 }

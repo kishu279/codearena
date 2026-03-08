@@ -17,7 +17,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-
 const defaultCode: Record<EditorLanguage, string> = {
   javascript:
     "// Start coding here\nfunction solution() {\n  // Your code\n}\n",
@@ -56,16 +55,15 @@ export default function CodeWorkspace() {
       const response = await axios.post("/api/runcode", {
         sourceCode: activeCode,
         language: selectedLanguage,
-        input: ""
-      })
+        input: "",
+      });
 
       if (response.status == 200) {
         setConsoleOutput("Code executed successfully.");
         setConsoleOutput(response.data.output);
         setIsRunning(false);
         setIsOutputOpen(true);
-      }
-      else {
+      } else {
         setConsoleOutput("Code execution failed.");
         setIsRunning(false);
         setIsOutputOpen(true);
@@ -94,7 +92,9 @@ export default function CodeWorkspace() {
             </Label>
             <Select
               value={selectedLanguage}
-              onValueChange={(value) => setSelectedLanguage(value as EditorLanguage)}
+              onValueChange={(value) =>
+                setSelectedLanguage(value as EditorLanguage)
+              }
               disabled={isRunning}
             >
               <SelectTrigger className="w-[160px] bg-surface-2">
@@ -114,11 +114,7 @@ export default function CodeWorkspace() {
             </Select>
           </div>
 
-          <Button
-            variant="outline"
-            onClick={handleRun}
-            disabled={isRunning}
-          >
+          <Button variant="outline" onClick={handleRun} disabled={isRunning}>
             {runLabel}
           </Button>
         </header>
@@ -152,10 +148,11 @@ export default function CodeWorkspace() {
           </div>
 
           <div
-            className={`overflow-hidden border-t border-border transition-all duration-200 ${isOutputOpen ? "max-h-56" : "max-h-0"
-              }`}
+            className={`border-t border-border transition-all duration-200 ${
+              isOutputOpen ? "max-h-56" : "max-h-0 overflow-hidden"
+            }`}
           >
-            <pre className="min-h-24 overflow-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
+            <pre className="max-h-56 min-h-24 overflow-y-auto whitespace-pre-wrap bg-code-bg px-4 py-3 text-xs text-code-text">
               {consoleOutput}
             </pre>
           </div>
