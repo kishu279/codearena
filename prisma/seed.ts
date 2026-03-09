@@ -13,6 +13,7 @@ import {
 } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
+import bcrypt from "bcryptjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -127,16 +128,24 @@ async function main() {
   // ── 2. Seed Users ──
   console.log("👤 Seeding users...");
   for (const u of usersData) {
+    const hashedPassword = u.password
+      ? await bcrypt.hash(u.password, 10)
+      : null;
+
     await prisma.user.create({
       data: {
         id: u.id,
         name: u.name,
         email: u.email,
+        username: u.username ?? null,
+        password: hashedPassword,
         image: u.image,
         role: u.role,
       },
     });
-    console.log(`   ✅ ${u.name} (${u.email})`);
+    console.log(
+      `   ✅ ${u.name} (@${u.username ?? "no-username"}) (${u.email})`,
+    );
   }
   console.log(`   📊 Total: ${usersData.length} users\n`);
 

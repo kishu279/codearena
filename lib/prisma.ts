@@ -8,7 +8,10 @@ const globalForPrisma = globalThis as unknown as {
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: false,
+  // ssl: false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 const adapter = new PrismaPg(pool);
 // const prisma = new PrismaClient({ adapter });

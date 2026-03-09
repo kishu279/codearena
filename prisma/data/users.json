@@ -3,6 +3,7 @@
     "id": "user_superadmin_1",
     "name": "Sourav Super Admin",
     "email": "sourav@superadmin",
+    "username": "sourav-super",
     "password": "password123",
     "image": null,
     "role": "SUPER_ADMIN"
@@ -11,6 +12,7 @@
     "id": "user_admin_1",
     "name": "Sourav Admin",
     "email": "sourav@admin",
+    "username": "sourav-admin",
     "password": "password123",
     "image": null,
     "role": "ADMIN"
@@ -19,6 +21,7 @@
     "id": "user_inst1_admin",
     "name": "Ravi Kumar",
     "email": "ravi@techuniversity",
+    "username": "ravi-kumar",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -27,6 +30,7 @@
     "id": "user_inst1_instructor_1",
     "name": "Dr. Ananya Sharma",
     "email": "ananya@techuniversity",
+    "username": "ananya-sharma",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -35,6 +39,7 @@
     "id": "user_inst1_instructor_2",
     "name": "Prof. Vikram Singh",
     "email": "vikram@techuniversity",
+    "username": "vikram-singh",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -43,6 +48,7 @@
     "id": "user_inst1_student_1",
     "name": "Alice Smith",
     "email": "alice@student",
+    "username": "alice-smith",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -51,6 +57,7 @@
     "id": "user_inst1_student_2",
     "name": "Bob Williams",
     "email": "bob@student",
+    "username": "bob-williams",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -59,6 +66,7 @@
     "id": "user_inst1_student_3",
     "name": "Charlie Brown",
     "email": "charlie@student",
+    "username": "charlie-brown",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -67,6 +75,7 @@
     "id": "user_inst2_admin",
     "name": "Dr. Meena Iyer",
     "email": "meena@engineeringcollege",
+    "username": "meena-iyer",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -75,6 +84,7 @@
     "id": "user_inst2_instructor_1",
     "name": "Prof. Arjun Reddy",
     "email": "arjun@engineeringcollege",
+    "username": "arjun-reddy",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -83,6 +93,7 @@
     "id": "user_inst2_instructor_2",
     "name": "Dr. Priya Nair",
     "email": "priya@engineeringcollege",
+    "username": "priya-nair",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -91,6 +102,7 @@
     "id": "user_inst2_student_1",
     "name": "Diana Patel",
     "email": "diana@student",
+    "username": "diana-patel",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -99,6 +111,7 @@
     "id": "user_inst2_student_2",
     "name": "Ethan Roy",
     "email": "ethan@student",
+    "username": "ethan-roy",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -107,6 +120,7 @@
     "id": "user_inst3_admin",
     "name": "Prof. Sanjay Gupta",
     "email": "sanjay@iiitdelhi",
+    "username": "sanjay-gupta",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -115,6 +129,7 @@
     "id": "user_inst3_instructor_1",
     "name": "Dr. Kavita Desai",
     "email": "kavita@iiitdelhi",
+    "username": "kavita-desai",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -123,6 +138,7 @@
     "id": "user_inst3_student_1",
     "name": "Fiona Das",
     "email": "fiona@student",
+    "username": "fiona-das",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -131,6 +147,7 @@
     "id": "user_inst3_student_2",
     "name": "George Mehta",
     "email": "george@student",
+    "username": "george-mehta",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -139,6 +156,7 @@
     "id": "user_inst4_admin",
     "name": "Dr. Lakshmi Venkat",
     "email": "lakshmi@nitsurat",
+    "username": "lakshmi-venkat",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -147,6 +165,7 @@
     "id": "user_inst4_instructor_1",
     "name": "Prof. Rahul Joshi",
     "email": "rahul@nitsurat",
+    "username": "rahul-joshi",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -155,6 +174,7 @@
     "id": "user_inst4_student_1",
     "name": "Hannah Sen",
     "email": "hannah@student",
+    "username": "hannah-sen",
     "password": "password123",
     "image": null,
     "role": "USER"
@@ -163,6 +183,7 @@
     "id": "user_inst4_student_2",
     "name": "Ian Chopra",
     "email": "ian@student",
+    "username": "ian-chopra",
     "password": "password123",
     "image": null,
     "role": "USER"

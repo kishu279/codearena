@@ -161,6 +161,32 @@ export async function getAllLabs(): Promise<LabsData[]> {
   }));
 }
 
+export async function getLabsByInstituteId(
+  instituteId: string,
+): Promise<LabsData[]> {
+  const labs = await prisma.lab.findMany({
+    where: { instituteId },
+    include: {
+      members: true,
+      assignments: true,
+      resource: true,
+    },
+    orderBy: { createdAt: "desc" },
+  });
+
+  return labs.map((lab) => ({
+    id: lab.id,
+    title: lab.title,
+    slug: lab.slug,
+    description: lab.description,
+    instituteId: lab.instituteId,
+    createdById: lab.createdById,
+    memberCount: lab.members.length,
+    assignmentCount: lab.assignments.length,
+    resourceCount: lab.resource.length,
+  }));
+}
+
 export async function getLabsByPage(
   page: number,
   limit: number = 10,
@@ -541,6 +567,111 @@ export async function createSubmission(
   return response;
 }
 
+// problems solved
+export async function totalProblemsSolved(userId: string) {
+  const problems = await prisma.submission.groupBy({
+    where: {
+      userId,
+      status: "ACCEPTED",
+    },
+    by: ["problemId"],
+  });
+
+  // const problems = await prisma.submission.findMany({
+  //   where: { userId, status: "ACCEPTED" },
+  //   distinct: ["problemId"],
+  //   orderBy: { submittedAt: "desc" },
+  //   select: {
+  //     problemId: true,
+  //     submittedAt: true,
+  //     problem: {
+  //       select: {
+  //         id: true,
+  //         title: true,
+  //         slug: true,
+  //         difficulty: true,
+  //         tag: true,
+  //       },
+  //     },
+  //   },
+  // });
+
+  return problems.length;
+}
+
+// total submissions
+export async function totalSubmissions(userId: string) {
+  return await prisma.submission.count({
+    where: { userId },
+  });
+}
+
+// current streak
+export async function currentStreak(userId: string) {
+  const submissions = await prisma.submission.findMany({
+    where: { userId, status: "ACCEPTED" },
+    orderBy: { submittedAt: "desc" },
+    select: { submittedAt: true },
+  });
+
+  if (submissions.length === 0) return 0;
+
+  // Get unique dates (YYYY-MM-DD) in descending order
+  const uniqueDays = [
+    ...new Set(
+      submissions.map((s) => s.submittedAt.toISOString().slice(0, 10)),
+    ),
+  ];
+
+  let streak = 0;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  for (let i = 0; i < uniqueDays.length; i++) {
+    const expected = new Date(today);
+    expected.setDate(expected.getDate() - i);
+    const expectedStr = expected.toISOString().slice(0, 10);
+
+    if (uniqueDays[i] === expectedStr) {
+      streak++;
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+}
+
+// contests participated
+export async function contestsParticipated(userId: string) {
+  return await prisma.submission.findMany({
+    where: { userId, contestId: { not: null } },
+    distinct: ["contestId"],
+    orderBy: { submittedAt: "desc" },
+  });
+}
+
+// recent activity
+export async function recentActivity(userId: string) {
+  return await prisma.submission.findMany({
+    where: { userId },
+    include: {
+      problem: {
+        select: {
+          id: true,
+          title: true,
+          difficulty: true,
+        },
+      },
+      contest: {
+        select: { id: true, title: true },
+      },
+    },
+    orderBy: { submittedAt: "desc" },
+    take: 5,
+  });
+}
+
 /// ### USER QUERIES #### ------------------------------------------->
 
 export async function getUserById(userId: string) {
@@ -567,6 +698,21 @@ export async function getUser(email?: string, username?: string) {
   return await prisma.user.findFirst({
     where: {
       OR: [{ email: email }, { username: username }],
+    },
+  });
+}
+
+export async function getUserByUsername(username: string) {
+  return await prisma.user.findUnique({
+    where: { username },
+    select: {
+      id: true,
+      name: true,
+      username: true,
+      email: true,
+      image: true,
+      createdAt: true,
+      role: true,
     },
   });
 }
