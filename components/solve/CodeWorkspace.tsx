@@ -25,6 +25,7 @@ const defaultCode: Record<EditorLanguage, string> = {
   python: "# Start coding here\ndef solution():\n    # Your code\n    pass\n",
   java: "// Start coding here\npublic class Solution {\n    public static void main(String[] args) {\n        // Your code\n    }\n}\n",
   cpp: "// Start coding here\n#include <iostream>\nusing namespace std;\n\nint main() {\n    // Your code\n    return 0;\n}\n",
+  rust: "// Start coding here\nfn main() {\n    // Your code\n}\n",
 };
 
 export default function CodeWorkspace() {
