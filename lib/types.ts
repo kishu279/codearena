@@ -10,6 +10,7 @@ export type EditorLanguage =
   | "typescript"
   | "python"
   | "java"
+  | "rust"
   | "cpp";
 
 export const languageOptions: Array<{
@@ -17,11 +18,12 @@ export const languageOptions: Array<{
   value: EditorLanguage;
   disabled?: boolean;
 }> = [
-  { label: "JavaScript", value: "javascript", disabled: true },
-  { label: "TypeScript", value: "typescript", disabled: true },
-  { label: "Python", value: "python" },
-  { label: "Java", value: "java", disabled: true },
-  { label: "C++", value: "cpp", disabled: true },
+  { label: "JavaScript", value: "javascript", disabled: false },
+  { label: "TypeScript", value: "typescript", disabled: false },
+  { label: "Python", value: "python", disabled: false },
+  { label: "Rust", value: "rust", disabled: false }, // Coming soon
+  { label: "Java", value: "java", disabled: false },
+  { label: "C++", value: "cpp", disabled: false },
 ];
 
 export type AuthUser = {
