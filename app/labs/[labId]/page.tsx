@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import LabDetailsLayout from "@/components/labs/LabDetailsLayout";
+import { getLabById } from "@/lib/data";
+import type { LabDetail } from "@/lib/types";
 
 interface LabPageProps {
   params: Promise<{ labId: string }>;
@@ -7,28 +9,15 @@ interface LabPageProps {
 
 export default async function LabPage({ params }: LabPageProps) {
   const { labId } = await params;
-  let lab;
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/labs/${labId}`,
-    );
 
-    if (response.ok == false) {
-      notFound();
-    }
+  const rawLab = await getLabById(labId);
 
-    const data = await response.json();
-
-    console.log(`Fetched lab details for ${labId}:`, data);
-
-    lab = data.data;
-  } catch (error) {
-    console.error("Error fetching lab details:", error);
-  }
-
-  if (!lab) {
+  if (!rawLab) {
     notFound();
   }
+
+  // Serialize to convert Date objects to ISO strings for client components
+  const lab: LabDetail = JSON.parse(JSON.stringify(rawLab));
 
   return <LabDetailsLayout lab={lab} />;
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { getInstituteById } from "@/lib/data";
 import type { LabListItem } from "@/lib/types";
 
 interface InstitutePageProps {
@@ -12,22 +13,8 @@ interface InstitutePageProps {
 
 export default async function InstitutePage({ params }: InstitutePageProps) {
   const { instituteId } = await params;
-  let institute = null;
 
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/institutes/${instituteId}`,
-    );
-
-    if (!response.ok) {
-      notFound();
-    }
-
-    const data = await response.json();
-    institute = data.data;
-  } catch (error) {
-    console.error("Error fetching institute details:", error);
-  }
+  const institute = await getInstituteById(instituteId);
 
   if (!institute) {
     notFound();
@@ -121,7 +108,9 @@ export default async function InstitutePage({ params }: InstitutePageProps) {
             ))}
           </div>
         ) : (
-          <p className="text-muted-foreground">No labs found in this institute.</p>
+          <p className="text-muted-foreground">
+            No labs found in this institute.
+          </p>
         )}
       </div>
 
@@ -141,10 +130,7 @@ export default async function InstitutePage({ params }: InstitutePageProps) {
                   <p className="text-sm text-muted-foreground">
                     {member.user?.email}
                   </p>
-                  <Badge
-                    variant="secondary"
-                    className="mt-2 rounded-full"
-                  >
+                  <Badge variant="secondary" className="mt-2 rounded-full">
                     {member.role}
                   </Badge>
                 </CardContent>

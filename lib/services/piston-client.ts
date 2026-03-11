@@ -1,6 +1,13 @@
 import axios from "axios";
 
-const PISTON_API_URL = "http://localhost:2000/api/v2";
+const PISTON_API_URL =
+  process.env.PISTON_API_URL || "http://localhost:2000/api/v2";
+
+if (process.env.PISTON_API_URL) {
+  console.log("Using custom Piston API URL:", PISTON_API_URL);
+} else {
+  console.log("Using default Piston API URL:", PISTON_API_URL);
+}
 
 // Supported languages mapped to their Piston runtime names and versions
 export const SUPPORTED_LANGUAGES: Record<

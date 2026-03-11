@@ -188,10 +188,7 @@ export default function AssignmentDetails({
                       size="sm"
                       className="h-7 gap-1 px-2.5 text-xs"
                       onClick={() => {
-                        window.open(
-                          `${process.env.NEXT_PUBLIC_BASE_URL}/solve/${problem.id}`,
-                          "_blank",
-                        );
+                        window.open(`/solve/${problem.id}`, "_blank");
                       }}
                     >
                       Open
